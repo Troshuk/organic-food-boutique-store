@@ -7,6 +7,7 @@ h5,
 h6,
 p {
   margin: 0;
+  margin-bottom: 0;
 }
 
 p:last-child {
@@ -25,7 +26,19 @@ a {
 }
 
 button {
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
   cursor: pointer;
+  padding: 0;
+  color: currentColor;
+  background-color: transparent;
+}
+
+input {
+  font-family: inherit;
+  outline: none;
 }
 
 img {
