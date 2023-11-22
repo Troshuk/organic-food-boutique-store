@@ -1,0 +1,355 @@
+@keyframes example {
+    0% {
+        opacity: 0.4;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.is-hidden{
+    display: none;
+}
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(1, 1, 1, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    width: 100%;
+
+}
+
+@keyframes append-animate {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal {
+    flex-wrap: wrap;
+    width: 600px;
+    height: 380px;
+
+    background: var(--color-white);
+    border: 2px solid var(--color-white);
+    border-radius: 20px;
+
+    position: fixed;
+    top: auto;
+    bottom: auto;
+    padding: 40px;
+
+    box-sizing: border-box;
+
+    animation: append-animate 0.3s linear;
+
+    overflow-y: hidden;
+        overflow-x: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .modal {
+        width: 335px;
+        height: 535px;
+        padding-left: 20px;
+        padding-right: 20px;
+            
+    }
+}
+
+
+.modal-product-info {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-left: 24px;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-product-info {
+        margin-top: 20px;
+        margin-left: 0;
+
+    }
+}
+
+.modal .close_btn {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}
+
+@media screen and (max-width: 767.99px) {
+    .modal .close_btn {
+        top:14px;
+        right: 14px;
+
+    }
+}
+.price-container{
+    
+        align-items: baseline;
+        display: inline-flex;
+        align-items: flex-end;
+        margin-top: 48px;
+            gap:336px
+            
+          
+    }
+
+        @media screen and (max-width: 768px) {
+            .price-container {
+                margin-top: 40px;
+                gap: 126px;
+    
+            }
+        }
+    
+    .btn{
+        color: var(--color-light-grey);
+            font-family: var(--font-main);
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 20px;
+            display: flex;
+                padding: 10px 28px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                border-radius: 30px;
+                    background: var(--color-light-green);
+                width: 130px;
+                height: 40px;
+    }
+@media screen and (max-width: 768px) {
+    .btn {
+    display: flex;
+        padding: 12px 24px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        width: 116px;
+        height: 42px;
+        
+            font-size: 14px;
+            line-height: 18px;
+            
+
+    }
+}
+        
+.icon-shop{
+    fill: var(--color-white);
+    
+}
+
+.img-frame{
+    max-width: 240px;
+    max-height: 212px;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    padding-left: 40px;
+    padding-right: 40px;
+border-radius: 10px;
+    background: var(--color-light-grey);
+}
+
+@media screen and (max-width: 768px) {
+    .img-frame {
+        max-width: 295px;
+        padding-left: 67px;
+        padding-right: 68px;
+
+    }
+}
+
+.modal_title {
+    color: var(--color-black);
+        font-family: var(--font-main);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-title {
+            font-size: 18px;
+            line-height: 20px;
+    }
+}
+.modal-details{
+display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+}
+.modal-subtitle{
+    color: rgba(1, 1, 1, 0.30);
+        font-family: var(--font-main);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-subtitle {
+        font-size: 12px;
+        line-height: 14px;
+        font-weight: 400;
+}
+}
+
+.modal-subtitle-info{
+    color: var(--color-black);
+        font-family: var(--font-main);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-subtitle-info {
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+    }
+}
+
+.about-product{
+    color: rgba(1, 1, 1, 0.70);
+        font-family: var(--font-main);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        margin-top: 14px;
+        
+}
+
+@media screen and (max-width: 768px) {
+    .about-product {
+    font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 14px;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .icon-close {
+        width: 22px;
+        height: 22px;
+        padding: 0;
+
+    }
+}
+
+.price-product{
+    color: var(--color-black);
+        font-family: var(--font-main);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 24px;
+}
+
+@media screen and (max-width: 768px) {
+    .price-product {
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 20px;
+           
+
+    }
+}
+
+.container-modal{
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    .container-modal {
+        display: inline-block;
+
+    }
+}
+
+@media screen and (max-width: 767.99px) {
+    .modal_body .btn {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+
+
+.modal_container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.close_btn:hover,
+.icon-btn:focus {
+    background-color: var(--color-dark-green);
+    fill: var(--color-white);
+    cursor: pointer;
+}
+
+.icon_close {
+    fill: var(--color-black);
+}
+
+.icon_close:hover,
+.icon_close:focus {
+    stroke: var(--accent-color-light-theme);
+    fill: var(--accent-color-light-theme);
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+
+.btn:focus {
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
+    background-color: var(--color-dark-green);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.close_btn {
+    border-radius: 50%;
+    border-color: transparent;
+    background-color: transparent;
+
+    transition: var(--transition-funktion),var(--transition-time);
+}
+
+
+
