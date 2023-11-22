@@ -76,15 +76,23 @@
   position: absolute;
   right: 12px;
   top: 12px;
+  padding: 4px;
 }
 
 .popular-products-cart-icon {
     fill: var(--color-light-green);
 }
 
+
+
+.basket-button:hover .popular-products-cart-icon,
+.basket-button:focus .popular-products-cart-icon{
+    fill: var(--color-light-grey);
+    
+}
+
 .basket-button:hover,
 .basket-button:focus {
-    fill: var(--color-light-grey);
     background-color: var(--color-light-green);
 }
 
