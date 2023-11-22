@@ -1,9 +1,6 @@
 :root {
     /*? Fonts */
-    /* font-weight: 400 */
-    --font-main: 'PP Neue Montreal Book', sans-serif;
-    /* font-weight: 500 */
-    --font-medium: 'PP Neue Montreal Medium', sans-serif;
+    --font-main: 'Neue Montreal', sans-serif;
 
     /*? Colors */
     --color-light-grey: #E8E8E2;
