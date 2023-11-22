@@ -1,3 +1,43 @@
 <section class="hero" id="hero">
-  <div class="container"></div>
+  <div class="container">
+    <div class="hero-text-container">
+      <h1 class="hero-title">
+        Welcome to the<span class="hero-span"> Food </span>Boutique!
+      </h1>
+      <p class="hero-paragraph">
+        With Food Boutique, you're not just subscribing to food, you're signing
+        up for a fresher, fitter, and happier you.
+      </p>
+    </div>
+    <div class="hero-container">
+      <svg class="hero-icon" width="100" height="100">
+        <use href="./img/icons.svg#icon-organic-food"></use>
+      </svg>
+      <picture>
+        <source
+          srcset="./img/hero/hero.jpg 1x, ./img/hero/hero-2x.jpg 2x"
+          media="(min-width: 1440px)"
+        />
+        <source
+          srcset="
+            ./img/hero/hero-tablet.jpg    1x,
+            ./img/hero/hero-tablet-2x.jpg 2x
+          "
+          media="(min-width: 768px)"
+        />
+        <source
+          srcset="
+            ./img/hero/hero-mobile.jpg    1x,
+            ./img/hero/hero-mobile-2x.jpg 2x
+          "
+          media="(max-width: 767px)"
+        />
+        <img
+          src="./img/hero/hero-2x.jpg"
+          class="hero-image"
+          alt="women-sportswear-working-out-outdoors"
+        />
+      </picture>
+    </div>
+  </div>
 </section>
