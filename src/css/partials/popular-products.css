@@ -1,7 +1,6 @@
 /*? -------------------------- Popular Products -------------------------- */
 .popular-products {
   padding-top: 40px;
-  padding-bottom: 40px;
 }
 
 .popular-products-section-title {
@@ -26,7 +25,8 @@
   display: flex;
   padding: 12px;
 
- position: relative;
+  position: relative;
+  cursor: pointer;
 }
 
 .popular-products-img-container {
@@ -53,10 +53,8 @@
 
 .popular-description {
   line-height: 1.17;
-  font-family: var(--font-main);
+
   color: var(--color-black);
-  font-size: 12px;
-  font-weight: 400;
 }
 
 .popular-products-name {
@@ -66,10 +64,17 @@
   line-height: 1.11;
 }
 
+.popular-products-discount-icon {
+    position: absolute;
+   left: 72px;
+    top: 12px;
+}
+
 .basket-button {
   width: 20px;
   height: 20px;
   background-color: var(--color-light-grey);
+
   border-radius: 50px;
   cursor: pointer;
   margin-left: auto;
@@ -80,34 +85,48 @@
 }
 
 .popular-products-cart-icon {
-    fill: var(--color-light-green);
+  fill: var(--color-light-green);
 }
 
-
-
 .basket-button:hover .popular-products-cart-icon,
-.basket-button:focus .popular-products-cart-icon{
-    fill: var(--color-light-grey);
-    
+.basket-button:focus .popular-products-cart-icon {
+  fill: var(--color-light-grey);
+  transition-delay: var(--transition-time);
+  transition-timing-function: var(--transition-function);
 }
 
 .basket-button:hover,
 .basket-button:focus {
-    background-color: var(--color-light-green);
+  background-color: var(--color-light-green);
+  transition-delay: var(--transition-time);
+  transition-timing-function: var(--transition-function);
+}
+
+.popular-products-icon-check {
+  fill: var(--color-light-grey);
+
+  display: none;
+}
+
+.basket-button-icon-check {
+  width: 20px;
+  height: 20px;
+
+  background-color: var(--color-light-green);
+  border-radius: 50px;
+  cursor: pointer;
+  margin-left: auto;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  padding: 4px;
+
+  display: none;
 }
 
 @media screen and (min-width: 768px) {
-  :root {
-    --container-width: var(--tablet-container-width);
-  }
-
-  .popular-products-container {
-    --tablet-container-width: 704px;
-  }
-
   .popular-products {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 100px;
   }
 
   .popular-products-section-title {
@@ -129,29 +148,23 @@
     gap: 9px;
   }
 
-  
-
   .popular-products-name {
-      margin-bottom: 10px;
-      font-size: 20px;
-      
-      line-height: 1.2;
+    margin-bottom: 10px;
+    font-size: 20px;
+
+    line-height: 1.2;
   }
-
-
 }
 
 @media screen and (min-width: 1440px) {
-    /* :root {
-        --container-width: var(--desktop-container-width);
-        --secondary-container-width: var(--secondary-desktop-container-width);
-    } */
-.popular-products-name {
+  .popular-products {
+    padding-top: 0;
+  }
+  .popular-products-name {
     line-height: 1.2;
-}
+  }
 
-.popular-products-list {
+  .popular-products-list {
     flex-direction: column;
-}
-
+  }
 }
