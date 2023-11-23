@@ -8,10 +8,10 @@
   }
 }
 
-.hero {
-  padding-top: 116px;
-}
 /* Mobile */
+.hero {
+  padding-top: 72px;
+}
 .hero-icon {
   position: absolute;
   left: 227px;
@@ -53,6 +53,9 @@
 }
 /* Tablet */
 @media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 116px;
+  }
   .hero-icon {
     left: 594px;
     bottom: 510px;
@@ -78,6 +81,9 @@
 }
 /* Desktop */
 @media screen and (min-width: 1440px) {
+  .hero {
+    padding-top: 77px;
+  }
   .hero-image {
     width: 704px;
   }
