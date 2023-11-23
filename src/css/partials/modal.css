@@ -137,26 +137,6 @@
     }
 }
 
-/* контейнер опису продукту */
-
-/* .modal-product-info {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px; 
-     margin-left: 24px;
-} */
-
-/* @media screen and (max-width: 768px) {
-    .modal-product-info {
-        margin-top: 20px;
-        margin-left: 0;
-
-    }
-} */
-
-
-
 /* Заголовок */
 
 .modal-title {
