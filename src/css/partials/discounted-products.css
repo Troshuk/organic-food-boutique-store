@@ -19,34 +19,31 @@ flex-direction: column;
 gap: 20px;
 }
 
-.list {
-    list-style: none;
-}
-
 .discount-item {
-    width: 335px;
+    max-width: 335px;
     border-radius: 15px;
     background-color: var(--color-white);
     height: 232px;
-    padding-top: 16px;
-    padding-left: 16px;
-    padding-right: 15px;
+    padding: 16px;
+    cursor: pointer;
     }
 
 
 .discount-photo-container {
-        width: 304px;
+        max-width: 304px;
         height: 150px;
         background-color: var(--color-light-grey);
         border-radius: 10px;
-        padding: 18px 95px 18px 95px;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
         
 .discount-icon {
     position: absolute;
-    top: 10%;
-    right: 0;
+    top: 11%;
+    right: -3%;
     transform: translateY(-50%);
     width: 60px;
     height: 60px;
@@ -55,21 +52,28 @@ gap: 20px;
    .discount-info-container {
     display: flex;
     flex-direction: row;
-    padding-top: 23px;
+    margin-top: 23px;
+    justify-content: space-between;
+    align-items: center;
  }
 
-    .product-name {
+    .discount-product-name {
         font-size: 18px;
         line-height: 1.11;
         font-weight: 500;
-        margin-right: 158px;
+        flex-grow: 1;
     }
     
-.discount-button-icon {
+.discount-button-icon-cart {
  fill: var(--color-light-grey);
 }
 
-.product-price {
+.discount-button-icon-check {
+    display: none;
+    fill: var(--color-light-grey);
+}
+
+.discount-product-price {
 font-size: 18px;
 font-weight: 500;
 line-height: 1.11;
@@ -85,6 +89,13 @@ right: 16px;
 top: 16px;
 padding: 8px;
 margin-left: 8px;
+}
+
+.discount-btn:hover,
+.discount-btn:focus {
+fill: var(--color-dark-green);
+transition-duration: var(--transition-time);
+transition-timing-function: var(--transition-function);
 }
 
 
@@ -103,12 +114,12 @@ margin-left: 8px;
     padding-bottom: 100px;
     }
 
-    .product-name {
-    margin-right: 75px;
+    .discount-item {
+    width: 336px;    
     }
 
     .discount-info-container {
-    padding-top: 21px;
+    margin-top: 21px;
     }
     }
 
@@ -118,10 +129,13 @@ margin-left: 8px;
         gap: 20px;
     }
 
-
     .discount-title {
         font-size: 28px;
         line-height: 1.14;
+    }
+
+    .discount-item {
+        width: 275px;   
     }
 
     .discount-products {
@@ -129,12 +143,8 @@ margin-left: 8px;
         padding-bottom: 140px;
     }
 
-    .product-name {
-        margin-right: 86px;
-    }
-
-    .discount-info-container {
-        padding-top: 21px;
+      .discount-info-container {
+        margin-top: 21px;
     } 
 
 }
