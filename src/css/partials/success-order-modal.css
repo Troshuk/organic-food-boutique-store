@@ -1,1 +1,86 @@
 /*? -------------------------- Success Order Modal -------------------------- */
+.success-blackdrop {
+  position: fixed;
+  z-index: 100;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(1, 1, 1, 0.4);
+}
+.success-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 335px;
+  border-radius: 20px;
+  background: var(--color-light-grey);
+
+  padding: 40px 20px 60px 20px;
+}
+.success-modal-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 22px;
+  height: 22px;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.success-modal-image {
+  margin-left: 75px;
+  margin-bottom: 40px;
+}
+.success-modal-title {
+  color: var(--color-black);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  text-transform: uppercase;
+  text-align: center;
+
+  margin-bottom: 20px;
+}
+.success-modal-text {
+  color: var(--black-transperent-max-color);
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .success-modal {
+    width: 560px;
+
+    padding: 80px 40px 80px 40px;
+  }
+  .success-modal-close-btn {
+    top: 24px;
+    right: 24px;
+    width: 28px;
+    height: 28px;
+  }
+  .success-modal-image {
+    margin-left: 170px;
+    margin-bottom: 37px;
+  }
+  .success-modal-title {
+    font-size: 32px;
+    line-height: 32px;
+  }
+  .success-modal-text {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
