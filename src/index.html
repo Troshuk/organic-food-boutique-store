@@ -12,7 +12,34 @@
   <body>
     <!-- Header -->
     <load src="partials/header.html" />
-
+    <header class="header">
+      <div class="container">
+        <nav class="header-navigation">
+          <a class="header-logo" href="./index.html">
+            <svg class="header-logo" width="154" height="28">
+              <use href="./img/icons.svg#icon-logo-header"></use>
+            </svg>
+          </a>
+          <ul class="header-list">
+            <li>
+              <button type="button" class="home-button" href="./index.html">
+                Home
+              </button>
+            </li>
+            <li>
+              <button type="button" class="cart-button-container" href="">
+                <div class="cart-button">
+                  <svg class="cart-icon" width="14" height="14">
+                    <use href="./img/icons.svg#icon-shopping-cart"></use>
+                  </svg>
+                </div>
+                <span class="cart-text">CART (0)</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
     <!-- Main -->
     <main>
       <!-- Hero -->
