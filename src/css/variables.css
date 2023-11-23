@@ -9,6 +9,13 @@
     --color-light-green: #6D8434;
     --color-grey: #A3A3A3;
     --color-dark-green: #586F1F;
+    --black-transperent-min-color: rgba(1, 1, 1, 0.07);
+    --black-transperent-meduim-color: rgba(1, 1, 1, 0.3);
+    --black-transperent-max-color: rgba(1, 1, 1, 0.7);
+    --white-transperent-min-color: rgba(232, 232, 226, 0.2);
+    --white-transperent-medium-color: rgba(232, 232, 226, 0.3);
+    --white-transperent-max-color: rgba(232, 232, 226, 0.6);
+    --yellow-4-everything-color: #FDC152;
 
     /*? Container device width options */
     --mobile-container-width: 335px;
