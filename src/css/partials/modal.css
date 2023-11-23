@@ -8,25 +8,6 @@
     }
 }
 
-.is-hidden{
-    display: none;
-}
-
-.modal-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(1, 1, 1, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    width: 100%;
-
-}
-
 @keyframes append-animate {
     from {
         transform: scale(0);
@@ -39,317 +20,358 @@
     }
 }
 
-.modal {
-    flex-wrap: wrap;
-    width: 600px;
-    height: 380px;
+/* Клас приховати модалку  */
+
+.is-hidden{
+    display: none;
+}
+
+
+
+
+
+/* Модалка */
+
+.modal-background {
+    position: fixed;
+    /* display: flex; */
+        justify-content: center;
+        align-items: center;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(1, 1, 1, 0.40);;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+
+}
+
+.modal{
+    position: absolute;
+    width: 335px;
+    height: 535px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 
     background: var(--color-white);
     border: 2px solid var(--color-white);
     border-radius: 20px;
 
-    position: fixed;
-    top: auto;
-    bottom: auto;
+    animation: append-animate 0.3s linear;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+@media screen and (min-width: 767px) {
+.modal {
+    width: 600px;
+    height: 380px;
     padding: 40px;
 
-    box-sizing: border-box;
-
-    animation: append-animate 0.3s linear;
-
-    overflow-y: hidden;
-        overflow-x: hidden;
+    /* top: 20vh;
+    left: 50%;
+    transform: translate(-50%); */
 }
-
-@media screen and (max-width: 768px) {
-    .modal {
-        width: 335px;
-        height: 535px;
-        padding-left: 20px;
-        padding-right: 20px;
-            
-    }
 }
 
 
-.modal-product-info {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    margin-left: 24px;
-}
 
-@media screen and (max-width: 768px) {
-    .modal-product-info {
-        margin-top: 20px;
-        margin-left: 0;
+/* Кнопка закриття модалки */
 
-    }
-}
-
-.modal .close_btn {
+.modal .modal-close-btn {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 14px;
+    right: 14px;
 }
 
-@media screen and (max-width: 767.99px) {
-    .modal .close_btn {
-        top:14px;
-        right: 14px;
-
-    }
-}
-.price-container{
-    
-        align-items: baseline;
-        display: inline-flex;
-        align-items: flex-end;
-        margin-top: 48px;
-            gap:336px
-            
-          
-    }
-
-        @media screen and (max-width: 768px) {
-            .price-container {
-                margin-top: 40px;
-                gap: 126px;
-    
-            }
-        }
-    
-    .btn{
-        color: var(--color-light-grey);
-            font-family: var(--font-main);
-            font-size: 16px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 20px;
-            display: flex;
-                padding: 10px 28px;
-                justify-content: center;
-                align-items: center;
-                gap: 10px;
-                border-radius: 30px;
-                    background: var(--color-light-green);
-                width: 130px;
-                height: 40px;
-    }
-@media screen and (max-width: 768px) {
-    .btn {
-    display: flex;
-        padding: 12px 24px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        width: 116px;
-        height: 42px;
-        
-            font-size: 14px;
-            line-height: 18px;
-            
+@media screen and (min-width: 767px) {
+    .modal .modal-close-btn {
+        top: 24px;
+        right: 24px;
 
     }
 }
-        
-.icon-shop{
-    fill: var(--color-white);
+
+
+.modal-close-btn {
+    border-color: transparent;
+    background-color: transparent;
+
+    transition: var(--transition-funktion), var(--transition-time);
+}
+
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    fill: var(--color-dark-green);
+    cursor: pointer;
     
 }
 
-.img-frame{
-    max-width: 240px;
-    max-height: 212px;
-    padding-top: 26px;
-    padding-bottom: 26px;
-    padding-left: 40px;
-    padding-right: 40px;
-border-radius: 10px;
-    background: var(--color-light-grey);
+
+.modal-icon-close {
+    fill: var(--color-black);
 }
 
-@media screen and (max-width: 768px) {
-    .img-frame {
-        max-width: 295px;
-        padding-left: 67px;
-        padding-right: 68px;
 
-    }
-}
-
-.modal_title {
-    color: var(--color-black);
-        font-family: var(--font-main);
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 24px;
-}
-
-@media screen and (max-width: 768px) {
-    .modal-title {
-            font-size: 18px;
-            line-height: 20px;
-    }
-}
-.modal-details{
-display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 9px;
-}
-.modal-subtitle{
-    color: rgba(1, 1, 1, 0.30);
-        font-family: var(--font-main);
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 14px;
-}
-
-@media screen and (max-width: 768px) {
-    .modal-subtitle {
-        font-size: 12px;
-        line-height: 14px;
-        font-weight: 400;
-}
-}
-
-.modal-subtitle-info{
-    color: var(--color-black);
-        font-family: var(--font-main);
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 14px;
-}
-
-@media screen and (max-width: 768px) {
-    .modal-subtitle-info {
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 14px;
-    }
-}
-
-.about-product{
-    color: rgba(1, 1, 1, 0.70);
-        font-family: var(--font-main);
-        font-size: 16px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 20px;
-        margin-top: 14px;
-        
-}
-
-@media screen and (max-width: 768px) {
-    .about-product {
-    font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 14px;
-        margin-top: 10px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .icon-close {
-        width: 22px;
-        height: 22px;
+@media screen and (min-width: 767px) {
+    .modal-icon-close {
+        width: 28px;
+        height: 28px;
         padding: 0;
 
     }
 }
 
-.price-product{
-    color: var(--color-black);
-        font-family: var(--font-main);
-        font-size: 20px;
-        font-style: normal;
-        font-weight: 500;
-        line-height: 24px;
-}
-
-@media screen and (max-width: 768px) {
-    .price-product {
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 20px;
-           
-
-    }
-}
-
-.container-modal{
-    display: flex;
-}
-
-@media screen and (max-width: 768px) {
-    .container-modal {
-        display: inline-block;
-
-    }
-}
-
-@media screen and (max-width: 767.99px) {
-    .modal_body .btn {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-}
-
-
-
-.modal_container {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-}
-
-.close_btn:hover,
-.icon-btn:focus {
-    background-color: var(--color-dark-green);
-    fill: var(--color-white);
-    cursor: pointer;
-}
-
-.icon_close {
-    fill: var(--color-black);
-}
-
-.icon_close:hover,
-.icon_close:focus {
+.modal-icon-close:hover,
+.modal-icon-close:focus {
     stroke: var(--accent-color-light-theme);
     fill: var(--accent-color-light-theme);
     cursor: pointer;
 }
 
-.btn:hover {
+/* Контейнер Зовбраження і текст*/
+
+.modal-container {
+    display: inline-block;
+}
+
+@media screen and (min-width: 767px) {
+    .modal-container {
+        display: flex;
+        gap: 24px;
+
+    }
+}
+
+/* Зображення продукту */
+
+.modal-img {
+    max-width: 295px;
+    height: 212px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-bottom: 20px;
+    
+    border-radius: 10px;
+    background: var(--color-light-grey);
+}
+
+@media screen and (min-width: 767px) {
+    .modal-img {
+    width: 240px;
+    max-width: 100%;
+    margin-bottom: 0;
+    }
+}
+
+/* контейнер опису продукту */
+
+/* .modal-product-info {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px; 
+     margin-left: 24px;
+} */
+
+/* @media screen and (max-width: 768px) {
+    .modal-product-info {
+        margin-top: 20px;
+        margin-left: 0;
+
+    }
+} */
+
+
+
+/* Заголовок */
+.modal-title {
+    color: var(--color-black);
+    font-family: var(--font-main);
+    font-size: 18px;
+    line-height: 1.11;
+    font-weight: 500;
+
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 767px) {
+    .modal-title {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+/* контейнер для Категорій нижче заголовку*/
+.modal-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 9px 8px;
+}
+
+/* Категорії */
+
+.modal-subtitle {
+    color: rgba(1, 1, 1, 0.30);
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+    margin-right: 4px;
+}
+
+
+/* Властивість категорії */
+
+.modal-subtitle-info {
+    color: var(--color-black);
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+}
+
+
+
+
+.modal-about-product {
+    color: rgba(1, 1, 1, 0.70);
+    font-family: var(--font-main);
+    font-size: 14px;
+   
+    font-weight: 400;
+    line-height: 1.28;
+    margin-top: 20px;
+    max-width: 290px;
+
+}
+
+@media screen and (min-width: 767px) {
+    .modal-about-product {
+        font-size: 16px;
+        line-height: 1.25;
+        margin-top: 24px;
+
+    }
+}
+
+
+
+/* Контейнер для ціни і кнопки додати в корзину */
+.modal-price-container{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-top: 40px;
+            
+          
+    }
+
+        @media screen and (min-width: 767px) {
+            .modal-price-container {
+                margin-top: 48px;
+            }
+        }
+    
+/* Ціна */
+.modal-price-product {
+    color: var(--color-black);
+    font-family: var(--font-main);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+   
+}
+
+@media screen and (min-width: 767px) {
+    .modal-price-product {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.28;
+
+
+    }
+}
+
+/* Кнопка додати в кошик */
+
+.modal-btn{
+color: var(--color-light-grey);
+font-family: var(--font-main);
+font-size: 14px;
+line-height: 1.28;
+font-weight: 500;
+padding: 11px 24px;
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+
+
+border-radius: 30px;
+background: var(--color-light-green);
+
+}
+
+
+@media screen and (min-width: 767px) {
+    .modal-btn {
+    font-size: 16px;
+    line-height: 1.25;
+    padding: 8.5px 28px;
+    }
+}
+        
+
+.modal-btn:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-white);
+    cursor: pointer;
+    box-shadow: 0px 8px 43px 0px var(--color-dark-green);
+}
+
+
+.modal-btn:focus {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.10);
     background-color: var(--color-dark-green);
     color: var(--color-white);
     cursor: pointer;
 }
 
 
-.btn:focus {
-    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.15);
-    background-color: var(--color-dark-green);
-    color: var(--color-white);
-    cursor: pointer;
+.modal-icon-shop{
+    fill: var(--color-white);
+    
 }
 
-.close_btn {
-    border-radius: 50%;
-    border-color: transparent;
-    background-color: transparent;
 
-    transition: var(--transition-funktion),var(--transition-time);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
