@@ -5,20 +5,24 @@
   top: 0;
   background-color: var(--color-light-grey);
 }
+
 .header-navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 18px 0px;
 }
+
 .header-logo {
   width: 154px;
   height: 28px;
 }
+
 .header-list {
   display: flex;
   gap: 6px;
 }
+
 .home-button {
   width: 77px;
   height: 38px;
@@ -59,26 +63,31 @@
     width: 197px;
     height: 32px;
   }
+
   .header-list {
     display: flex;
     gap: 16px;
     align-items: center;
   }
+
   .home-button {
     width: 104px;
     height: 48px;
     font-size: 18px;
     line-height: 1.33;
   }
+
   .cart-button-container {
     display: flex;
     align-items: center;
     gap: 14px;
   }
+
   .cart-icon {
     width: 18px;
     height: 18px;
   }
+
   .cart-text {
     display: block;
     color: var(--color-black);
@@ -93,5 +102,9 @@
   .header-logo {
     width: 195px;
     height: 32px;
+  }
+
+  .header-list {
+    gap: 24px;
   }
 }
