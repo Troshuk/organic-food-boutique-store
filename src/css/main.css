@@ -25,3 +25,5 @@
 
 /*? Partials Cart */
 @import url('./partials/cart.css');
+@import url('./partials/empty-cart.css');
+@import url('./partials/success-order-modal.css');
