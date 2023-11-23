@@ -1,1 +1,119 @@
 /*? -------------------------- Filters -------------------------- */
+.categories {
+  color: #010101;
+  padding: 14px 20px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 14px;
+  border-radius: 30px;
+  line-height: 1.2em;
+  width: 100%;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>#icon-check');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.arrow-check {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 12px;
+}
+.search-form {
+  max-width: 375px;
+}
+.input-modal-subscribe {
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  color: #010101;
+  font-family: 'Neue Montrea', sans-serif;
+  line-height: 1.2em;
+}
+.input-modal-subscribe::placeholder {
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 14px;
+  border-radius: 30px;
+}
+.container-search-everything {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+}
+.sort-element {
+  color: rgba(1, 1, 1, 0.5);
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 14px;
+
+  line-height: 1.5em;
+}
+.select-container {
+  max-width: 375px;
+  margin-bottom: 12px;
+}
+
+.container-sort {
+  max-width: 375px;
+}
+.sort {
+  width: 100%;
+  background: #fafafa;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>#icon-check');
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: right;
+  color: #010101;
+  padding: 14px 20px;
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 14px;
+  border-radius: 30px;
+  line-height: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .search-form {
+    display: flex;
+    flex-direction: row;
+  }
+  .categories {
+    width: 149px;
+  }
+  .select-container {
+    margin-bottom: 0;
+  }
+  .input-container {
+    margin-bottom: 0;
+  }
+  .sort {
+    width: 160px;
+    font-size: 18px;
+    line-height: 1.125em;
+  }
+  .categories {
+    font-size: 18px;
+    line-height: 1.125em;
+  }
+  .input-modal-subscribe {
+    width: 229px;
+  }
+  .input-modal-subscribe::placeholder {
+    font-size: 18px;
+    line-height: 1.125em;
+  }
+}

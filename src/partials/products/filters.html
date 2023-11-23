@@ -1,1 +1,32 @@
-<div></div>
+<div class="container">
+  <form class="search-form" action="/search" method="GET">
+    <div class="input-container">
+      <div class="search-form">
+        <input
+          type="text"
+          class="input-modal-subscribe"
+          placeholder="Search for anything"
+        />
+      </div>
+      <div class="container-search-everything">
+        <svg width="20" height="20" class="icon-search">
+          <use href="./img/icons.svg#icon-search"></use>
+        </svg>
+      </div>
+    </div>
+    <div class="select-container">
+      <select id="Categories" name="Categories" class="categories"></select>
+    </div>
+    <div class="container-sort">
+      <select id="Sort" name="Sort" class="sort">
+        <option class="sort-element">A to Z</option>
+        <option class="sort-element">Z to A</option>
+        <option class="sort-element">Less than 10$</option>
+        <option class="sort-element">Greater than 10$</option>
+        <option class="sort-element">Popular</option>
+        <option class="sort-element">Not Popular</option>
+        <option class="sort-element">Show All</option>
+      </select>
+    </div>
+  </form>
+</div>
