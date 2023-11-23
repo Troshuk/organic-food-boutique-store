@@ -1,1 +1,207 @@
 /*? -------------------------- Products List -------------------------- */
+.all-products {
+  padding-top: 20px;
+}
+.product__list {
+  display: flex;
+  /* justify-content: center; */
+
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 32px;
+  margin-bottom: 40px;
+}
+.product__card {
+  /* width: 100%; */
+  width: 335px;
+  height: 356px;
+  border-radius: 20px;
+  background: var(--color-white);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  transition: transform var(--transition-time) var(--transition-function);
+}
+.product__card:hover {
+  transform: scale(1.03);
+}
+
+.box__card {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.box__img {
+  margin: 0 auto;
+  width: 295px;
+  height: 178px;
+  /* padding: 20px 20px 158px 20px; */
+  border-radius: 10px;
+  background: var(--color-light-grey);
+}
+.card__image {
+  padding-top: 19px;
+  margin: 0 auto;
+}
+.name__product {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1; /* 111.111% */
+  /* padding-left: 20px;
+  padding-top: 20px; */
+}
+.info {
+  display: flex;
+  gap: 9px;
+  margin-top: 10px;
+  /* padding-left: 20px; */
+  /* margin-bottom: 40px; */
+}
+.info__box {
+  margin-bottom: 40px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.info__item {
+}
+.span__text {
+  padding-right: 4px;
+  color: rgba(1, 1, 1, 0.3);
+}
+.price__btn {
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 218px;
+}
+.price__product {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+.button__card {
+  border-radius: 30px;
+  background: var(--color-light-green);
+  display: flex;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: background-color var(--transition-time) var(--transition-function);
+}
+.button__card:is(:hover, :focus) {
+  background-color: var(--color-dark-green);
+}
+.icon__btn {
+  fill: var(--color-light-grey);
+}
+
+/*?-----------------------------------Pagination------------------*/
+.pagination {
+}
+.pagination__list {
+  margin: 0 auto;
+  display: flex;
+  width: 334px;
+  align-items: center;
+  gap: 19px;
+}
+.page__item {
+  /* display: flex;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: background-color var(--transition-time) var(--transition-function); */
+}
+.page__link {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 60px;
+  transition: background-color var(--transition-time) var(--transition-function);
+}
+.active {
+  color: var(--color-light-grey);
+  background-color: var(--color-dark-green);
+}
+/* .page__item:is(:hover, :focus, :active) {
+  color: var(--color-light-grey);
+  background-color: var(--color-dark-green);
+} */
+.page__link:is(:hover, :focus, :active) {
+  color: var(--color-light-grey);
+  background-color: var(--color-dark-green);
+}
+.page__numbers {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+}
+.nav__btn {
+  display: flex;
+  gap: 4px;
+  border-radius: 60px;
+  background: #fafafa;
+}
+/*? --------------------------Media-------------------------- */
+/* Tablet */
+@media screen and (min-width: 768px) {
+  .product__list {
+    row-gap: 32px;
+    column-gap: 32px;
+    flex-direction: row;
+  }
+  .product__card {
+    height: 360px;
+    width: calc((100% - 32px) / 2);
+  }
+  .price__btn {
+    gap: 211px;
+  }
+  .pagination__list {
+    display: flex;
+    width: 472px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .page__numbers {
+    gap: 8px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+  .all-products {
+    max-width: 925px;
+  }
+  .product__list {
+    row-gap: 40px;
+    column-gap: 20px;
+  }
+  .price__btn {
+    gap: 170px;
+  }
+  .box__img {
+    width: 255px;
+    height: 178px;
+  }
+  .product__card {
+    width: calc((100% - 40px) / 3);
+    /* width: 100%; */
+    /* width: 295px; */
+    height: 363px;
+    border-radius: 20px;
+    background: var(--color-white);
+  }
+  .info__box {
+    margin-bottom: 20px;
+  }
+  .info {
+    flex-wrap: wrap;
+  }
+}
