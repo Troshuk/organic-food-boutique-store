@@ -1,48 +1,44 @@
 <section class="all-products" id="all-products">
-  <div class="product__list">
-    <div class="product__card">
-      <a class="card__link" href="#">
-        <div class="box__card">
-          <div class="box__img">
-            <img
-              class="card__image"
-              src="/../img/cart/order-success.png"
-              alt="Baby Plum Tomatoes"
-              width="140"
-              height="140"
-            />
-          </div>
-          <div class="info__box">
-            <h3 class="name__product">Baby Plum Tomatoes</h3>
-            <ul class="info">
-              <li>
-                <p class="info__item">
-                  <span class="span__text">Category: </span> Fresh Produce
-                </p>
-              </li>
-              <li>
-                <p class="info__item">
-                  <span class="span__text">Size: </span> 200 g
-                </p>
-              </li>
-              <li>
-                <p class="info__item">
-                  <span class="span__text">Popularity: </span> 0
-                </p>
-              </li>
-            </ul>
-          </div>
-          <div class="price__btn">
-            <h3 class="price__product">$3.99</h3>
-            <button type="submit" class="button__card">
-              <svg class="icon__btn" width="18" height="18">
-                <use href="/../img/icons.svg#icon-shopping-cart"></use>
-              </svg>
-            </button>
-          </div>
+  <ul class="product-list-product__list">
+    <li class="product-list-product__card">
+      <!-- <a class="product-list-card__link" href="#"> -->
+      <!-- <div class="product-list-box__card"> -->
+      <div class="product-list-box__img">
+        <img
+          class="product-list-card__image"
+          src="./img/cart/order-success.png"
+          alt="Baby Plum Tomatoes"
+          width="140"
+          height="140"
+        />
+      </div>
+      <div class="product-list-info__box">
+        <h3 class="product-list-name__product">Baby Plum Tomatoes</h3>
+        <div class="product-list-info">
+          <p class="product-list-info__item">
+            <span class="product-list-span__text">Category: </span> Fresh
+            Produce
+          </p>
+
+          <p class="product-list-info__item">
+            <span class="product-list-span__text">Size: </span> 200 g
+          </p>
+          <p class="product-list-info__item">
+            <span class="product-list-span__text">Popularity: </span> 0
+          </p>
         </div>
-      </a>
-    </div>
+      </div>
+      <div class="product-list-price__btn">
+        <p class="product-list-price__product">$3.99</p>
+        <button type="submit" class="product-list-button__card">
+          <svg class="product-list-icon__btn" width="18" height="18">
+            <use href="./img/icons.svg#icon-shopping-cart"></use>
+          </svg>
+        </button>
+      </div>
+      <!-- </div> -->
+      <!-- </a> -->
+    </li>
     <!-- <div class="product__card">
       <a class="card__link" href="#">
         <div class="box__card">
@@ -473,21 +469,25 @@
         </div>
       </a>
     </div> -->
-  </div>
+  </ul>
   <div class="pagination">
     <ul class="pagination__list">
       <li class="page__item nav__btn">
-        <a href="#" class="page__link">&lsaquo;</a>
+        <svg class="icon__arrow" width="24" height="24">
+          <use href="./img/icons.svg#icon-arrow-right"></use>
+        </svg>
       </li>
       <div class="page__numbers">
-        <li class="page__item"><a href="#" class="page__link">1</a></li>
-        <li class="page__item"><a href="#" class="page__link active">2</a></li>
-        <li class="page__item"><a href="#" class="page__link">...</a></li>
-        <li class="page__item"><a href="#" class="page__link">7</a></li>
-        <li class="page__item"><a href="#" class="page__link">8</a></li>
+        <li class="page__item">1</li>
+        <li class="page__item active">2</li>
+        <li class="page__item">...</li>
+        <li class="page__item">7</li>
+        <li class="page__item">8</li>
       </div>
       <li class="page__item nav__btn">
-        <a href="#" class="page__link">&rsaquo;</a>
+        <svg class="icon__arrow" width="24" height="24">
+          <use href="./img/icons.svg#icon-arrow-right"></use>
+        </svg>
       </li>
     </ul>
   </div>
