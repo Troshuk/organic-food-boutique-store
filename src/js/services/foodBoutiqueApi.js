@@ -23,18 +23,6 @@ export default class FoodBotiqueApi {
       params: filter,
     });
 
-    /*
-      {
-        keyword: '',
-        category: '',
-        byABC: true,
-        byPrice: false,
-        byPopularity: false,
-        page: 1,
-        limit: 9,
-      }
-    */
-
     return response.data;
   }
 
