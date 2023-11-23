@@ -39,9 +39,8 @@
   font-weight: 400;
   line-height: 1.28;
   max-width: 292px;
-  /* width: 292px; */
-  /* padding: 16px 21.5px 0px; */
 }
+
 .hero-container {
   position: relative;
   margin-top: 32px;
@@ -69,17 +68,12 @@
     font-size: 18px;
     line-height: 1.33;
     max-width: 492px;
-    /* padding-left: 83px;
-    padding-right: 83px; */
   }
   .hero-title {
     font-size: 80px;
     padding-bottom: 20px;
     line-height: 1;
     letter-spacing: -0.02em;
-
-    /* padding-left: 83px;
-    padding-right: 83px; */
   }
 }
 /* Desktop */
@@ -93,8 +87,6 @@
   }
   .hero-paragraph {
     max-width: 492px;
-    /* padding-left: 275px;
-    padding-right: 275px; */
   }
   .hero-container {
     margin-top: 40px;
