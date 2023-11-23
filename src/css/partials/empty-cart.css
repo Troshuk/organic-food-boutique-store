@@ -81,8 +81,6 @@
     margin-bottom: 40px;
   }
 
- 
-
   .empty-cart-text {
     font-size: 20px;
     line-height: 1.2;
@@ -102,13 +100,12 @@
 /***** min-width: 1440px *****/
 
 @media screen and (min-width: 1440px) {
-    .empty-cart-title-thumb {
-           
-            margin-top: 68px;
-            margin-bottom: 155px;
-        }
+  .empty-cart-title-thumb {
+    margin-top: 68px;
+    margin-bottom: 155px;
+  }
 
-                .empty-cart-container {
-                    margin-bottom: 150px;
-                }
+  .empty-cart-container {
+    margin-bottom: 150px;
+  }
 }
