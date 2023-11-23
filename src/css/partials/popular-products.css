@@ -1,6 +1,6 @@
 /*? -------------------------- Popular Products -------------------------- */
 .popular-products {
-  padding-top: 40px;
+  margin-top: 40px;
 }
 
 .popular-products-section-title {
@@ -18,7 +18,7 @@
 
 .popular-products-item {
   background-color: var(--color-white);
-  width: 335px;
+  max-width: 335px;
   height: 98px;
   border-radius: 10px;
 
@@ -27,6 +27,7 @@
 
   position: relative;
   cursor: pointer;
+  gap: 10px;
 }
 
 .popular-products-img-container {
@@ -34,8 +35,10 @@
   width: 74px;
   height: 74px;
   background-color: var(--color-light-grey);
-  margin-right: 10px;
+
   border-radius: 10px;
+  gap: 10px;
+  position: relative;
 }
 
 .popular-products-description {
@@ -65,9 +68,13 @@
 }
 
 .popular-products-discount-icon {
-    position: absolute;
-   left: 72px;
-    top: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(35%);
+  display: flex;
+
+  display: none;
 }
 
 .basket-button {
@@ -91,21 +98,20 @@
 .basket-button:hover .popular-products-cart-icon,
 .basket-button:focus .popular-products-cart-icon {
   fill: var(--color-light-grey);
-  transition-delay: var(--transition-time);
+  transition-duration: var(--transition-time);
   transition-timing-function: var(--transition-function);
 }
 
 .basket-button:hover,
 .basket-button:focus {
   background-color: var(--color-light-green);
-  transition-delay: var(--transition-time);
+  transition-duration: var(--transition-time);
   transition-timing-function: var(--transition-function);
 }
 
 .popular-products-icon-check {
-  fill: var(--color-light-grey);
-
-  display: none;
+  fill: transparent;
+  stroke: var(--color-light-grey);
 }
 
 .basket-button-icon-check {
@@ -124,9 +130,11 @@
   display: none;
 }
 
+/***** min-width: 768px *****/
+
 @media screen and (min-width: 768px) {
   .popular-products {
-    padding-top: 100px;
+    margin-top: 100px;
   }
 
   .popular-products-section-title {
@@ -156,9 +164,11 @@
   }
 }
 
+/***** min-width: 1440px *****/
+
 @media screen and (min-width: 1440px) {
   .popular-products {
-    padding-top: 0;
+    margin-top: 0;
   }
   .popular-products-name {
     line-height: 1.2;
