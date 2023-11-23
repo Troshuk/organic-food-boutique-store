@@ -13,9 +13,10 @@
   padding-top: 72px;
 }
 .hero-icon {
+  transform: translate(-50%);
   position: absolute;
-  left: 227px;
-  bottom: 387px;
+  right: 8px;
+  top: -7px;
   animation: rotate 5s linear infinite;
 }
 
@@ -57,8 +58,8 @@
     padding-top: 116px;
   }
   .hero-icon {
-    left: 594px;
-    bottom: 510px;
+    right: 10px;
+    top: -30px;
   }
   .hero-image {
     width: 704px;
@@ -88,8 +89,8 @@
     width: 704px;
   }
   .hero-icon {
-    left: 1120px;
-    bottom: 300px;
+    right: 20px;
+    top: -50px;
   }
   .hero-paragraph {
     max-width: 492px;
