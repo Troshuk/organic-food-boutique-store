@@ -3,6 +3,7 @@
   position: sticky;
   width: 100%;
   top: 0;
+  background-color: var(--color-light-grey);
 }
 .header-navigation {
   display: flex;
@@ -11,7 +12,7 @@
   padding: 18px 0px;
 }
 .header-logo {
-  width: 157px;
+  width: 154px;
   height: 28px;
 }
 .header-list {
@@ -79,13 +80,12 @@
     height: 18px;
   }
   .cart-text {
-    display: flex;
+    display: block;
     color: var(--color-black);
     font-size: 18px;
     font-weight: 500;
     font-style: normal;
     line-height: 1.33;
-    align-items: center;
   }
 }
 
