@@ -1,4 +1,7 @@
 /*? -------------------------- Empty Cart -------------------------- */
+.empty-cart {
+display: none;
+}
 
 .empty-cart-title-thumb {
   display: flex;
