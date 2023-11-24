@@ -39,6 +39,11 @@
   margin-left: 75px;
   margin-bottom: 40px;
 }
+.success-modal-shadow{
+    position:fixed;
+    top: 149px;
+    right:95px
+}
 .success-modal-title {
   color: var(--color-black);
   font-size: 18px;
@@ -75,6 +80,10 @@
     margin-left: 170px;
     margin-bottom: 37px;
   }
+  .success-modal-shadow{
+    top: 189px;
+    right:207px
+}
   .success-modal-title {
     font-size: 32px;
     line-height: 32px;
