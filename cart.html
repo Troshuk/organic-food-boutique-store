@@ -8,8 +8,8 @@
     <title>Food Cart</title>
 
     
-    <script type="module" crossorigin src="/organic-food-boutique-store/assets/main-be54a026.js"></script>
-    <link rel="stylesheet" href="/organic-food-boutique-store/assets/main-c10b4fdb.css">
+    <script type="module" crossorigin src="/organic-food-boutique-store/assets/main-b7b97025.js"></script>
+    <link rel="stylesheet" href="/organic-food-boutique-store/assets/main-0b716bba.css">
   </head>
   <body>
     <!-- Header -->
@@ -48,7 +48,42 @@
 </section>
 
       <section class="empty-cart" id="empty-cart">
-  <div class="container"></div>
+  <div class="container">
+    <div class="empty-cart-title-thumb">
+      <button class="empty-cart-shopping-button" type="button">
+        <svg class="empty-cart-shopping-icon" width="18" height="18">
+          <use href="/organic-food-boutique-store/assets/icons-0587b234.svg#icon-shopping-cart"></use>
+        </svg>
+      </button>
+      <h2 class="empty-cart-title">
+        Cart
+        <span>(0)</span>
+      </h2>
+    </div>
+    <picture>
+      <source
+        srcset="/organic-food-boutique-store/assets/yellow-shopping-basket-4ca51155.png 1x, /organic-food-boutique-store/assets/yellow-shopping-basket-2x-464740c7.png 2x"
+        media="(min-width: 768px)"
+      />
+      <source
+        srcset="/organic-food-boutique-store/assets/yellow-shopping-basket-mobile-65d04646.png 1x, /organic-food-boutique-store/assets/yellow-shopping-basket-2x-mobile-c340c9ad.png 2x"
+        media="(max-width: 767px)"
+      />
+      <img
+        src="/organic-food-boutique-store/assets/yellow-shopping-basket-4ca51155.png"
+        class="empty-cart-image"
+        alt="empty shopping cart"
+        width="132"
+      />
+    </picture>
+    <div class="empty-cart-container">
+      <p class="empty-cart-text">Your basket is <span>empty...</span></p>
+      <p class="empty-cart-instruction-text">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
+    </div>
+  </div>
 </section>
 
     </main>
