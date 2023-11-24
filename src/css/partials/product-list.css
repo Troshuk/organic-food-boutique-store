@@ -13,9 +13,9 @@
 
 .product-list-icon-discount {
   position: absolute;
-  top: 10%;
-  left: 88%;
-  transform: translate(-50%, -50%);
+  top: -4px;
+  right: 10px;
+  /* transform: translate(-50%, -50%); */
 }
 .product-list-product__card {
   position: relative;
