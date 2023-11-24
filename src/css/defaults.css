@@ -1,0 +1,49 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-black);
+    font-size: 12px;
+    font-weight: 400;
+    background-color: var(--color-light-grey);
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    /* content width + 15px for each side (left and right) */
+    max-width: var(--container-max-width);
+    padding: 0 var(--container-side-padding);
+}
+
+/*? ------------------------ MEDIA ------------------------ */
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+    :root {
+        --container-width: var(--tablet-container-width);
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1440px) {
+    :root {
+        --container-width: var(--desktop-container-width);
+        --secondary-container-width: var(--secondary-desktop-container-width);
+    }
+}

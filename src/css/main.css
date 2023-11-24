@@ -1,0 +1,30 @@
+/*? Fonts */
+@import url('./fonts.css');
+
+/*? Variables */
+@import url('./variables.css');
+
+/*? Defaults */
+@import '../../node_modules/modern-normalize/modern-normalize.css';
+@import url('./reset.css');
+@import url('./defaults.css');
+
+/*? Partials Home */
+@import url('./partials/header.css');
+
+@import url('./partials/hero.css');
+
+@import url('./partials/filters.css');
+@import url('./partials/products.css');
+
+@import url('./partials/product-list.css');
+@import url('./partials/popular-products.css');
+@import url('./partials/discounted-products.css');
+@import url('./partials/modal.css');
+
+@import url('./partials/footer.css');
+
+/*? Partials Cart */
+@import url('./partials/cart.css');
+@import url('./partials/empty-cart.css');
+@import url('./partials/success-order-modal.css');

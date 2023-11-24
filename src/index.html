@@ -7,7 +7,7 @@
 
     <title>Food Boutique Store</title>
 
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/main.css" />
   </head>
   <body>
     <!-- Header -->
@@ -16,21 +16,26 @@
     <!-- Main -->
     <main>
       <!-- Hero -->
-      <load src="partials/products/main-bunner.html" />
+      <load src="partials/products/hero.html" />
 
-      <!-- Hero -->
+      <!-- Filters -->
       <load src="partials/products/filters.html" />
 
-      <!-- 3 Sections groupped together -->
-      <div class="all-products-list">
-        <load src="partials/products/products-search.html" />
-        <load src="partials/products/popular-products.html" />
-        <load src="partials/products/discount-products.html" />
-      </div>
+      <section class="products" id="products">
+        <div class="container">
+          <!-- 3 containers groupped together -->
+          <load src="partials/products/product-list.html" />
+          <load src="partials/products/popular-products.html" />
+          <load src="partials/products/discounted-products.html" />
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
     <load src="partials/footer.html" />
+
+    <!-- Modal window -->
+    <load src="partials/products/modal-window.html" />
 
     <script type="module" src="./js/index.js"></script>
   </body>

@@ -1,6 +1,7 @@
 import './header';
-import './products-search';
+import './filter';
+import './product-list';
 import './popular-products';
-import './discount-products';
-import './cart';
+import './discounted-products';
 import './footer';
+import './modal';

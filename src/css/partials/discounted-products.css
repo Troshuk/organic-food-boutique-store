@@ -1,0 +1,148 @@
+/*? -------------------------- Discount Products -------------------------- */
+
+.discount-products {
+    margin-top: 80px;
+}
+
+.discount-title {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 1.17;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.discount-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.discount-item {
+    max-width: 335px;
+    border-radius: 15px;
+    background-color: var(--color-white);
+    padding: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.discount-photo-container {
+    max-width: 304px;
+    height: 150px;
+    background-color: var(--color-light-grey);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.discount-icon {
+    position: absolute;
+    top: 3px;
+    right: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.discount-info-container {
+    display: flex;
+    flex-direction: row;
+    margin-top: 23px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.discount-product-name {
+    font-size: 18px;
+    line-height: 1.11;
+    font-weight: 500;
+    flex-grow: 1;
+}
+
+.discount-button-icon-cart {
+    fill: var(--color-light-grey);
+}
+
+.discount-button-icon-check {
+    display: none;
+    stroke: var(--color-light-grey);
+    fill: transparent;
+}
+
+.discount-product-price {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+}
+
+.discount-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50px;
+    background-color: var(--color-light-green);
+    cursor: pointer;
+    right: 16px;
+    top: 16px;
+    padding: 8px;
+    margin-left: 8px;
+}
+
+.discount-btn:hover,
+.discount-btn:focus {
+    background-color: var(--color-dark-green);
+    transition-duration: var(--transition-time);
+    transition-timing-function: var(--transition-function);
+}
+
+
+@media screen and (min-width: 768px) {
+    .discount-title {
+        line-height: 1.15;
+        font-size: 28px;
+    }
+
+    .discount-list {
+        flex-direction: row;
+        gap: 32px;
+    }
+
+    .discount-products {
+        margin-top: 64px;
+    }
+
+    .discount-item {
+        max-width: 336px;
+        width: 100%;
+    }
+
+    .discount-info-container {
+        margin-top: 16px;
+    }
+
+    .discount-product-name {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .discount-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .discount-title {
+        font-size: 28px;
+        line-height: 1.14;
+    }
+
+    .discount-item {
+        max-width: 275px;
+    }
+
+    .discount-products {
+        margin-top: 40px;
+    }
+}
