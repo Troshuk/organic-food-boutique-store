@@ -12,6 +12,7 @@
   background-size: 20px 20px;
   background-repeat: no-repeat;
   background-position: right;
+  height: 50px;
 }
 
 .arrow-check {
@@ -33,6 +34,9 @@
 .search-form {
   max-width: 375px;
 }
+.filters {
+  margin-top: 100px;
+}
 
 .input-modal-subscribe {
   padding: 14px 20px;
@@ -41,6 +45,7 @@
   color: #010101;
   font-family: 'Neue Montrea', sans-serif;
   line-height: 1.2em;
+  height: 50px;
 }
 
 .input-modal-subscribe::placeholder {
@@ -92,6 +97,7 @@
   font-size: 14px;
   border-radius: 30px;
   line-height: 1.5em;
+  height: 50px;
 }
 
 @media screen and (min-width: 768px) {
@@ -106,6 +112,7 @@
 
   .select-container {
     margin-bottom: 0;
+    margin-left: 8px;
   }
 
   .input-container {
@@ -130,5 +137,8 @@
   .input-modal-subscribe::placeholder {
     font-size: 18px;
     line-height: 1.125em;
+  }
+  .container-sort {
+    margin-left: 8px;
   }
 }
