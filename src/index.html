@@ -18,15 +18,17 @@
       <!-- Hero -->
       <load src="partials/products/hero.html" />
 
-      <section class="products" id="products">
-        <div class="container">
-          <!-- Filters -->
-          <load src="partials/products/filters.html" />
+      <!-- Filters -->
+      <load src="partials/products/filters.html" />
 
+      <section class="products" id="products">
+        <div class="container products-section-container">
           <!-- 3 containers groupped together -->
           <load src="partials/products/product-list.html" />
-          <load src="partials/products/popular-products.html" />
-          <load src="partials/products/discounted-products.html" />
+          <div>
+            <load src="partials/products/popular-products.html" />
+            <load src="partials/products/discounted-products.html" />
+          </div>
         </div>
       </section>
     </main>
