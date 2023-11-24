@@ -136,7 +136,7 @@
 }
 
 .product-list-page__item:is(:hover, :focus, :active) {
-  color: var(--color-light-grey);
+  color: var(--color-white);
   background-color: var(--color-dark-green);
 }
 .product-list-page__numbers {
@@ -154,7 +154,7 @@
   fill: var(--color-grey);
 }
 .icon__arrow:is(:hover, :focus, :active) {
-  fill: var(--color-light-grey);
+  fill: var(--color-white);
 }
 
 /*? --------------------------Media-------------------------- */
