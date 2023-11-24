@@ -1,0 +1,44 @@
+<section class="empty-cart" id="empty-cart">
+  <div class="container">
+    <div class="empty-cart-title-thumb">
+      <button class="empty-cart-shopping-button" type="button">
+        <svg class="empty-cart-shopping-icon" width="18" height="18">
+          <use href="./img/icons.svg#icon-shopping-cart"></use>
+        </svg>
+      </button>
+      <h2 class="empty-cart-title">
+        Cart
+        <span>(0)</span>
+      </h2>
+    </div>
+    <picture>
+      <source
+        srcset="
+          ./img/cart/yellow-shopping-basket.png    1x,
+          ./img/cart/yellow-shopping-basket-2x.png 2x
+        "
+        media="(min-width: 768px)"
+      />
+      <source
+        srcset="
+          ./img/cart/yellow-shopping-basket-mobile.png    1x,
+          ./img/cart/yellow-shopping-basket-2x-mobile.png 2x
+        "
+        media="(max-width: 767px)"
+      />
+      <img
+        src="./img/cart/yellow-shopping-basket.png"
+        class="empty-cart-image"
+        alt="empty shopping cart"
+        width="132"
+      />
+    </picture>
+    <div class="empty-cart-container">
+      <p class="empty-cart-text">Your basket is <span>empty...</span></p>
+      <p class="empty-cart-instruction-text">
+        Go to the main page to select your favorite products and add them to the
+        cart.
+      </p>
+    </div>
+  </div>
+</section>

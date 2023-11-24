@@ -20,8 +20,11 @@
 @import url('./partials/product-list.css');
 @import url('./partials/popular-products.css');
 @import url('./partials/discounted-products.css');
+@import url('./partials/modal.css');
 
 @import url('./partials/footer.css');
 
 /*? Partials Cart */
 @import url('./partials/cart.css');
+@import url('./partials/empty-cart.css');
+@import url('./partials/success-order-modal.css');

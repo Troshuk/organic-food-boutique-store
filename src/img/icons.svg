@@ -18,6 +18,9 @@
     <symbol id="icon-arrow-down" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="3.2" d="m8 12 8 8 8-8"/>
     </symbol>
+    <symbol id="icon-arrow-left" viewBox="0 0 32 32">
+      <path fill="none" stroke="#a3a3a3" style="stroke:var(--color1, #a3a3a3)" stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M18.667 21.333 13.334 16l5.333-5.333"/>
+    </symbol>
     <symbol id="icon-arrow-right" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-width="2" d="M13.333 10.667 18.666 16l-5.333 5.333"/>
     </symbol>
