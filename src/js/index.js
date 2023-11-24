@@ -5,3 +5,4 @@ import './popular-products';
 import './discounted-products';
 import './footer';
 import './modal';
+import './modal-success';
