@@ -1,0 +1,282 @@
+@keyframes append-animate {
+    from {
+        transform: scale(0), translate(-50%, -50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1), translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+/* Клас приховати модалку  */
+
+.is-hidden {
+    display: none;
+}
+
+/* Модалка */
+
+.modal-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(1, 1, 1, 0.40);
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+}
+
+.modal {
+    position: absolute;
+    max-width: 335px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 535px;
+    padding: 40px 20px;
+    background: var(--color-white);
+    border: 2px solid var(--color-white);
+    border-radius: 20px;
+    animation: append-animate 0.3s linear;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+@media screen and (min-width: 767px) {
+    .modal {
+        max-width: 600px;
+        height: 380px;
+        padding: 40px;
+    }
+}
+
+/* Кнопка закриття модалки */
+
+.modal .modal-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+}
+
+@media screen and (min-width: 767px) {
+    .modal .modal-close-btn {
+        top: 24px;
+        right: 24px;
+
+    }
+}
+
+.modal-close-btn {
+    border-color: transparent;
+    background-color: transparent;
+    transition: var(--transition-funktion), var(--transition-time);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    fill: var(--color-dark-green);
+    cursor: pointer;
+}
+
+.modal-icon-close {
+    fill: var(--color-black);
+}
+
+@media screen and (min-width: 767px) {
+    .modal-icon-close {
+        width: 28px;
+        height: 28px;
+        padding: 0;
+    }
+}
+
+.modal-icon-close:hover,
+.modal-icon-close:focus {
+    stroke: var(--accent-color-light-theme);
+    fill: var(--accent-color-light-theme);
+    cursor: pointer;
+}
+
+/* Контейнер Зовбраження і текст */
+
+.modal-container {
+    display: inline-block;
+}
+
+@media screen and (min-width: 767px) {
+    .modal-container {
+        display: flex;
+        gap: 24px;
+
+    }
+}
+
+/* Зображення продукту */
+
+.modal-img {
+    max-width: 295px;
+    height: 212px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background: var(--color-light-grey);
+}
+
+@media screen and (min-width: 767px) {
+    .modal-img {
+        width: 240px;
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+}
+
+/* Заголовок */
+
+.modal-title {
+    color: var(--color-black);
+    font-family: var(--font-main);
+    font-size: 18px;
+    line-height: 1.11;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+@media screen and (min-width: 767px) {
+    .modal-title {
+        font-size: 20px;
+        line-height: 1.2;
+    }
+}
+
+/* контейнер для Категорій нижче заголовку*/
+
+.modal-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 9px 8px;
+}
+
+/* Категорії */
+
+.modal-subtitle {
+    color: rgba(1, 1, 1, 0.30);
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+    margin-right: 4px;
+}
+
+/* Властивість категорії */
+
+.modal-subtitle-info {
+    color: var(--color-black);
+    font-family: var(--font-main);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.16;
+}
+
+.modal-about-product {
+    color: rgba(1, 1, 1, 0.70);
+    font-family: var(--font-main);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+    margin-top: 20px;
+    max-width: 290px;
+}
+
+@media screen and (min-width: 767px) {
+    .modal-about-product {
+        font-size: 16px;
+        line-height: 1.25;
+        margin-top: 24px;
+    }
+}
+
+/* Контейнер для ціни і кнопки додати в корзину */
+
+.modal-price-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+@media screen and (min-width: 767px) {
+    .modal-price-container {
+        margin-top: 48px;
+    }
+}
+
+/* Ціна */
+
+.modal-price-product {
+    color: var(--color-black);
+    font-family: var(--font-main);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.11;
+}
+
+@media screen and (min-width: 767px) {
+    .modal-price-product {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 1.28;
+    }
+}
+
+/* Кнопка додати в кошик */
+
+.modal-btn {
+    color: var(--color-light-grey);
+    font-family: var(--font-main);
+    font-size: 14px;
+    line-height: 1.28;
+    font-weight: 500;
+    padding: 11px 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 30px;
+    background: var(--color-light-green);
+
+}
+
+@media screen and (min-width: 767px) {
+    .modal-btn {
+        font-size: 16px;
+        line-height: 1.25;
+        padding: 8.5px 28px;
+    }
+}
+
+.modal-btn:hover {
+    background-color: var(--color-dark-green);
+    color: var(--color-white);
+    cursor: pointer;
+    box-shadow: 0px 8px 43px 0px var(--color-dark-green);
+}
+
+.modal-btn:focus {
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.10);
+    background-color: var(--color-dark-green);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+.modal-icon-shop {
+    fill: var(--color-white);
+}
