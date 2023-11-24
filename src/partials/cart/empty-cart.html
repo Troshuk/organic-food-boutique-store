@@ -11,12 +11,28 @@
         <span>(0)</span>
       </h2>
     </div>
-    <img
-      class="empty-cart-image"
-      src="./img/cart/yellow-shopping-basket-mobile.png"
-      alt=""
-      width="132"
-    />
+    <picture>
+      <source
+        srcset="
+          ./img/cart/yellow-shopping-basket.png    1x,
+          ./img/cart/yellow-shopping-basket-2x.png 2x
+        "
+        media="(min-width: 768px)"
+      />
+      <source
+        srcset="
+          ./img/cart/yellow-shopping-basket-mobile.png    1x,
+          ./img/cart/yellow-shopping-basket-2x-mobile.png 2x
+        "
+        media="(max-width: 767px)"
+      />
+      <img
+        src="./img/cart/yellow-shopping-basket.png"
+        class="empty-cart-image"
+        alt="empty shopping cart"
+        width="132"
+      />
+    </picture>
     <div class="empty-cart-container">
       <p class="empty-cart-text">Your basket is <span>empty...</span></p>
       <p class="empty-cart-instruction-text">
