@@ -245,3 +245,57 @@
     gap: 149px;
   }
 }
+/*? -------------------------- MODAL-Footer -------------------------- */
+.modal-policy-container {
+  background-color: rgba(1, 1, 1, 0.4);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+.modal-privacy-policy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  max-width: 350px;
+  background-color: var(--color-light-green);
+  color: var(--color-light-grey);
+  padding: 20px 10px;
+}
+
+.is-hidden-policy {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.policy-name {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.policy-users {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.policy-text {
+  font-size: 12px;
+}
+
+.policy-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.policy-btn-close-icon {
+  width: 24px;
+  height: 24px;
+}
+.no-scroll {
+  overflow: hidden;
+}
