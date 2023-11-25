@@ -12,16 +12,47 @@
       </h2>
     </div>
 
-    <div class="cart-added-list">
-      <button class="cart-delete-button" type="button">
-        Delete all
-        <svg class="cart-delete-icon" width="24" height="24">
-          <use href="./img/icons.svg#icon-x-close"></use>
-        </svg>
-      </button>
-
-      <div class="cart-desctop-thumb">
+    <div class="cart-desctop-thumb">
+      <div class="cart-added-list">
+        <button class="cart-delete-button" type="button">
+          Delete all
+          <svg class="cart-delete-icon" width="24" height="24">
+            <use href="./img/icons.svg#icon-x-close"></use>
+          </svg>
+        </button>
         <ul class="cart-basket-list">
+          <li class="cart-basket-item">
+            <button class="cart-product-delete-button" type="button">
+              <svg class="cart-delete-product-icon" width="18" height="18">
+                <use href="./img/icons.svg#icon-x-close"></use>
+              </svg>
+            </button>
+            <div class="image-cart-thumb">
+              <img
+                class="cart-image"
+                src="https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3676.png"
+                alt=""
+                width="64"
+              />
+            </div>
+            <div class="cart-description-thumb">
+              <h3 class="cart-product-name">Avocado</h3>
+
+              <div class="cart-text-description-container">
+                <p class="cart-product-description">
+                  Category:
+                  <span class="category cart-description">Fresh Produce</span>
+                </p>
+
+                <p class="cart-product-description">
+                  Size:
+                  <span class="size cart-description">Each</span>
+                </p>
+              </div>
+              <span class="cart-price">$1.99</span>
+            </div>
+          </li>
+
           <li class="cart-basket-item">
             <button class="cart-product-delete-button" type="button">
               <svg class="cart-delete-product-icon" width="18" height="18">
@@ -114,34 +145,33 @@
             </div>
           </li>
         </ul>
+      </div>
 
-        <div class="total-order-thumb">
-          <p class="your-order-title">Your Order</p>
-
-          <div class="total-price-thumb">
-            <p class="cart-total-title">Total</p>
-            <p class="cart-sum">
-              Sum:
-              <span class="total-price"> $12,94</span>
-            </p>
-          </div>
-
-          <form class="checkout-field">
-            <label for="cart-client-email" class="cart-input-label">
-              <input
-                type="email"
-                pattern=".+@example\."
-                name="cart-client-email"
-                class="cart-basket-input"
-                id="cart-client-email"
-                placeholder="Enter your email"
-                required
-              />
-            </label>
-
-            <button type="submit" class="cart-submit-button">Checkout</button>
-          </form>
+      <div class="total-order-thumb">
+        <p class="your-order-title">Your Order</p>
+        <div class="total-price-thumb">
+          <p class="cart-total-title">Total</p>
+          <p class="cart-sum">
+            Sum:
+            <span class="total-price"> $12,94</span>
+          </p>
         </div>
+
+        <form class="checkout-field">
+          <label for="cart-client-email" class="cart-input-label">
+            <input
+              type="email"
+              pattern=".+@example\."
+              name="cart-client-email"
+              class="cart-basket-input"
+              id="cart-client-email"
+              placeholder="Enter your email"
+              required
+            />
+          </label>
+
+          <button type="submit" class="cart-submit-button">Checkout</button>
+        </form>
       </div>
     </div>
   </div>
