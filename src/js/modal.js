@@ -59,9 +59,8 @@ modalAddButton.addEventListener('click', async () => {
         const updatedCart = [...cart, { productId: productById, amount: 1 }];
         console.log('Product added to cart:', modalProductInCart);
         Storage.set(Storage.CART_KEY, updatedCart);
-    }
-    
-        changeModalBtn();
+    }  
+     changeModalBtn(modalProductInCart);
 }
   catch (error) {
     console.error('Error adding product to cart:', error.message);
@@ -69,21 +68,25 @@ modalAddButton.addEventListener('click', async () => {
 })
  
 
-function changeModalBtn() {
- modalAddButton.innerHTML = `
-    <button class="modal-btn">
-      ${modalProductInCart ? 'Removed from' : 'Add to'}
+ function changeModalBtn(value) {
+  const dataAction = value ? 'toRemove' : 'toAdd';
+  const buttonText = value ? 'Remove from' : 'Add to';
+  
+  const buttonMarkUp = `
+    <button class="modal-btn" data-action="${dataAction}">
+      ${buttonText}
       <svg class="modal-icon-shop" width="18" height="18">
         <use href="./img/icons.svg#icon-shopping-cart"></use>
       </svg>
     </button>`;
-
-  modalAddButton.classList.toggle('modal-btn-remove', modalProductInCart);
-  modalAddButton.classList.toggle('modal-btn', !modalProductInCart);
+   
+   modalAddButton.innerHTML = buttonMarkUp;
 }
+  
 
 
-changeModalBtn();
+
+
 
   
   function cleanModalEventListeners() {
