@@ -10,7 +10,13 @@
 .filters {
   margin-top: 100px;
 }
-
+.title-filter {
+  color: #0101014d;
+  font-family: 'Neue Montreal', sans-serif;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
 .input-modal-subscribe {
   padding: 14px 20px;
   border-radius: 30px;
@@ -18,11 +24,14 @@
   background: #e8e8e2;
   font-family: 'Neue Montrea', sans-serif;
   line-height: 1.2;
-  height: 50px;
+  height: 48px;
   max-width: 395px;
   width: 100%;
 }
-
+.input-modal-subscribe:focus,
+.input-modal-subscribe:hover {
+  border: 1px solid #6d8434;
+}
 .input-modal-subscribe::placeholder {
   font-family: 'Neue Montreal', sans-serif;
   font-size: 14px;
@@ -41,6 +50,7 @@
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
+  cursor: pointer;
 }
 .container-arrow {
   position: absolute;
@@ -56,7 +66,7 @@
 }
 .select-menu-category .select-btn-custom {
   display: flex;
-  height: 50px;
+  height: 48px;
   border: 1px solid rgba(1, 1, 1, 0.3);
   background: #e8e8e2;
   padding: 14px 20px;
@@ -96,7 +106,7 @@
 }
 .options .option-category {
   display: flex;
-  height: 50px;
+  height: 48px;
   cursor: pointer;
   padding: 0 16px;
 
@@ -120,7 +130,7 @@
 }
 .select-menu .select-btn {
   display: flex;
-  height: 50px;
+  height: 48px;
   background: #fafafa;
   padding-left: 20px;
   padding-top: 14px;
@@ -159,7 +169,7 @@
 }
 .options .option {
   display: flex;
-  height: 50px;
+  height: 48px;
   cursor: pointer;
   padding: 0 16px;
 
@@ -191,11 +201,22 @@
   font-size: 25px;
   margin-right: 12px;
 }
-.option .option-text {
+.option-category .option-text {
   font-size: 14px;
+  color: #01010180;
+}
+.option-category .option-text:hover,
+.option-category .option-text:focus {
   color: #010101;
 }
-
+.option .option-text {
+  font-size: 14px;
+  color: #01010180;
+}
+.option .option-text:hover,
+.option .option-text:focus {
+  color: #010101;
+}
 @media screen and (min-width: 768px) {
   .search-form {
     display: flex;
@@ -212,7 +233,8 @@
   }
 
   .input-modal-subscribe {
-    width: 229px;
+    width: 269px;
+    height: 52px;
   }
 
   .input-modal-subscribe::placeholder {
@@ -228,16 +250,19 @@
     margin-bottom: 0;
   }
   .select-menu-category .select-btn-custom {
-    width: 149px;
+    width: 189px;
+    height: 52px;
     font-size: 18px;
     margin-bottom: 0;
   }
   .select-menu {
     position: relative;
-    width: 160px;
+    width: 200px;
   }
   .select-menu .select-btn {
     font-size: 18px;
+    width: 200px;
+    height: 52px;
   }
   .options .option-category {
     width: 149px;
@@ -277,5 +302,20 @@
     width: 149px;
     font-size: 18px;
     margin-bottom: 0;
+  }
+  .input-modal-subscribe {
+    height: 50px;
+  }
+  .select-menu-category .select-btn-custom {
+    height: 50px;
+  }
+  .options .option-category {
+    height: 50px;
+  }
+  .select-menu .select-btn {
+    height: 50px;
+  }
+  .options .option {
+    height: 50px;
   }
 }
