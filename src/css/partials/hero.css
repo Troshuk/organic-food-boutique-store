@@ -9,6 +9,83 @@
   }
 }
 
+.hero-span {
+  display: inline-block;
+}
+.food-letter {
+  display: inline-block;
+  animation: rotateColor 4s infinite;
+  letter-spacing: -0.2em;
+}
+
+/* @keyframes bounceInUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} */
+
+@keyframes rotateColor {
+  0% {
+    /* transform: rotate(0deg); */
+    color: #6d8434;
+  }
+
+  25% {
+    /* transform: rotate(90deg); */
+    color: #ff5a5f;
+  }
+
+  50% {
+    /* transform: rotate(180deg); */
+    color: #00a699;
+  }
+
+  75% {
+    /* transform: rotate(270deg); */
+    color: #ffb400;
+  }
+
+  100% {
+    /* transform: rotate(360deg); */
+    color: #6d8434;
+  }
+}
+/* @keyframes blink {
+  0% {
+    color: #6d8434;
+  }
+  20% {
+    color: #495921;
+  }
+  40% {
+    color: #6f8732;
+  }
+  60% {
+    color: #9ec146;
+  }
+  80% {
+    color: #95b543;
+  }
+  100% {
+    color: #6d8434;
+  }
+}
+
+#foodText {
+  animation: blink 5s infinite;
+} */
+
 /* Mobile */
 .hero {
   margin-top: 72px;
@@ -63,7 +140,9 @@
   .hero {
     margin-top: 116px;
   }
-
+  .food-letter {
+    letter-spacing: -0.178em;
+  }
   .hero-icon {
     right: 10px;
     top: -30px;
@@ -97,7 +176,9 @@
   .hero {
     margin-top: 77px;
   }
-
+  .food-letter {
+    letter-spacing: -0.2em;
+  }
   .hero-image {
     width: 704px;
   }

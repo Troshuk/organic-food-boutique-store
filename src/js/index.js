@@ -1,4 +1,5 @@
 import './header';
+import './hero';
 import './filter';
 import './product-list';
 import './popular-products';
