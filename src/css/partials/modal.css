@@ -255,6 +255,7 @@
 
 }
 
+
 @media screen and (min-width: 767px) {
     .modal-btn {
         font-size: 16px;
@@ -267,11 +268,9 @@
     background-color: var(--color-dark-green);
     color: var(--color-white);
     cursor: pointer;
-    box-shadow: 0px 8px 43px 0px var(--color-dark-green);
 }
 
 .modal-btn:focus {
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.10);
     background-color: var(--color-dark-green);
     color: var(--color-white);
     cursor: pointer;
