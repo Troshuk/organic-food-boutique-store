@@ -255,6 +255,10 @@
   left: 0;
   height: 100%;
   width: 100%;
+  transform: scale(1);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-privacy-policy {
   position: absolute;
@@ -269,6 +273,7 @@
 }
 
 .is-hidden-policy {
+  transform: scale(0);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -296,6 +301,10 @@
   width: 24px;
   height: 24px;
 }
+.policy-btn-close-icon:hover,
+.policy-btn-close-icon:focus {
+  fill: var(--color-light-grey);
+}
 .no-scroll {
   overflow: hidden;
 }
@@ -309,6 +318,10 @@
   left: 0;
   height: 100%;
   width: 100%;
+  transform: scale(1);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .modal-subscribe {
   position: absolute;
@@ -323,11 +336,13 @@
 }
 
 .is-hidden-subscribe {
+  transform: scale(0);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 .is-hidden-not-subscribe {
+  transform: scale(0);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -342,10 +357,7 @@
   top: 5px;
   right: 5px;
 }
-.subscribe-btn-close-icon {
-  width: 24px;
-  height: 24px;
-}
+
 .no-scroll {
   overflow: hidden;
 }
