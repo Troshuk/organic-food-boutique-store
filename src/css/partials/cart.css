@@ -50,8 +50,6 @@
   width: 100px;
   height: 100px;
   background-color: var(--color-white);
-
-  
 }
 
 .cart-basket-item {
@@ -62,12 +60,11 @@
 
 .cart-basket-item:not(:last-child) {
   border-bottom: 1px solid rgba(1, 1, 1, 0.1);
- padding-bottom: 30px;
-
+  padding-bottom: 30px;
 }
 
 .cart-basket-item:not(:first-child) {
-padding-top: 30px; 
+  padding-top: 30px;
 }
 
 .cart-product-delete-button {
@@ -182,7 +179,6 @@ padding-top: 30px;
   font-weight: 500;
   line-height: 1.29;
   color: var(--color-light-grey);
-  /* margin-bottom: 80px; */
   width: 100%;
 }
 
@@ -190,6 +186,7 @@ padding-top: 30px;
 .cart-submit-button:focus {
   background-color: var(--color-dark-green);
 }
+
 
 /***** min-width: 768px *****/
 
@@ -221,26 +218,20 @@ padding-top: 30px;
     padding: 24px;
     width: 120px;
     height: 120px;
-    
   }
 
   .cart-basket-item {
     display: flex;
     gap: 40px;
-    /* padding-bottom: 40px; */
-    /* margin-bottom: 40px; */
   }
 
   .cart-basket-item:not(:last-child) {
-      /* border-bottom: 1px solid rgba(1, 1, 1, 0.1); */
-      padding-bottom: 40px;
-
+    padding-bottom: 40px;
   }
 
   .cart-basket-item:not(:first-child) {
-      padding-top: 40px;
+    padding-top: 40px;
   }
-
 
   .cart-delete-icon {
     width: 24px;
@@ -253,63 +244,59 @@ padding-top: 30px;
   }
 
   .cart-text-description-container {
-      gap: 16px;
-      margin-bottom: 44px;
+    gap: 16px;
+    margin-bottom: 44px;
   }
 
   .cart-price {
-      /* margin-bottom: 40px; */
-      font-size: 20px;
-      line-height: 1.2;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
   .cart-product-name {
-      font-size: 20px;
-      line-height: 1.2;
-      margin-bottom: 12px;
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 12px;
   }
 
   .cart-description {
-      color: var(--color-black);
-      font-size: 14px;
-      line-height: 1.29;
+    color: var(--color-black);
+    font-size: 14px;
+    line-height: 1.29;
   }
 
   .size.cart-description {
-
-      margin-bottom: 46px;
+    margin-bottom: 46px;
   }
 
   .your-order-title {
-      margin-top: 100px;
-      font-size: 32px;
-      line-height: 1;
+    margin-top: 100px;
+    font-size: 32px;
+    line-height: 1;
   }
 
   .total-price-thumb {
-      padding-left: 28px;
-      padding-right: 28px;
-      margin-bottom: 40px;
-      width: 590px;
+    padding-left: 28px;
+    padding-right: 28px;
+    margin-bottom: 40px;
+    width: 590px;
   }
 
   .cart-total-title {
-      font-size: 20px;
-      line-height: 1.2;
+    font-size: 20px;
+    line-height: 1.2;
   }
 
- 
-
   .total-price {
-      font-size: 32px;
-      line-height: 1;
+    font-size: 32px;
+    line-height: 1;
   }
 
   .cart-basket-input {
-      display: flex;
-      padding: 15px 20px;
-      margin-bottom: 0;
-      width: 359px;
+    display: flex;
+    padding: 15px 20px;
+    margin-bottom: 0;
+    width: 359px;
   }
 
   .checkout-field {
@@ -319,56 +306,47 @@ padding-top: 30px;
   }
 
   .cart-basket-input[placeholder] {
-      font-size: 18px;
-      line-height: 1.33;
+    font-size: 18px;
+    line-height: 1.33;
   }
 
   .cart-submit-button {
-      padding: 15px 65px;
-      font-size: 20px;
-      line-height: 1.2;
-      max-width: 215px;
+    padding: 15px 65px;
+    font-size: 20px;
+    line-height: 1.2;
+    max-width: 215px;
   }
-
-
 }
+
 
 /***** min-width: 1440px *****/
 
 @media screen and (min-width: 1440px) {
-    /* .cart .container {
-        display: flex;
-    } */
 
-    /* .cart-added-list {
-        display: flex;
-    } */
+  .cart-delete-button {
+    margin-bottom: 46px;
+  }
 
-    .cart-delete-button {
-        margin-bottom: 46px;
-    }
+  .cart-image {
+    width: 72px;
+    height: 72px;
+  }
 
-    .cart-image {
-        width: 72px;
-        height: 72px;
-    }
+  .cart-desctop-thumb {
+    display: flex;
+    justify-content: space-between;
+  }
 
-      .cart-desctop-thumb {
-        display: flex;
-        justify-content: space-between;
-        
-      }
+  .your-order-title {
+    margin-top: 0;
+  }
 
-      .your-order-title {
-        margin-top: 0;
-      }
+  .cart-basket-list {
+    margin-bottom: 100px;
+  }
 
-      .cart-basket-list {
-        margin-bottom: 100px;
-      }
-
-      .cart-basket-item {
-        width: 100%;
-        margin-right: 150px;
-      }
+  .cart-basket-item {
+    width: 100%;
+    margin-right: 150px;
+  }
 }
