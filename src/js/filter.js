@@ -12,12 +12,13 @@ function closeOtherDropdowns(currentDropdown) {
 
 const optionMenu = document.querySelector('.select-menu');
 const selectBtn = optionMenu.querySelector('.select-btn');
-const options = optionMenu.querySelectorAll('.option');
+const options = optionMenu.querySelectorAll('.options');
 const sBtn_text = optionMenu.querySelector('.sBtn-text');
 
-selectBtn.addEventListener('click', function () {
+selectBtn.addEventListener('click', function (event) {
   closeOtherDropdowns(optionMenu);
   optionMenu.classList.toggle('active');
+  event.stopPropagation();
 });
 
 optionMenu.addEventListener('click', function (event) {
@@ -34,9 +35,10 @@ const selectBtnCustom = optionCategory.querySelector('.select-btn-custom');
 const optionsCategory = optionCategory.querySelector('.options');
 const sBtn_textCategory = optionCategory.querySelector('.sBtn-text-select');
 
-selectBtnCustom.addEventListener('click', function () {
+selectBtnCustom.addEventListener('click', function (event) {
   closeOtherDropdowns(optionCategory);
   optionCategory.classList.toggle('active');
+  event.stopPropagation();
 });
 
 optionsCategory.addEventListener('click', function (event) {
@@ -48,22 +50,6 @@ optionsCategory.addEventListener('click', function (event) {
   }
 });
 
-document.addEventListener(
-  'click',
-  function (event) {
-    const isClickInsideOptionMenu = optionMenu.contains(event.target);
-    const isClickInsideOptionCategory = optionCategory.contains(event.target);
-
-    if (!isClickInsideOptionMenu && optionMenu.classList.contains('active')) {
-      optionMenu.classList.remove('active');
-    }
-
-    if (
-      !isClickInsideOptionCategory &&
-      optionCategory.classList.contains('active')
-    ) {
-      optionCategory.classList.remove('active');
-    }
-  },
-  false
-);
+document.addEventListener('click', function () {
+  closeOtherDropdowns(null);
+});

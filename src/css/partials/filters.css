@@ -65,14 +65,11 @@
   margin-bottom: 12px;
 }
 .select-menu-category .select-btn-custom {
-  display: flex;
-  height: 48px;
   border: 1px solid rgba(1, 1, 1, 0.3);
   background: #e8e8e2;
   padding: 14px 20px;
   font-size: 14px;
   border-radius: 30px;
-  align-items: center;
   cursor: pointer;
   justify-content: space-between;
   max-width: 395px;
@@ -90,8 +87,8 @@
   top: 100%;
   left: 0;
   width: 100%;
-  border-radius: 30px;
-  background: #fafafa;
+  border-radius: 15px;
+  background: #fff;
   display: none;
   z-index: 1;
   margin-top: 8px;
@@ -105,16 +102,24 @@
   transition: 0.3s;
 }
 .options .option-category {
-  display: flex;
-  height: 48px;
   cursor: pointer;
-  padding: 0 16px;
 
-  align-items: center;
-  background: #fafafa;
+  margin-bottom: 8px;
+
+  background: #fff;
 }
-.options .option-category:hover {
-  background: #fafafa;
+
+.options:last-child {
+  margin-bottom: 0;
+}
+.option-category:last-child {
+  margin-bottom: 0;
+}
+.option:last-child {
+  margin-bottom: 0;
+}
+.option {
+  background: #fff;
 }
 .option-category i {
   font-size: 25px;
@@ -129,15 +134,12 @@
   position: relative;
 }
 .select-menu .select-btn {
-  display: flex;
-  height: 48px;
-  background: #fafafa;
+  background: #fff;
   padding-left: 20px;
   padding-top: 14px;
   padding-bottom: 14px;
   font-size: 14px;
   border-radius: 30px;
-  align-items: center;
   cursor: pointer;
   justify-content: space-between;
   max-width: 395px;
@@ -157,8 +159,8 @@
   top: 100%;
   left: 0;
   width: 100%;
-  border-radius: 30px;
-  background: #fafafa;
+  border-radius: 15px;
+  background: #fff;
   display: none;
   z-index: 1;
   margin-top: 8px;
@@ -168,34 +170,38 @@
   display: block;
 }
 .options .option {
-  display: flex;
-  height: 48px;
   cursor: pointer;
   padding: 0 16px;
 
-  align-items: center;
-  background: #fafafa;
+  background: #fff;
+}
+.option {
+  margin-bottom: 8px;
+}
+.options {
+  padding-top: 14px;
+  padding-bottom: 14px;
 }
 .option-category:first-child {
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 .option-category:last-child {
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 .option:first-child {
-  border-top-right-radius: 30px;
-  border-top-left-radius: 30px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
 }
 
 .option:last-child {
-  border-bottom-right-radius: 30px;
-  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .options .option:hover {
-  background: #fafafa;
+  background: #fff;
 }
 .option i {
   font-size: 25px;
@@ -267,6 +273,12 @@
   .options .option-category {
     width: 149px;
   }
+  .option .option-text {
+    font-size: 18px;
+  }
+  .option-category .option-text {
+    font-size: 18px;
+  }
 }
 @media screen and (min-width: 1440px) {
   .input-modal-subscribe::placeholder {
@@ -287,10 +299,10 @@
   .select-menu {
     margin-left: 8px;
     margin-bottom: 0;
-    width: 160px;
+    width: 200px;
   }
   .select-menu .select-btn {
-    width: 160px;
+    width: 200px;
   }
   .select-menu-category .select-btn-custom {
     width: 149px;
@@ -303,19 +315,11 @@
     font-size: 18px;
     margin-bottom: 0;
   }
-  .input-modal-subscribe {
-    height: 50px;
+
+  .option .option-text {
+    font-size: 18px;
   }
-  .select-menu-category .select-btn-custom {
-    height: 50px;
-  }
-  .options .option-category {
-    height: 50px;
-  }
-  .select-menu .select-btn {
-    height: 50px;
-  }
-  .options .option {
-    height: 50px;
+  .option-category .option-text {
+    font-size: 18px;
   }
 }
