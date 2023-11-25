@@ -19,10 +19,75 @@ const popularProduct = document.querySelector('.popular-products-item');
 const popularProductBtn = document.querySelector('.basket-button');
 
 
-popularProduct.getProduct(id);
-popularProduct.addEventListener('click', (getPopularProducts)); 
-popularProductBtn.addEventListener('click', (e));
+// popularProduct.getProduct(id);
+// popularProduct.addEventListener('click', (getPopularProducts)); 
+// popularProductBtn.addEventListener('click', (e));
 
+
+
+// const galleryList = document.querySelector(".gallery");
+
+function createPopularProductList() {
+  return popularProduct
+      .map(({
+          _id,
+name,
+img,
+category,
+// price,
+size,
+// is10PercentOff,
+popularity }) => {
+      return `<li class="popular-products-item">
+  <div class="popular-products-img-container">
+        <img
+          class="${product.img}"
+          src="https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3676.png"
+          alt=""
+          width="56"
+          height="56"
+        />
+        <svg class="popular-products-discount-icon" width="20" height="20">
+          <use href="./img/icons.svg#icon-discount"></use>
+        </svg>
+      </div>
+
+      <div class="popular-products-description-thumb">
+        <h3 class="popular-products-name${product.name}">Askee</h3>
+
+        <button class="basket-button" type="button">
+          <svg class="popular-products-cart-icon" width="12" height="12">
+            <use href="./img/icons.svg#icon-shopping-cart"></use>
+          </svg>
+        </button>
+        <button class="basket-button-icon-check">
+          <svg class="popular-products-icon-check" width="12" height="12">
+            <use href="./img/icons.svg#icon-check"></use>
+          </svg>
+        </button>
+        <div class="popular-products-description-container">
+          <p class="popular-products-description">
+            Category:
+            <span class="${product.category} popular-description">Fresh Produce</span>
+          </p>
+
+          <p class="popular-products-description">
+            Size:
+            <span class="${product.size} popular-description">16 oz</span>
+          </p>
+
+          <p class="popular-products-description">
+            Popularity:
+            <span class="${product.popularity} popular-description">3</span>
+          </p>
+        </div>
+      </div>
+</li>`;
+    })
+    .join("");
+}
+
+popularProductsList.insertAdjacentHTML("beforeend", createPopularProductList());
 
 
 
