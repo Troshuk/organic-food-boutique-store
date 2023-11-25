@@ -1,6 +1,7 @@
 import FoodBotiqueApi from "./services/foodBoutiqueApi";
 import Storage from "./services/storage";
 
+
 const closeModalButton = document.querySelector('.modal-close-btn');
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
@@ -9,10 +10,10 @@ const modalTitle = document.querySelector('.modal-title');
 const modalCategory = document.getElementById('category');
 const modalSize = document.getElementById('size');
 const modalPopularity = document.getElementById('popularity');
-const modalDetailsText = document.querySelector('.modal-details')
 const modalAboutProduct = document.querySelector('.modal-about-product');
-const modalPriceProduct = document.querySelector('.modal-price-product');
-const modalAddButton = document.querySelector('.modal-btn')
+const modalPriceProduct = document.querySelector('.modal-price');
+const modalAddButton = document.querySelector('.modal-btn');
+const modalBtnText = document.querySelector('.modal-btn-text');
 
 
 modalAddButton.addEventListener('click', changeModalBtn);
@@ -22,7 +23,6 @@ document.addEventListener('keydown', escapeModalHandler);
 
 
 const productById = '640c2dd963a319ea671e383b';
-
 
 async function showProductDetails(productId) {
   try {
@@ -34,6 +34,7 @@ async function showProductDetails(productId) {
     modalSize.textContent = modalProduct.size;
     modalPopularity.textContent = modalProduct.popularity;
     modalAboutProduct.textContent = modalProduct.desc;
+    modalPriceProduct.textContent = modalProduct.price;
 
     return modalProduct.data;
 
@@ -68,27 +69,16 @@ modalAddButton.addEventListener('click', async () => {
 })
  
 
- function changeModalBtn(value) {
-  const dataAction = value ? 'toRemove' : 'toAdd';
-  const buttonText = value ? 'Remove from' : 'Add to';
-  
-  const buttonMarkUp = `
-    <button class="modal-btn" data-action="${dataAction}">
-      ${buttonText}
-      <svg class="modal-icon-shop" width="18" height="18">
-        <use href="./img/icons.svg#icon-shopping-cart"></use>
-      </svg>
-    </button>`;
-   
-   modalAddButton.innerHTML = buttonMarkUp;
+function changeModalBtn() {
+   if (modalProductInCart) {
+    modalBtnText.textContent = 'Remove from';
+    modalAddButton.setAttribute('data-action', 'remove');
+  } else {
+    modalBtnText.textContent = 'Add to';
+    modalAddButton.setAttribute('data-action', 'add');
+  }
 }
-  
 
-
-
-
-
-  
   function cleanModalEventListeners() {
     closeModalButton.removeEventListener('click', closeModalHandler);
     modalBackground.removeEventListener('click', closeModalHandler);
