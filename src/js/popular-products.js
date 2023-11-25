@@ -1,5 +1,6 @@
 import Cart from "./services/Cart";
 
+
 // const product = {
 //     _id: '',
 // }
@@ -15,14 +16,21 @@ import Cart from "./services/Cart";
 //   }
 const popularProductsList = document.querySelector('.popular-products-list');
 const popularProduct = document.querySelector('.popular-products-item');
-const popularProductBusketButton = document.querySelector('.popularProduct');
+const popularProductBtn = document.querySelector('.basket-button');
 
-popularProduct.addEventListener('click', getPopularProducts());
-popularProductBusketButton.addEventListener('click', (e)) = {
-    if(e.popularProductBusketButton.onclick) {
-        popular-products-cart-icon = popular-products-icon-check
-   }
-}
+
+popularProduct.getProduct(id);
+popularProduct.addEventListener('click', (getPopularProducts)); 
+popularProductBtn.addEventListener('click', (e));
+
+
+
+
+// popularProductBusketButton.addEventListener('click', (e)) = {
+//     if (e.popularProductBusketButton.onclick) {
+//         popular-products-cart-icon = popular-products-icon-check
+//    }
+// }
 
 //  static add(product, quantity = 1) {
 //     Cart.update(product, quantity);
