@@ -59,5 +59,5 @@ function onNotSubscribeClick() {
   refs.notSubscribeLink.classList.toggle('is-hidden-not-subscribe');
 }
 // =================MODAL WINDOW SUBSCRIBE TEXT
-const subscribeText = document.querySelector('.subscribe-text');
-subscribeText.innerHTML = `${}`;
+// const subscribeText = document.querySelector('.subscribe-text');
+// subscribeText.innerHTML = `${}`;
