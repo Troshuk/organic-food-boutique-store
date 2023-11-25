@@ -20,17 +20,18 @@ selectBtn.addEventListener('click', function () {
   optionMenu.classList.toggle('active');
 });
 
-options.forEach(option => {
-  option.addEventListener('click', function () {
-    let selectedOption = option.querySelector('.option-text').innerText;
+optionMenu.addEventListener('click', function (event) {
+  const clickedOption = event.target.closest('.option');
+  if (clickedOption) {
+    let selectedOption = clickedOption.querySelector('.option-text').innerText;
     sBtn_text.innerText = selectedOption;
     optionMenu.classList.remove('active');
-  });
+  }
 });
 
 const optionCategory = document.querySelector('.select-menu-category');
 const selectBtnCustom = optionCategory.querySelector('.select-btn-custom');
-const optionsCategory = optionCategory.querySelectorAll('.option-category');
+const optionsCategory = optionCategory.querySelector('.options');
 const sBtn_textCategory = optionCategory.querySelector('.sBtn-text-select');
 
 selectBtnCustom.addEventListener('click', function () {
@@ -38,26 +39,31 @@ selectBtnCustom.addEventListener('click', function () {
   optionCategory.classList.toggle('active');
 });
 
-optionsCategory.forEach(option => {
-  option.addEventListener('click', function () {
-    let selectedOption = option.querySelector('.option-text').innerText;
+optionsCategory.addEventListener('click', function (event) {
+  const clickedOption = event.target.closest('.option-category');
+  if (clickedOption) {
+    let selectedOption = clickedOption.querySelector('.option-text').innerText;
     sBtn_textCategory.innerText = selectedOption;
     optionCategory.classList.remove('active');
-  });
-});
-
-document.addEventListener('click', function (event) {
-  const isClickInsideOptionMenu = optionMenu.contains(event.target);
-  const isClickInsideOptionCategory = optionCategory.contains(event.target);
-
-  if (!isClickInsideOptionMenu && optionMenu.classList.contains('active')) {
-    optionMenu.classList.remove('active');
-  }
-
-  if (
-    !isClickInsideOptionCategory &&
-    optionCategory.classList.contains('active')
-  ) {
-    optionCategory.classList.remove('active');
   }
 });
+
+document.addEventListener(
+  'click',
+  function (event) {
+    const isClickInsideOptionMenu = optionMenu.contains(event.target);
+    const isClickInsideOptionCategory = optionCategory.contains(event.target);
+
+    if (!isClickInsideOptionMenu && optionMenu.classList.contains('active')) {
+      optionMenu.classList.remove('active');
+    }
+
+    if (
+      !isClickInsideOptionCategory &&
+      optionCategory.classList.contains('active')
+    ) {
+      optionCategory.classList.remove('active');
+    }
+  },
+  false
+);
