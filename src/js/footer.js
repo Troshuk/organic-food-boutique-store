@@ -10,6 +10,7 @@ const refs = {
   openModalSubscribe: document.querySelector('.js-modal-subscribe-open'),
   closeModalSubscribeBtn: document.querySelector('.js-subscribe-close'),
   subscribeLink: document.querySelector('.js-subscribe'),
+  subscribeText: document.querySelector('.subscribe-text'),
 
   openModalNotSubscribe: document.querySelector('.js-modal-not-subscribe-open'),
   closeModalNotSubscribeBtn: document.querySelector('.js-not-subscribe-close'),
@@ -57,3 +58,6 @@ refs.closeModalNotSubscribeBtn.addEventListener('click', onNotSubscribeClick);
 function onNotSubscribeClick() {
   refs.notSubscribeLink.classList.toggle('is-hidden-not-subscribe');
 }
+// =================MODAL WINDOW SUBSCRIBE TEXT
+const subscribeText = document.querySelector('.subscribe-text');
+subscribeText.innerHTML = `${}`;
