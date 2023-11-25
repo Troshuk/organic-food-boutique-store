@@ -1,39 +1,12 @@
-/*? -------------------------- Filters -------------------------- */
-.categories {
-  color: #010101;
-  padding: 14px 20px;
-  font-family: 'Neue Montreal', sans-serif;
-  font-size: 14px;
-  border-radius: 30px;
-  line-height: 1.2em;
-  width: 100%;
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>#icon-check');
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: right;
-  height: 50px;
+.icon-arrow-down {
+  fill: transparent;
+  stroke: currentColor;
 }
-
-.arrow-check {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
 .input-container {
   position: relative;
   margin-bottom: 12px;
 }
 
-.search-form {
-  max-width: 375px;
-}
 .filters {
   margin-top: 100px;
 }
@@ -42,72 +15,191 @@
   padding: 14px 20px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
-  color: #010101;
+  background: #e8e8e2;
   font-family: 'Neue Montrea', sans-serif;
-  line-height: 1.2em;
+  line-height: 1.2;
   height: 50px;
+  max-width: 395px;
+  width: 100%;
 }
 
 .input-modal-subscribe::placeholder {
   font-family: 'Neue Montreal', sans-serif;
   font-size: 14px;
   border-radius: 30px;
+  color: #010101;
 }
-
+.container-arrow-category {
+  position: absolute;
+  top: 46%;
+  bottom: 10px;
+  right: 10px;
+  transform: translateY(-50%);
+}
 .container-search-everything {
   position: absolute;
   top: 50%;
   right: 10px;
   transform: translateY(-50%);
 }
-
-.search-form {
-  display: flex;
-  flex-direction: column;
+.container-arrow {
+  position: absolute;
+  top: 46%;
+  bottom: 15%;
+  right: 10px;
+  transform: translateY(-50%);
 }
-
-.sort-element {
-  color: rgba(1, 1, 1, 0.5);
-  font-family: 'Neue Montreal', sans-serif;
-  font-size: 14px;
-
-  line-height: 1.5em;
-}
-
-.select-container {
-  max-width: 375px;
+/*? CUSTOM SELECT CATEGORY */
+.select-menu-category {
+  position: relative;
   margin-bottom: 12px;
 }
-
-.container-sort {
-  max-width: 375px;
-}
-
-.sort {
-  width: 100%;
-  background: #fafafa;
-  appearance: none;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6" /></svg>#icon-check');
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: right;
-  color: #010101;
+.select-menu-category .select-btn-custom {
+  display: flex;
+  height: 50px;
+  border: 1px solid rgba(1, 1, 1, 0.3);
+  background: #e8e8e2;
   padding: 14px 20px;
-  font-family: 'Neue Montreal', sans-serif;
   font-size: 14px;
   border-radius: 30px;
-  line-height: 1.5em;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  max-width: 395px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+.sBtn-text-select {
+  color: #010101;
+}
+.select-menu-category .select-btn-custom i {
+  transform: rotate(-180deg);
+}
+.select-menu-category .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-radius: 30px;
+  background: #fafafa;
+  display: none;
+  z-index: 1;
+  margin-top: 8px;
+}
+
+.select-menu-category.active .options {
+  display: block;
+}
+.select-btn-custom i {
+  font-size: 25px;
+  transition: 0.3s;
+}
+.options .option-category {
+  display: flex;
   height: 50px;
+  cursor: pointer;
+  padding: 0 16px;
+
+  align-items: center;
+  background: #fafafa;
+}
+.options .option-category:hover {
+  background: #fafafa;
+}
+.option-category i {
+  font-size: 25px;
+  margin-right: 12px;
+}
+.option-category .option-text {
+  font-size: 14px;
+  color: #010101;
+}
+/*? END CUSTOM SELECT CATEGORY */
+.select-menu {
+  position: relative;
+}
+.select-menu .select-btn {
+  display: flex;
+  height: 50px;
+  background: #fafafa;
+  padding-left: 20px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-size: 14px;
+  border-radius: 30px;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+  max-width: 395px;
+  width: 100%;
+  font-family: 'Neue Montreal', sans-serif;
+}
+.select-btn i {
+  font-size: 25px;
+  transition: 0.3s;
+}
+.select-menu.active .select-btn i {
+  transform: rotate(-180deg);
+}
+
+.select-menu .options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  border-radius: 30px;
+  background: #fafafa;
+  display: none;
+  z-index: 1;
+  margin-top: 8px;
+}
+
+.select-menu.active .options {
+  display: block;
+}
+.options .option {
+  display: flex;
+  height: 50px;
+  cursor: pointer;
+  padding: 0 16px;
+
+  align-items: center;
+  background: #fafafa;
+}
+.option-category:first-child {
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+}
+.option-category:last-child {
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+.option:first-child {
+  border-top-right-radius: 30px;
+  border-top-left-radius: 30px;
+}
+
+.option:last-child {
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.options .option:hover {
+  background: #fafafa;
+}
+.option i {
+  font-size: 25px;
+  margin-right: 12px;
+}
+.option .option-text {
+  font-size: 14px;
+  color: #010101;
 }
 
 @media screen and (min-width: 768px) {
   .search-form {
     display: flex;
     flex-direction: row;
-  }
-
-  .categories {
-    width: 149px;
   }
 
   .select-container {
@@ -119,26 +211,71 @@
     margin-bottom: 0;
   }
 
-  .sort {
-    width: 160px;
-    font-size: 18px;
-    line-height: 1.125em;
-  }
-
-  .categories {
-    font-size: 18px;
-    line-height: 1.125em;
-  }
-
   .input-modal-subscribe {
     width: 229px;
   }
 
   .input-modal-subscribe::placeholder {
     font-size: 18px;
-    line-height: 1.125em;
+    line-height: 1.125;
   }
-  .container-sort {
+  .select-menu-category {
     margin-left: 8px;
+    margin-bottom: 0;
+  }
+  .select-menu {
+    margin-left: 8px;
+    margin-bottom: 0;
+  }
+  .select-menu-category .select-btn-custom {
+    width: 149px;
+    font-size: 18px;
+    margin-bottom: 0;
+  }
+  .select-menu {
+    position: relative;
+    width: 160px;
+  }
+  .select-menu .select-btn {
+    font-size: 18px;
+  }
+  .options .option-category {
+    width: 149px;
+  }
+}
+@media screen and (min-width: 1440px) {
+  .input-modal-subscribe::placeholder {
+    font-size: 18px;
+  }
+  .select-menu-category .select-btn-custom {
+    margin-bottom: 0;
+  }
+  .select-container {
+    margin-bottom: 0;
+    margin-left: 8px;
+  }
+  .select-menu-category {
+    margin-left: 8px;
+    margin-bottom: 0;
+    width: 149px;
+  }
+  .select-menu {
+    margin-left: 8px;
+    margin-bottom: 0;
+    width: 160px;
+  }
+  .select-menu .select-btn {
+    width: 160px;
+  }
+  .select-menu-category .select-btn-custom {
+    width: 149px;
+  }
+  .select-menu {
+    position: relative;
+  }
+  .select-menu-category .select-btn-custom {
+    width: 149px;
+    font-size: 18px;
+    margin-bottom: 0;
   }
 }
