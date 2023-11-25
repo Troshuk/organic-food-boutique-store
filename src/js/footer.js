@@ -24,3 +24,5 @@ const refs = {
   function onTermsClick() {
     refs.termsLink.classList.toggle('is-hidden-policy');
   }
+
+  
