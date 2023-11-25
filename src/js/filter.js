@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Закрытие выпадающих списков при клике вне них
+  
   document.addEventListener('click', function (event) {
     const isClickInsideOptionMenu = optionMenu.contains(event.target);
     const isClickInsideOptionCategory = optionCategory.contains(event.target);
