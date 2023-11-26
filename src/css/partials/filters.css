@@ -43,13 +43,14 @@
 .container-arrow-category {
   position: absolute;
   top: 46%;
-  bottom: 15px;
+  bottom: 23%;
   right: 10px;
   transform: translateY(-50%);
 }
 .container-search-everything {
   position: absolute;
-  top: 50%;
+  top: 46%;
+  bottom: 23%;
   right: 10px;
   transform: translateY(-50%);
   cursor: pointer;
@@ -57,7 +58,7 @@
 .container-arrow {
   position: absolute;
   top: 46%;
-  bottom: 22%;
+  bottom: 23%;
   right: 10px;
   transform: translateY(-50%);
 }
