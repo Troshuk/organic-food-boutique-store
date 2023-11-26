@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
-  animateLetters();
-});
+animateLetters();
 
 function animateLetters() {
   const letters = document.querySelectorAll('.food-letter');
