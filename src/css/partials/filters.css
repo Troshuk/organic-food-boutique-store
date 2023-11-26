@@ -14,16 +14,14 @@
   color: #0101014d;
   font-family: 'Neue Montreal', sans-serif;
   font-size: 14px;
-  line-height: 1.2;
   margin-bottom: 8px;
+  line-height: 1.28;
 }
 .input-modal-subscribe {
   padding: 14px 20px;
   border-radius: 30px;
   border: 1px solid rgba(1, 1, 1, 0.3);
   background: #e8e8e2;
-  font-family: 'Neue Montrea', sans-serif;
-  line-height: 1.2;
   height: 48px;
   max-width: 395px;
   width: 100%;
@@ -35,7 +33,11 @@
 .input-modal-subscribe::placeholder {
   font-family: 'Neue Montreal', sans-serif;
   font-size: 14px;
-  border-radius: 30px;
+  color: #010101;
+  line-height: 1.28;
+}
+.sBtn-text-select {
+  line-height: 1.28;
   color: #010101;
 }
 .container-arrow-category {
@@ -71,14 +73,11 @@
   font-size: 14px;
   border-radius: 30px;
   cursor: pointer;
-  justify-content: space-between;
   max-width: 395px;
   width: 100%;
   margin-bottom: 8px;
 }
-.sBtn-text-select {
-  color: #010101;
-}
+
 .select-menu-category .select-btn-custom i {
   transform: rotate(-180deg);
 }
@@ -103,12 +102,16 @@
 }
 .options .option-category {
   cursor: pointer;
-
   margin-bottom: 8px;
-
   background: #fff;
+  padding-left: 20px;
 }
-
+.option-category:first-child {
+  padding-top: 14px;
+}
+.option-category:last-child {
+  padding-bottom: 14px;
+}
 .options:last-child {
   margin-bottom: 0;
 }
@@ -125,10 +128,7 @@
   font-size: 25px;
   margin-right: 12px;
 }
-.option-category .option-text {
-  font-size: 14px;
-  color: #010101;
-}
+
 /*? END CUSTOM SELECT CATEGORY */
 .select-menu {
   position: relative;
@@ -171,17 +171,20 @@
 }
 .options .option {
   cursor: pointer;
-  padding: 0 16px;
-
+  padding-left: 20px;
   background: #fff;
+  line-height: 1.28;
+}
+.option:first-child {
+  padding-top: 14px;
+}
+.option:last-child {
+  padding-bottom: 14px;
 }
 .option {
   margin-bottom: 8px;
 }
-.options {
-  padding-top: 14px;
-  padding-bottom: 14px;
-}
+
 .option-category:first-child {
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
@@ -203,13 +206,14 @@
 .options .option:hover {
   background: #fff;
 }
-.option i {
-  font-size: 25px;
-  margin-right: 12px;
+.sBtn-text {
+  line-height: 1.28;
+  color: #010101;
 }
 .option-category .option-text {
   font-size: 14px;
   color: #01010180;
+  line-height: 1.28;
 }
 .option-category .option-text:hover,
 .option-category .option-text:focus {
@@ -245,7 +249,7 @@
 
   .input-modal-subscribe::placeholder {
     font-size: 18px;
-    line-height: 1.125;
+    line-height: 1.3333;
   }
   .select-menu-category {
     margin-left: 8px;
@@ -258,7 +262,6 @@
   .select-menu-category .select-btn-custom {
     width: 189px;
     height: 52px;
-    font-size: 18px;
     margin-bottom: 0;
   }
   .select-menu {
@@ -270,14 +273,28 @@
     width: 200px;
     height: 52px;
   }
-  .options .option-category {
-    width: 149px;
-  }
+
   .option .option-text {
     font-size: 18px;
   }
   .option-category .option-text {
     font-size: 18px;
+    line-height: 1.3333;
+  }
+  .select-menu-category .select-btn-custom {
+    font-size: 18px;
+  }
+  .sBtn-text-select {
+    line-height: 1.3333;
+  }
+  .sBtn-text {
+    line-height: 1.3333;
+  }
+  .title-filter {
+    line-height: 1.3333;
+  }
+  .options .option {
+    line-height: 1.3333;
   }
 }
 @media screen and (min-width: 1440px) {
@@ -294,7 +311,11 @@
   .select-menu-category {
     margin-left: 8px;
     margin-bottom: 0;
-    width: 149px;
+    min-width: 149px;
+  }
+  .option-category .option-text {
+    font-size: 18px;
+    line-height: 1.3333;
   }
   .select-menu {
     margin-left: 8px;
@@ -303,23 +324,29 @@
   }
   .select-menu .select-btn {
     width: 200px;
+    line-height: 1.3333;
   }
   .select-menu-category .select-btn-custom {
-    width: 149px;
+    min-width: 149px;
   }
   .select-menu {
     position: relative;
   }
   .select-menu-category .select-btn-custom {
-    width: 149px;
+    min-width: 149px;
     font-size: 18px;
     margin-bottom: 0;
   }
 
   .option .option-text {
     font-size: 18px;
+    line-height: 1.3333;
   }
-  .option-category .option-text {
-    font-size: 18px;
+
+  .input-modal-subscribe::placeholder {
+    line-height: 1.3333;
+  }
+  .sBtn-text-select {
+    line-height: 1.3333;
   }
 }
