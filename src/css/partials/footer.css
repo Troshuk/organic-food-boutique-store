@@ -281,15 +281,15 @@
 
 .policy-name {
   margin-bottom: 20px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .policy-users {
   margin-bottom: 5px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .policy-text {
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .policy-btn {
@@ -349,10 +349,10 @@
 }
 
 .subscribe-text {
-  font-size: 10px;
+  font-size: 18px;
 }
 .not-subscribe-text{
-  font-size: 10px;
+  font-size: 18px;
 }
 .subscribe-btn {
   position: absolute;

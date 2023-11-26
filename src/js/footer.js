@@ -43,15 +43,11 @@ footerForm.addEventListener('submit', onFooterFormSubmit);
 function onFooterFormSubmit(e) {
   e.preventDefault();
   const formElements = e.currentTarget.elements;
-  const email = formElements.email.value;
+  const email = formElements.email;
 
   FoodBotiqueApi.subscribe(email)
     .then(onSubscribeClick)
     .catch(onNotSubscribeClick);
-}
-refs.closeModalSubscribeBtn.addEventListener('click', onSubscribeClick);
-function onSubscribeClick() {
-  refs.subscribeLink.classList.toggle('is-hidden-subscribe');
 }
 
 refs.closeModalNotSubscribeBtn.addEventListener('click', onNotSubscribeClick);
@@ -59,5 +55,8 @@ function onNotSubscribeClick() {
   refs.notSubscribeLink.classList.toggle('is-hidden-not-subscribe');
 }
 // =================MODAL WINDOW SUBSCRIBE TEXT
-// const subscribeText = document.querySelector('.subscribe-text');
-// subscribeText.innerHTML = `${}`;
+function onSubscribeClick({ message }) {
+  const subscribeText = document.querySelector('.subscribe-text');
+  subscribeText.innerHTML = message;
+  refs.subscribeLink.slassList.toggle('is-hidden-subscribe');
+}
