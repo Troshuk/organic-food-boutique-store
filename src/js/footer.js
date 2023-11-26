@@ -39,11 +39,6 @@ const footerForm = document.querySelector('.footer-subscribe-form');
 
 footerForm.addEventListener('submit', onFooterFormSubmit);
 
-function onSubscribeClick({ message }) {
-  const subscribeText = document.querySelector('.subscribe-text');
-  subscribeText.innerHTML = message;
-  refs.subscribeLink.classList.toggle('is-hidden-subscribe');
-}
 
 function onFooterFormSubmit(e) {
   e.preventDefault();
@@ -60,3 +55,10 @@ function onNotSubscribeClick() {
   refs.notSubscribeLink.classList.toggle('is-hidden-not-subscribe');
 }
 // =================MODAL WINDOW SUBSCRIBE TEXT
+
+function onSubscribeClick({ message }) {
+  const subscribeText = document.querySelector('.subscribe-text');
+  subscribeText.innerHTML = message;
+  refs.subscribeLink.classList.toggle('is-hidden-subscribe');
+}
+refs.closeModalSubscribeBtn.addEventListener('click', onSubscribeClick);
