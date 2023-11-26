@@ -4,6 +4,7 @@
 }
 
 .popular-products-section-title {
+  margin-top: 80px;
   margin-bottom: 20px;
   font-size: 24px;
   font-weight: 500;
@@ -138,6 +139,7 @@
   }
 
   .popular-products-section-title {
+    margin-top: 0;
     font-size: 28px;
     line-height: 1.14;
   }
@@ -170,6 +172,7 @@
   .popular-products {
     margin-top: 0;
   }
+
   .popular-products-name {
     line-height: 1.2;
   }
