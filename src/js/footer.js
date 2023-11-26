@@ -10,7 +10,6 @@ const refs = {
   openModalSubscribe: document.querySelector('.js-modal-subscribe-open'),
   closeModalSubscribeBtn: document.querySelector('.js-subscribe-close'),
   subscribeLink: document.querySelector('.js-subscribe'),
-  subscribeText: document.querySelector('.subscribe-text'),
 
   openModalNotSubscribe: document.querySelector('.js-modal-not-subscribe-open'),
   closeModalNotSubscribeBtn: document.querySelector('.js-not-subscribe-close'),
@@ -40,6 +39,12 @@ const footerForm = document.querySelector('.footer-subscribe-form');
 
 footerForm.addEventListener('submit', onFooterFormSubmit);
 
+function onSubscribeClick({ message }) {
+  const subscribeText = document.querySelector('.subscribe-text');
+  subscribeText.innerHTML = message;
+  refs.subscribeLink.classList.toggle('is-hidden-subscribe');
+}
+
 function onFooterFormSubmit(e) {
   e.preventDefault();
   const formElements = e.currentTarget.elements;
@@ -55,8 +60,3 @@ function onNotSubscribeClick() {
   refs.notSubscribeLink.classList.toggle('is-hidden-not-subscribe');
 }
 // =================MODAL WINDOW SUBSCRIBE TEXT
-function onSubscribeClick({ message }) {
-  const subscribeText = document.querySelector('.subscribe-text');
-  subscribeText.innerHTML = message;
-  refs.subscribeLink.slassList.toggle('is-hidden-subscribe');
-}
