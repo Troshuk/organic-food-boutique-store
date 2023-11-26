@@ -1,3 +1,17 @@
+const optionMenu = document.querySelector('.select-menu');
+const selectBtn = optionMenu.querySelector('.select-btn');
+const options = optionMenu.querySelectorAll('.options');
+const sBtn_text = optionMenu.querySelector('.sBtn-text');
+
+const optionCategory = document.querySelector('.select-menu-category');
+const selectBtnCustom = optionCategory.querySelector('.select-btn-custom');
+const optionsCategory = optionCategory.querySelector('.options');
+const sBtn_textCategory = optionCategory.querySelector('.sBtn-text-select');
+
+function closeDropDown() {
+  closeOtherDropdowns(null);
+}
+
 function closeOtherDropdowns(currentDropdown) {
   const allDropdowns = document.querySelectorAll(
     '.select-menu, .select-menu-category'
@@ -10,14 +24,13 @@ function closeOtherDropdowns(currentDropdown) {
   });
 }
 
-const optionMenu = document.querySelector('.select-menu');
-const selectBtn = optionMenu.querySelector('.select-btn');
-const options = optionMenu.querySelectorAll('.options');
-const sBtn_text = optionMenu.querySelector('.sBtn-text');
-
+// Click on sort dropdown
 selectBtn.addEventListener('click', function (event) {
+  // Close the other drop down
   closeOtherDropdowns(optionMenu);
   optionMenu.classList.toggle('active');
+  // Listener for clicks outside of the select to close it
+  document.addEventListener('click', closeDropDown);
   event.stopPropagation();
 });
 
@@ -29,11 +42,6 @@ optionMenu.addEventListener('click', function (event) {
     optionMenu.classList.remove('active');
   }
 });
-
-const optionCategory = document.querySelector('.select-menu-category');
-const selectBtnCustom = optionCategory.querySelector('.select-btn-custom');
-const optionsCategory = optionCategory.querySelector('.options');
-const sBtn_textCategory = optionCategory.querySelector('.sBtn-text-select');
 
 selectBtnCustom.addEventListener('click', function (event) {
   closeOtherDropdowns(optionCategory);
@@ -48,8 +56,4 @@ optionsCategory.addEventListener('click', function (event) {
     sBtn_textCategory.innerText = selectedOption;
     optionCategory.classList.remove('active');
   }
-});
-
-document.addEventListener('click', function () {
-  closeOtherDropdowns(null);
 });
