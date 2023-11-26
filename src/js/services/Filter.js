@@ -42,7 +42,7 @@ export default class Filter {
   }
 
   // Get list of discounted products [Promise]. Will fetch from storage when available
-  static async getDiscountedProducts() {
+  static async getDiscountedProducts(limit = 2) {
     let products = Storage.get(Storage.DISCOUNTED_PRODUCTS_KEY);
 
     // If products have not been loaded yet, fetch them from the API and store
@@ -55,7 +55,7 @@ export default class Filter {
       }
     }
 
-    return products ?? [];
+    return products.slice(0, limit) ?? [];
   }
 
   // Get list of popular products [Promise]. Will fetch from storage when available
@@ -76,23 +76,6 @@ export default class Filter {
 
     // Slice based on the requeted limit
     return products.slice(0, limit) ?? [];
-  }
-
-  // Get list of categories [Promise]. Will fetch from storage when available
-  static async getCategories() {
-    let categories = Storage.get(Storage.CATEGORIES_KEY);
-
-    // If categories have not been loaded yet, fetch them from the API and store
-    if (!categories) {
-      try {
-        categories = await FoodBotiqueApi.getCategories();
-        Storage.set(Storage.CATEGORIES_KEY, categories);
-      } catch (error) {
-        console.error('FoodBotiqueApi.getCategories error', error);
-      }
-    }
-
-    return categories ?? [];
   }
 
   // Overwrite enite filter object
