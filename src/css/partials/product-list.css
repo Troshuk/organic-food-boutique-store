@@ -22,10 +22,8 @@
   border-radius: 20px;
   padding: 20px;
   background: var(--color-white);
-  box-shadow:
-    0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-    0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
   transition-timing-function: var(--transition-function);
   transition-property: transform, box-shadow;
   transition-duration: var(--transition-time);
@@ -33,8 +31,7 @@
 
 .product-list-product__card:hover {
   transform: scale(1.03);
-  box-shadow:
-    0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
+  box-shadow: 0px 9.1px 16.53437px 0px rgba(0, 0, 0, 0.02),
     0px 41.6px 46.475px 0px rgba(0, 0, 0, 0.04),
     0px 105.3px 124.67812px 0px rgba(0, 0, 0, 0.05),
     0px 208px 286px 0px rgba(0, 0, 0, 0.07);
@@ -171,6 +168,37 @@
 .icon__arrow:is(:hover, :focus, :active) {
   stroke: var(--color-white);
 }
+/*?-----------------------------------Text-Box------------------*/
+
+.product-list__text__box {
+  max-width: 279px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  align-items: center;
+  padding-bottom: 180px;
+}
+.product-list__text__one {
+  text-align: center;
+  max-width: 261px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.text__one__span {
+  color: var(--color-light-green);
+}
+.product-list__text__two {
+  /* max-width: 279px; */
+  color: var(--black-transperent-max-color);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.is-hidden {
+  display: none;
+}
 
 /*? --------------------------Media-------------------------- */
 /* Tablet */
@@ -188,14 +216,6 @@
     max-width: 100%;
   }
 
-  .product-list-pagination__list {
-    max-width: 472px;
-  }
-
-  .product-list-page__numbers {
-    gap: 8px;
-  }
-
   .product-list-price__product,
   .product-list-name__product {
     font-size: 20px;
@@ -204,6 +224,33 @@
 
   .product-list-box__img {
     max-width: 296px;
+  }
+
+  /*?-----------------------------------Pagination------------------*/
+  .product-list-pagination__list {
+    max-width: 472px;
+  }
+
+  .product-list-page__numbers {
+    gap: 8px;
+  }
+  /*?-----------------------------------Text-Box------------------*/
+  .product-list__text__box {
+    padding-bottom: 300px;
+    margin: 0 auto;
+    max-width: 371px;
+    /* text-align: center; */
+  }
+  .product-list__text__one {
+    max-width: 367px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .product-list__text__two {
+    font-size: 18px;
+    line-height: 1.2;
   }
 }
 
@@ -237,5 +284,6 @@
 
   .product-list-info {
     flex-wrap: wrap;
+    max-width: 240px;
   }
 }
