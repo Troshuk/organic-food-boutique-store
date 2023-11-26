@@ -9,6 +9,37 @@
   }
 }
 
+.hero-span {
+  display: inline-block;
+}
+.food-letter {
+  display: inline-block;
+  animation: rotateColor 4s infinite;
+  letter-spacing: -0.2em;
+}
+
+@keyframes rotateColor {
+  0% {
+    color: #6d8434;
+  }
+
+  25% {
+    color: #ff5a5f;
+  }
+
+  50% {
+    color: #00a699;
+  }
+
+  75% {
+    color: #ffb400;
+  }
+
+  100% {
+    color: #6d8434;
+  }
+}
+
 /* Mobile */
 .hero {
   margin-top: 72px;
@@ -63,7 +94,9 @@
   .hero {
     margin-top: 116px;
   }
-
+  .food-letter {
+    letter-spacing: -0.178em;
+  }
   .hero-icon {
     right: 10px;
     top: -30px;
@@ -97,7 +130,9 @@
   .hero {
     margin-top: 77px;
   }
-
+  .food-letter {
+    letter-spacing: -0.2em;
+  }
   .hero-image {
     width: 704px;
   }
