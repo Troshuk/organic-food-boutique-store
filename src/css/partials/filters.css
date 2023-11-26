@@ -43,7 +43,7 @@
 .container-arrow-category {
   position: absolute;
   top: 46%;
-  bottom: 10px;
+  bottom: 15px;
   right: 10px;
   transform: translateY(-50%);
 }
@@ -57,7 +57,7 @@
 .container-arrow {
   position: absolute;
   top: 46%;
-  bottom: 15%;
+  bottom: 22%;
   right: 10px;
   transform: translateY(-50%);
 }
