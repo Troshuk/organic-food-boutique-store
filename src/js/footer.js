@@ -43,7 +43,7 @@ footerForm.addEventListener('submit', onFooterFormSubmit);
 function onFooterFormSubmit(e) {
   e.preventDefault();
   const formElements = e.currentTarget.elements;
-  const email = formElements.email;
+  const email = formElements.email.value;
 
   FoodBotiqueApi.subscribe(email)
     .then(onSubscribeClick)
