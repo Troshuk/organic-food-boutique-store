@@ -1,0 +1,1 @@
+import{u as o}from"./header-bbb5fbfb.js";n();function n(){document.querySelectorAll(".food-letter").forEach((t,e)=>{setTimeout(()=>{t.style.animation="none",t.offsetHeight,t.style.animation=null},e*100)})}const a=document.querySelector(".modal-close-btn"),c=document.querySelector(".modal-background");a.addEventListener("click",function(){c.classList.add("is-hidden")});o();
