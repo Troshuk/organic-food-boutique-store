@@ -37,9 +37,9 @@ export default class Cart {
   }
 
   // Remove product from cart
-  static delete(product) {
+  static delete(productId) {
     const cart = Cart.get();
-    const productIndex = Cart.#findProductIndex(cart.products, product._id);
+    const productIndex = Cart.#findProductIndex(cart.products, productId);
 
     if (productIndex !== null) {
       cart.products.splice(productIndex, 1);
@@ -48,9 +48,9 @@ export default class Cart {
   }
 
   // Get single product from cart if exists
-  static getProduct(product) {
+  static getProduct(productId) {
     const cart = Cart.get();
-    const productIndex = Cart.#findProductIndex(cart.products, product._id);
+    const productIndex = Cart.#findProductIndex(cart.products, productId);
 
     return productIndex !== null ? cart.products[productIndex] : null;
   }
