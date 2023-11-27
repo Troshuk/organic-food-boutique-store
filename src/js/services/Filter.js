@@ -92,6 +92,7 @@ export default class Filter {
     Storage.set(storageKey, {
       ...filter,
       keyword,
+      page: 1,
     });
   }
 
@@ -100,6 +101,7 @@ export default class Filter {
     Storage.set(storageKey, {
       ...filter,
       category,
+      page: 1,
     });
   }
 
@@ -116,6 +118,7 @@ export default class Filter {
     Storage.set(storageKey, {
       ...filter,
       limit,
+      page: 1,
     });
   }
 
