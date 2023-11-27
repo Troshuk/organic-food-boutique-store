@@ -10,13 +10,13 @@
     }
 }
 
-/* Клас приховати модалку  */
+/* Hide modal  */
 
 .is-hidden {
     display: none;
 }
 
-/* Модалка */
+/* Modal Window */
 
 .modal-background {
     position: fixed;
@@ -55,7 +55,7 @@
     }
 }
 
-/* Кнопка закриття модалки */
+/* Close Modal Button */
 
 .modal .modal-close-btn {
     position: absolute;
@@ -102,7 +102,7 @@
     cursor: pointer;
 }
 
-/* Контейнер Зовбраження і текст */
+/* Image and text container */
 
 .modal-container {
     display: inline-block;
@@ -116,7 +116,7 @@
     }
 }
 
-/* Зображення продукту */
+/* Product Image */
 
 .modal-img {
     max-width: 295px;
@@ -137,7 +137,7 @@
     }
 }
 
-/* Заголовок */
+/* Header */
 
 .modal-title {
     color: var(--color-black);
@@ -155,7 +155,7 @@
     }
 }
 
-/* контейнер для Категорій нижче заголовку*/
+/* Category header container */
 
 .modal-details {
     display: flex;
@@ -165,7 +165,7 @@
     gap: 9px 8px;
 }
 
-/* Категорії */
+/* Category */
 
 .modal-subtitle {
     color: rgba(1, 1, 1, 0.30);
@@ -176,8 +176,6 @@
     margin-right: 4px;
 }
 
-/* Властивість категорії */
-
 .modal-subtitle-info {
     color: var(--color-black);
     font-family: var(--font-main);
@@ -185,8 +183,6 @@
     font-weight: 400;
     line-height: 1.16;
 }
-
-/* про продукт опис */
 
 .modal-about-product {
     color: rgba(1, 1, 1, 0.70);
@@ -209,7 +205,7 @@
     }
 }
 
-/* Контейнер для ціни і кнопки додати в корзину */
+/* Price and add to cart */
 
 .modal-price-container {
     display: flex;
@@ -224,7 +220,7 @@
     }
 }
 
-/* Ціна */
+/* Price */
 
 .modal-price-product {
     color: var(--color-black);
@@ -242,7 +238,7 @@
     }
 }
 
-/* Кнопка додати в кошик */
+/* Add to basket */
 
 .modal-btn {
     color: var(--color-light-grey);
