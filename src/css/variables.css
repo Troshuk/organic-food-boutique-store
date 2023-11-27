@@ -1,33 +1,35 @@
 :root {
-    /*? Fonts */
-    --font-main: 'Neue Montreal', sans-serif;
+  /*? Fonts */
+  --font-main: 'Neue Montreal', sans-serif;
 
-    /*? Colors */
-    --color-light-grey: #E8E8E2;
-    --color-black: #010101;
-    --color-white: #FAFAFA;
-    --color-light-green: #6D8434;
-    --color-grey: #A3A3A3;
-    --color-dark-green: #586F1F;
-    --black-transperent-min-color: rgba(1, 1, 1, 0.07);
-    --black-transperent-meduim-color: rgba(1, 1, 1, 0.3);
-    --black-transperent-max-color: rgba(1, 1, 1, 0.7);
-    --white-transperent-min-color: rgba(232, 232, 226, 0.2);
-    --white-transperent-medium-color: rgba(232, 232, 226, 0.3);
-    --white-transperent-max-color: rgba(232, 232, 226, 0.6);
-    --yellow-4-everything-color: #FDC152;
+  /*? Colors */
+  --color-light-grey: #e8e8e2;
+  --color-black: #010101;
+  --color-white: #fafafa;
+  --color-light-green: #6d8434;
+  --color-grey: #a3a3a3;
+  --color-dark-green: #586f1f;
+  --black-transperent-min-color: rgba(1, 1, 1, 0.07);
+  --black-transperent-meduim-color: rgba(1, 1, 1, 0.3);
+  --black-transperent-max-color: rgba(1, 1, 1, 0.7);
+  --white-transperent-min-color: rgba(232, 232, 226, 0.2);
+  --white-transperent-medium-color: rgba(232, 232, 226, 0.3);
+  --white-transperent-max-color: rgba(232, 232, 226, 0.6);
+  --yellow-4-everything-color: #fdc152;
 
-    /*? Container device width options */
-    --mobile-container-width: 335px;
-    --tablet-container-width: 704px;
-    --desktop-container-width: 1240px;
+  /*? Container device width options */
+  --mobile-container-width: 335px;
+  --tablet-container-width: 704px;
+  --desktop-container-width: 1240px;
 
-    /*? Container configurations */
-    --container-width: var(--mobile-container-width);
-    --container-side-padding: 15px;
-    --container-max-width: calc(var(--container-width) + var(--container-side-padding) * 2);
+  /*? Container configurations */
+  --container-width: var(--mobile-container-width);
+  --container-side-padding: 15px;
+  --container-max-width: calc(
+    var(--container-width) + var(--container-side-padding) * 2
+  );
 
-    /*? Transition */
-    --transition-time: 250ms;
-    --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
+  /*? Transition */
+  --transition-time: 250ms;
+  --transition-function: cubic-bezier(0.4, 0, 0.2, 1);
 }

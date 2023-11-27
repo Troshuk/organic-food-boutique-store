@@ -44,6 +44,7 @@
   height: 24px;
   width: 24px;
   fill: var(--color-light-grey);
+  opacity: 0.8;
 }
 
 .footer-tagline {
@@ -245,6 +246,7 @@
     gap: 149px;
   }
 }
+
 /*? -------------------------- MODAL-Footer -------------------------- */
 .modal-policy-container {
   background-color: rgba(1, 1, 1, 0.4);
