@@ -1,5 +1,6 @@
-import FoodBotiqueApi from "./services/foodBoutiqueApi";
+// import FoodBotiqueApi from ".FoodBoutiqueApi";
 import Storage from "./services/storage";
+import openModalProductDetails from './services/OpenModal';
 
 
 const closeModalButton = document.querySelector('.modal-close-btn');
@@ -16,48 +17,46 @@ const modalAddButton = document.querySelector('.modal-btn');
 const modalBtnText = document.querySelector('.modal-btn-text');
 
 
+
 modalAddButton.addEventListener('click', changeModalBtn);
 closeModalButton.addEventListener('click', closeModalHandler);
 modalBackground.addEventListener('click', closeModalHandler);
 document.addEventListener('keydown', escapeModalHandler);
 
+modal.classList.add('is-hidden');
+modalBackground.classList.add('is-hidden');
 
-const productById = '640c2dd963a319ea671e383b';
 
-async function showProductDetails(productId) {
-  try {
-    const modalProduct = await FoodBotiqueApi.getProduct(productId);
-    console.log('Product:', modalProduct)
-    modalImg.innerHTML= `<img src="${modalProduct.img}" alt="photo of product" />`;
-    modalTitle.textContent = modalProduct.name;
-    modalCategory.textContent = modalProduct.category;
-    modalSize.textContent = modalProduct.size;
-    modalPopularity.textContent = modalProduct.popularity;
-    modalAboutProduct.textContent = modalProduct.desc;
-    modalPriceProduct.textContent = modalProduct.price;
 
-    return modalProduct.data;
+const productId = '640c2dd963a319ea671e383b';
 
-  }catch (error) {
-    console.error('Error fetching product data:', error.message);
-  }
-}
 
-showProductDetails(productById);
+// openModalProductDetails({
+//   productId,
+//   modal,
+//   modalBackground,
+//   modalImg,
+//   modalTitle,
+//   modalCategory,
+//   modalSize,
+//   modalPopularity,
+//   modalAboutProduct,
+//   modalPriceProduct
+// });
 
 let modalProductInCart;
 
 modalAddButton.addEventListener('click', async () => {
   try {
   const cart = Storage.get(Storage.CART_KEY) || [];
-  modalProductInCart = cart.some(item => item.productId === productById);
+  modalProductInCart = cart.some(item => item.productId === productId);
     if (modalProductInCart) {
-      const updatedCart = cart.filter(item => item.productId !== productById);
+      const updatedCart = cart.filter(item => item.productId !== productId);
       console.log('Product removed from cart:', modalProductInCart);
       Storage.set(Storage.CART_KEY, updatedCart);
       } else {
      
-        const updatedCart = [...cart, { productId: productById, amount: 1 }];
+        const updatedCart = [...cart, { productId: productId, amount: 1 }];
         console.log('Product added to cart:', modalProductInCart);
         Storage.set(Storage.CART_KEY, updatedCart);
     }  
@@ -99,5 +98,4 @@ function changeModalBtn() {
       closeModalHandler();
    }
 }
-
 

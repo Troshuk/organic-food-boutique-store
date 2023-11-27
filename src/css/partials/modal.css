@@ -186,6 +186,8 @@
     line-height: 1.16;
 }
 
+/* про продукт опис */
+
 .modal-about-product {
     color: rgba(1, 1, 1, 0.70);
     font-family: var(--font-main);
@@ -194,6 +196,9 @@
     line-height: 1.28;
     margin-top: 20px;
     max-width: 290px;
+    max-height: 80px;
+    overflow-x: auto;
+
 }
 
 @media screen and (min-width: 767px) {
