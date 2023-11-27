@@ -1,5 +1,5 @@
 // import FoodBotiqueApi from ".FoodBoutiqueApi";
-import Storage from "./services/storage";
+import Storage from "./services/Storage";
 import openModalProductDetails from './services/OpenModal';
 
 
