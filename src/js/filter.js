@@ -1,3 +1,7 @@
+import Filter from './services/Filter.js';
+import Storage from './services/Storage.js';
+import FoodBotiqueApi from './services/FoodBoutiqueApi.js';
+
 const optionMenu = document.querySelector('.select-menu');
 const selectBtn = optionMenu.querySelector('.select-btn');
 const options = optionMenu.querySelectorAll('.options');
@@ -57,3 +61,72 @@ optionsCategory.addEventListener('click', function (event) {
     optionCategory.classList.remove('active');
   }
 });
+
+const ul = optionsCategory;
+ul.innerHTML = '';
+
+const categories = await Filter.getCategories();
+
+categories.forEach(category => {
+  const li = document.createElement('li');
+  li.className = 'option-category';
+
+  const span = document.createElement('span');
+  span.className = 'option-text';
+  span.textContent = category;
+
+  li.appendChild(span);
+  ul.appendChild(li);
+});
+
+const showAllOption = createShowAllOption();
+ul.appendChild(showAllOption);
+
+function createOption(optionName) {
+  const li = document.createElement('li');
+  li.className = 'option-category';
+
+  const span = document.createElement('span');
+  span.className = 'option-text';
+  span.textContent = optionName;
+
+  li.appendChild(span);
+  return li;
+}
+
+function createShowAllOption(optionName) {
+  const showAllOption = document.createElement('li');
+  showAllOption.className = 'option-category';
+
+  const span = document.createElement('span');
+  span.className = 'option-text';
+  span.textContent = optionName;
+
+  showAllOption.appendChild(span);
+  return showAllOption;
+}
+
+const searchIcon = document.getElementById('search-icon');
+const searchInput = document.getElementById('search-item');
+
+searchIcon.addEventListener('click', async function () {
+  const keyword = searchInput.value.trim();
+
+  if (keyword) {
+    Filter.setKeyword(keyword);
+
+    await updateContentBasedOnSearch();
+  }
+});
+
+async function updateContentBasedOnSearch() {
+  const filter = Filter.get();
+
+  try {
+    const products = await FoodBotiqueApi.getProducts(filter);
+
+    console.log('Fetched Products:', products);
+  } catch (error) {
+    console.error('Error fetching products:', error);
+  }
+}
