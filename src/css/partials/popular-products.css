@@ -112,6 +112,8 @@
 .popular-products-icon-check {
   fill: transparent;
   stroke: var(--color-light-grey);
+
+  display: none;
 }
 
 .basket-button-icon-check {
