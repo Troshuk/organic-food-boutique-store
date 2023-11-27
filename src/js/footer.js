@@ -1,4 +1,4 @@
-import FoodBotiqueApi from './services/foodBoutiqueApi';
+import FoodBotiqueApi from './services/FoodBoutiqueApi';
 
 // MODAL WINDOW
 const refs = {
