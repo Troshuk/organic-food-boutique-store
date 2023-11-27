@@ -1,0 +1,36 @@
+.scroll-up {
+  display: none;
+
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  fill: var(--color-grey);
+
+  border: 2px solid var(--color-grey);
+  background-color: var(--color-light-grey);
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 200ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 100ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.scroll-icon {
+  height: 25px;
+  width: 30px;
+}
+.scroll-up:hover {
+  fill: var(--color-dark-green);
+  border: 3px solid var(--color-dark-green);
+  transform: scale(1.2);
+}
+.scroll-up-is-hidden {
+  display: block;
+}
+
+@media screen and (min-width: 1440px) {
+  .scroll-up {
+    bottom: 30px;
+    right: 30px;
+  }
+}
