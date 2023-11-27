@@ -246,3 +246,125 @@
     gap: 149px;
   }
 }
+
+/*? -------------------------- MODAL-Footer -------------------------- */
+.modal-policy-container {
+  background-color: rgba(1, 1, 1, 0.4);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scale(1);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-privacy-policy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  max-width: 550px;
+  width: 100%;
+  padding: 80px 50px;
+  background-color: var(--color-light-green);
+  color: var(--color-light-grey);
+}
+
+.is-hidden-policy {
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.policy-name {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.policy-users {
+  margin-bottom: 5px;
+  font-size: 16px;
+}
+
+.policy-text {
+  font-size: 16px;
+}
+
+.policy-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.policy-btn-close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.policy-btn-close-icon:hover,
+.policy-btn-close-icon:focus {
+  fill: var(--color-light-grey);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/* ----------------- MODAL SUBSCRIBE --> */
+.modal-subscribe-container {
+  background-color: rgba(1, 1, 1, 0.4);
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transform: scale(1);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-subscribe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  max-width: 550px;
+  width: 100%;
+  padding: 80px 50px;
+  background-color: var(--color-light-green);
+  color: var(--color-light-grey);
+}
+
+.is-hidden-subscribe {
+  transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none;
+}
+
+.subscribe-text {
+  font-size: 18px;
+}
+
+.subscribe-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
