@@ -1,0 +1,1 @@
+import{u as c}from"./footer-71530cf0.js";const e=document.querySelector(".success-modal-close-btn"),s=document.querySelector(".success-blackdrop");e.addEventListener("click",function(){s.classList.add("is-hidden")});c();
