@@ -1,9 +1,10 @@
 import FoodBotiqueApi from './services/FoodBoutiqueApi';
 import Filter from './services/Filter';
 import Cart from './services/Cart';
+import updateCartItemCount from './header';
+import openModalProductDetails from './modal';
 const listAllProducts = document.querySelector('.product-list-product__list');
 const sectionAllProducts = document.querySelector('.all-products');
-const modal = document.querySelector('.modal-background');
 const markupTextBox = `<div class="product-list__text__box">
     <p class="product-list__text__one">
       Nothing was found for the selected
@@ -14,49 +15,87 @@ const markupTextBox = `<div class="product-list__text__box">
       to find the perfect product for you.
     </p>
   </div>`;
-let productCard;
-function changeBtn() {
-  productCard = document.querySelectorAll('.product-list-product__card');
-  const addedButtons = document.querySelectorAll('.product-list-button__card');
+// let productCard;
+// function changeBtn() {
+//   productCard = document.querySelectorAll('.product-list-product__card');
+//   const addedButtons = document.querySelectorAll('.product-list-button__card');
 
-  addedButtons.forEach(async addedButton => {
-    const button = addedButton;
-    const productCard = button.closest('.product-list-product__card');
-    const productId = productCard.id;
-    const product = await FoodBotiqueApi.getProduct(productId);
+//   addedButtons.forEach(async addedButton => {
+//     const button = addedButton;
+//     const productCard = button.closest('.product-list-product__card');
+//     const productId = productCard.id;
+//     const product = await FoodBotiqueApi.getProduct(productId);
 
-    const isInCart = Cart.getProduct(product);
+//     const isInCart = Cart.getProduct(product);
 
-    if (isInCart) {
-      button.style.display = 'none';
-      const addedButton = productCard.querySelector(
-        '.product-list-button__card-added'
-      );
-      addedButton.style.display = 'block';
+//     if (isInCart) {
+//       button.style.display = 'none';
+//       const addedButton = productCard.querySelector(
+//         '.product-list-button__card-added'
+//       );
+//       addedButton.style.display = 'block';
+//     }
+//     addedButton.addEventListener('click', async event => {
+//       const button = event.currentTarget;
+//       const productCard = button.closest('.product-list-product__card');
+//       const productId = productCard.id;
+//       const product = await FoodBotiqueApi.getProduct(productId);
+
+//       if (product) {
+//         const isInCart = await Cart.getProduct(product);
+
+//         if (isInCart) {
+//           Cart.update(product, isInCart.amount + 1);
+//         } else {
+//           Cart.add(product);
+//           button.style.display = 'none';
+//           const addedButton = productCard.querySelector(
+//             '.product-list-button__card-added'
+//           );
+//           addedButton.style.display = 'block';
+//         }
+//       }
+//     });
+//   });
+// }
+function changeBtn(results) {
+  listAllProducts.addEventListener('click', ({ target }) => {
+    const cartElement = target.closest('LI');
+    const cartButton = target.closest('BUTTON');
+
+    if (cartElement?.nodeName !== 'LI') {
+      return;
     }
-    addedButton.addEventListener('click', async event => {
-      const button = event.currentTarget;
-      const productCard = button.closest('.product-list-product__card');
-      const productId = productCard.id;
-      const product = await FoodBotiqueApi.getProduct(productId);
 
-      if (product) {
-        const isInCart = await Cart.getProduct(product);
+    const productId = cartElement.dataset.productId;
 
-        if (isInCart) {
-          Cart.update(product, isInCart.amount + 1);
-        } else {
-          Cart.add(product);
-          button.style.display = 'none';
-          const addedButton = productCard.querySelector(
-            '.product-list-button__card-added'
-          );
-          addedButton.style.display = 'block';
-        }
+    if (cartButton?.nodeName !== 'BUTTON') {
+      openModalProductDetails(productId, reRenderCartIcon);
+      return;
+    }
+
+    if (cartButton?.nodeName === 'BUTTON') {
+      const isProductInCart = !!Cart.getProduct(productId);
+
+      if (isProductInCart) {
+        Cart.delete(productId);
+      } else {
+        Cart.add(results.find(e => e._id === productId));
       }
-    });
+
+      updateCartItemCount();
+      const addBtn = cartButton.querySelector('.product-list-icon__btn');
+      const checkBtn = cartButton.querySelector(
+        '.product-list-icon__btn-added'
+      );
+
+      addBtn.style.display = isProductInCart ? 'block' : 'none';
+      checkBtn.style.display = isProductInCart ? 'none' : 'block';
+    }
   });
 }
+
+function reRenderCartIcon(isProductInCart) {}
 
 function renderProductCards(arr) {
   const markup = arr
@@ -69,7 +108,7 @@ function renderProductCards(arr) {
         price,
         size,
         popularity,
-      }) => `<li class="product-list-product__card" id=${_id}>
+      }) => `<li class="product-list-product__card" data-product-id=${_id}>
       <svg class="product-list-icon-discount" width="60" height="60">
         <use href="./img/icons.svg#icon-discount"></use>
       </svg>
@@ -106,18 +145,15 @@ function renderProductCards(arr) {
           <svg class="product-list-icon__btn" width="18" height="18">
             <use href="./img/icons.svg#icon-shopping-cart"></use>
           </svg>
-        </button>
-        <button type="button" class="product-list-button__card-added">
           <svg class="product-list-icon__btn-added" width="18" height="18">
             <use href="./img/icons.svg#icon-check"></use>
           </svg>
-        </button>
+         </button>
       </div>
     </li>`
     )
     .join('');
   listAllProducts.innerHTML = markup;
-  changeBtn();
 }
 
 // function fetchProducts() {
@@ -220,6 +256,7 @@ async function fetchProducts() {
     const { results } = await FoodBotiqueApi.getProducts(Filter.get());
     if (results.length >= 1) {
       renderProductCards(results);
+      changeBtn(results);
     } else {
       listAllProducts.classList.add('is-hidden');
       sectionAllProducts.innerHTML = markupTextBox;

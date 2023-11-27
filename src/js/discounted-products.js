@@ -26,6 +26,7 @@ Filter.getDiscountedProducts().then(products => {
   listElement.addEventListener('click', ({ target }) => {
     const cartElement = target.closest('LI');
     const cartButton = target.closest('BUTTON');
+    console.log(cartButton);
 
     if (cartElement?.nodeName !== 'LI') {
       return;

@@ -97,7 +97,7 @@
   transition: background-color var(--transition-time) var(--transition-function);
 }
 
-.product-list-button__card-added {
+.product-list-icon__btn-added {
   display: none;
 }
 
