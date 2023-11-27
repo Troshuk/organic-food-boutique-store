@@ -49,7 +49,6 @@
 
 .popular-products-description-container {
   display: flex;
-
   gap: 8px;
   flex-wrap: wrap;
   width: 152px;
@@ -74,8 +73,6 @@
   top: 0;
   transform: translateX(35%);
   display: flex;
-
-  display: none;
 }
 
 .basket-button {
@@ -152,10 +149,6 @@
 
   .popular-products-item {
     width: 275px;
-  }
-
-  .popular-products-description-container {
-    gap: 9px;
   }
 
   .popular-products-name {

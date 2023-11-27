@@ -26,7 +26,6 @@ Filter.getDiscountedProducts().then(products => {
   listElement.addEventListener('click', ({ target }) => {
     const cartElement = target.closest('LI');
     const cartButton = target.closest('BUTTON');
-    console.log(cartButton);
 
     if (cartElement?.nodeName !== 'LI') {
       return;
@@ -60,7 +59,7 @@ Filter.getDiscountedProducts().then(products => {
 
 function reRenderCartIcon(productId) {
   const productCard = document.querySelector(
-    `[data-product-id="${productId}"]`
+    `.discount-item[data-product-id="${productId}"]`
   );
   const isProductInCart = !!Cart.getProduct(productId);
 
@@ -89,7 +88,7 @@ function createProductCard({ _id, img, name, price }) {
    </div>
    <div class="discount-info-container">
         <h3 class="discount-product-name">${name}</h3>
-        <p class="discount-product-price">$${price}</p>
+        <p class="discount-product-price">$${price.toFixed(2)}</p>
         <button type="button" class="discount-btn">
             <svg class="discount-button-icon-cart" width="18" height="18">
                 <use href="./img/icons.svg#icon-shopping-cart"></use>

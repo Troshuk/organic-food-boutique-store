@@ -58,7 +58,7 @@ function changeBtn(results) {
 
 function reRenderCartIcon(productId) {
   const productCard = document.querySelector(
-    `[data-product-id="${productId}"]`
+    `.product-list-product__card[data-product-id="${productId}"]`
   );
   const isProductInCart = !!Cart.getProduct(productId);
 
@@ -68,7 +68,7 @@ function reRenderCartIcon(productId) {
     isProductInCart ? 'block' : 'none';
 }
 
-function renderProductCards({ page, perPage, totalPages, results }) {
+function renderProductCards({ page, totalPages, results }) {
   const markup = results
     .map(
       ({
@@ -120,7 +120,7 @@ function renderProductCards({ page, perPage, totalPages, results }) {
         </div>
       </div>
       <div class="product-list-price__btn">
-        <p class="product-list-price__product">${price}</p>
+        <p class="product-list-price__product">$${price.toFixed(2)}</p>
         <button type="button" class="product-list-button__card">
           <svg
             class="product-list-icon__btn"
@@ -232,7 +232,7 @@ function renderProductCards({ page, perPage, totalPages, results }) {
   }
 }
 
-async function fetchProducts() {
+export default async function fetchProducts() {
   try {
     const data = await FoodBotiqueApi.getProducts(Filter.get());
 
@@ -246,5 +246,3 @@ async function fetchProducts() {
     console.error(error);
   }
 }
-
-fetchProducts();
