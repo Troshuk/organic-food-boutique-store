@@ -6,6 +6,7 @@ import openModalProductDetails from './modal';
 const popularProductContainer = document.querySelector(
   '.popular-products-container'
 );
+
 Filter.getPopularProducts().then(products => {
   const productElements = products.map(createProductItem);
   const listElement = document.createElement('ul');
@@ -14,8 +15,6 @@ Filter.getPopularProducts().then(products => {
   productElements.map(cartElement => {
     const productId = cartElement.dataset.productId;
     const isProductInCart = !!Cart.getProduct(productId);
-
-    changeCartIcon(isProductInCart);
 
     cartElement.querySelector('.basket-button').style.display = isProductInCart
       ? 'none'
@@ -39,7 +38,7 @@ Filter.getPopularProducts().then(products => {
     const productId = cartElement.dataset.productId;
 
     if (cartButton?.nodeName !== 'BUTTON') {
-      openModalProductDetails(productId, changeCartIcon);
+      openModalProductDetails(productId, reRenderCartIcon);
       return;
     }
 
@@ -62,10 +61,17 @@ Filter.getPopularProducts().then(products => {
   });
 });
 
-function changeCartIcon(isProductInCart) {
-  // const basketBtn = cartElement.querySelector('basket-button');
-  // const checkBtn = cartElement.querySelector('basket-button-icon-check');
-  //  isProductInCart ? basketBtn.style.display = 'none' : checkBtn.style.display = 'block';
+function reRenderCartIcon(productId) {
+  const productCard = document.querySelector(
+    `.popular-products-item[data-product-id="${productId}"]`
+  );
+  const isProductInCart = !!Cart.getProduct(productId);
+
+  productCard.querySelector('.basket-button').style.display = isProductInCart
+    ? 'none'
+    : 'block';
+  productCard.querySelector('.basket-button-icon-check').style.display =
+    isProductInCart ? 'block' : 'none';
 }
 
 function createProductItem({
@@ -92,33 +98,33 @@ function createProductItem({
 
     <div class="popular-products-description-thumb">
       <h3 class="popular-products-name">${name}</h3>
-          <button class="basket-button" type="button">
-          <svg class="popular-products-cart-icon" width="12" height="12">
-            <use href="./img/icons.svg#icon-shopping-cart"></use>
-          </svg>
-        </button>
-        <button class="basket-button-icon-check">
-          <svg class="popular-products-icon-check" width="12" height="12">
-            <use href="./img/icons.svg#icon-check"></use>
-          </svg>
-        </button> 
-
-        
+      <button class="basket-button" type="button">
+        <svg class="popular-products-cart-icon" width="12" height="12">
+          <use href="./img/icons.svg#icon-shopping-cart"></use>
+        </svg>
+      </button>
+      <button class="basket-button-icon-check">
+        <svg class="popular-products-icon-check" width="12" height="12">
+          <use href="./img/icons.svg#icon-check"></use>
+        </svg>
+      </button> 
 
       <div class="popular-products-description-container">
         <p class="popular-products-description">
           Category:
-          <span class="category popular-description">${category}</span>
+          <span class="popular-description">
+            ${category.replaceAll('_', ' ')}
+          </span>
         </p>
 
         <p class="popular-products-description">
           Size:
-          <span class="size popular-description">${size}</span>
+          <span class="popular-description">${size}</span>
         </p>
 
         <p class="popular-products-description">
           Popularity:
-          <span class="popularity popular-description">${popularity}</span>
+          <span class="popular-description">${popularity}</span>
         </p>
       </div>
     </div>
