@@ -58,11 +58,11 @@ Filter.getDiscountedProducts().then(products => {
 });
 
 function reRenderCartIcon(isProductInCart) {
-  //   const cartButton = target.closest('BUTTON');
-  //   cartButton.querySelector('.discount-button-icon-cart').style.display =
-  //     isProductInCart ? 'block' : 'none';
-  //   cartButton.querySelector('.discount-button-icon-check').style.display =
-  //     isProductInCart ? 'none' : 'block';
+    const cartButton = target.closest('BUTTON');
+    cartButton.querySelector('.discount-button-icon-cart').style.display =
+      isProductInCart ? 'block' : 'none';
+    cartButton.querySelector('.discount-button-icon-check').style.display =
+      isProductInCart ? 'none' : 'block';
 }
 
 function createProductCard({ _id, img, name, price }) {
