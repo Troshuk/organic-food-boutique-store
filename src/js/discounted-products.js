@@ -26,6 +26,7 @@ Filter.getDiscountedProducts().then(products => {
   listElement.addEventListener('click', ({ target }) => {
     const cartElement = target.closest('LI');
     const cartButton = target.closest('BUTTON');
+    console.log(cartButton);
 
     if (cartElement?.nodeName !== 'LI') {
       return;
@@ -57,12 +58,16 @@ Filter.getDiscountedProducts().then(products => {
   });
 });
 
-function reRenderCartIcon(isProductInCart) {
-  //   const cartButton = target.closest('BUTTON');
-  //   cartButton.querySelector('.discount-button-icon-cart').style.display =
-  //     isProductInCart ? 'block' : 'none';
-  //   cartButton.querySelector('.discount-button-icon-check').style.display =
-  //     isProductInCart ? 'none' : 'block';
+function reRenderCartIcon(productId) {
+  const productCard = document.querySelector(
+    `[data-product-id="${productId}"]`
+  );
+  const isProductInCart = !!Cart.getProduct(productId);
+
+  productCard.querySelector('.discount-button-icon-cart').style.display =
+    isProductInCart ? 'none' : 'block';
+  productCard.querySelector('.discount-button-icon-check').style.display =
+    isProductInCart ? 'block' : 'none';
 }
 
 function createProductCard({ _id, img, name, price }) {
