@@ -1,13 +1,13 @@
 /*? -------------------------- Success Order Modal -------------------------- */
 @keyframes append-animate {
   from {
-      transform: scale(0), translate(-50%, -50%);
-      opacity: 0;
+    transform: scale(0), translate(-50%, -50%);
+    opacity: 0;
   }
 
   to {
-      transform: scale(1), translate(-50%, -50%);
-      opacity: 1;
+    transform: scale(1), translate(-50%, -50%);
+    opacity: 1;
   }
 }
 
@@ -20,18 +20,20 @@
   height: 100%;
   background-color: rgba(1, 1, 1, 0.4);
 }
+
 .success-modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 250px;
+  width: 100%;
   max-width: 335px;
   border-radius: 20px;
   background: var(--color-light-grey);
   padding: 40px 20px 60px 20px;
   animation: append-animate 0.3s linear;
 }
+
 .success-modal-close-btn {
   position: absolute;
   top: 14px;
@@ -47,6 +49,7 @@
 
   cursor: pointer;
 }
+
 .success-modal-close-btn-icon {
   height: 100%;
 }
@@ -56,11 +59,13 @@
   fill: var(--color-dark-green);
   cursor: pointer;
 }
-.success-modal-image{
+
+.success-modal-image {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .success-modal-title {
   color: var(--color-black);
   font-size: 18px;
@@ -72,6 +77,7 @@
 
   margin-bottom: 20px;
 }
+
 .success-modal-text {
   color: var(--black-transperent-max-color);
   text-align: center;
@@ -87,16 +93,19 @@
 
     padding: 80px 40px 80px 40px;
   }
+
   .success-modal-close-btn {
     top: 24px;
     right: 24px;
     width: 28px;
     height: 28px;
   }
+
   .success-modal-title {
     font-size: 32px;
     line-height: 32px;
   }
+
   .success-modal-text {
     font-size: 18px;
     line-height: 24px;
