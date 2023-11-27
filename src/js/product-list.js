@@ -15,49 +15,19 @@ const markupTextBox = `<div class="product-list__text__box">
       to find the perfect product for you.
     </p>
   </div>`;
-// let productCard;
-// function changeBtn() {
-//   productCard = document.querySelectorAll('.product-list-product__card');
-//   const addedButtons = document.querySelectorAll('.product-list-button__card');
+function checkingBasket() {
+  const listCard = document.querySelectorAll('.product-list-product__card');
+  [...listCard].map(cartElement => {
+    const productId = cartElement.dataset.productId;
+    const isProductInCart = !!Cart.getProduct(productId);
+    console.log(cartElement);
 
-//   addedButtons.forEach(async addedButton => {
-//     const button = addedButton;
-//     const productCard = button.closest('.product-list-product__card');
-//     const productId = productCard.id;
-//     const product = await FoodBotiqueApi.getProduct(productId);
-
-//     const isInCart = Cart.getProduct(product);
-
-//     if (isInCart) {
-//       button.style.display = 'none';
-//       const addedButton = productCard.querySelector(
-//         '.product-list-button__card-added'
-//       );
-//       addedButton.style.display = 'block';
-//     }
-//     addedButton.addEventListener('click', async event => {
-//       const button = event.currentTarget;
-//       const productCard = button.closest('.product-list-product__card');
-//       const productId = productCard.id;
-//       const product = await FoodBotiqueApi.getProduct(productId);
-
-//       if (product) {
-//         const isInCart = await Cart.getProduct(product);
-
-//         if (isInCart) {
-//           Cart.update(product, isInCart.amount + 1);
-//         } else {
-//           Cart.add(product);
-//           button.style.display = 'none';
-//           const addedButton = productCard.querySelector(
-//             '.product-list-button__card-added'
-//           );
-//           addedButton.style.display = 'block';
-//         }
-//       }
-//     });
-//   });
-// }
+    cartElement.querySelector('.product-list-icon__btn').style.display =
+      isProductInCart ? 'none' : 'block';
+    cartElement.querySelector('.product-list-icon__btn-added').style.display =
+      isProductInCart ? 'block' : 'none';
+  });
+}
 function changeBtn(results) {
   listAllProducts.addEventListener('click', ({ target }) => {
     const cartElement = target.closest('LI');
@@ -156,106 +126,12 @@ function renderProductCards(arr) {
   listAllProducts.innerHTML = markup;
 }
 
-// function fetchProducts() {
-//   const filters = Filter.get();
-//   FoodBotiqueApi.getProducts(filters)
-//     .then(({ results }) => {
-//       renderProductCards(results);
-//       const allProductsCard = document.querySelectorAll(
-//         '.product-list-product__card'
-//       );
-//       allProductsCard.forEach(productCard => {
-//         productCard.addEventListener('click', () => {
-//           const productId = productCard.id;
-//           console.log(productId);
-//           openModalDetails(productId);
-//         });
-//       });
-//     })
-//     .catch(error => {
-//       console.error(error);
-//     });
-// }
-
-// function openModalDetails(productId) {
-//   FoodBotiqueApi.getProduct(productId)
-//     .then(productDetails => {
-//       console.log(productDetails);
-//       displayDetailsInModal(productDetails);
-//     })
-//     .catch(error => {
-//       console.error(`${productId}`, error);
-//     });
-// }
-
-// function displayDetailsInModal(productDetails) {
-//   const markup = `<div class="modal">
-//     <button type="button" class="modal-close-btn">
-//       <svg class="modal-icon-close" width="22" height="22">
-//         <use href="./img/icons.svg#icon-x-close"></use>
-//       </svg>
-//     </button>
-//     <div class="modal-container">
-//       <div>
-//         <div class="modal-img">
-//           <img
-//             src="${productDetails.img}"
-//             alt="${productDetails.name}"
-//           />
-//         </div>
-//       </div>
-//       <div class="modal-product-info">
-//         <h2 class="modal-title">${productDetails.name}</h2>
-//         <div class="modal-details">
-//           <div>
-//             <span class="modal-subtitle">Category:</span>
-//             <span class="modal-subtitle-info">${productDetails.category}</span>
-//           </div>
-//           <div>
-//             <span class="modal-subtitle">Size:</span>
-//             <span class="modal-subtitle-info">${productDetails.size}</span>
-//           </div>
-//           <div>
-//             <span class="modal-subtitle">Popularity:</span>
-//             <span class="modal-subtitle-info">${productDetails.popularity}</span>
-//           </div>
-//         </div>
-//         <p class="modal-about-product">${productDetails.desc}
-//         </p>
-//       </div>
-//     </div>
-//     <div class="modal-price-container">
-//       <p class="modal-price-product">${productDetails.price}</p>
-//       <button class="modal-btn">
-//         Add to<svg class="modal-icon-shop" width="18" height="18">
-//           <use href="./img/icons.svg#icon-shopping-cart"></use>
-//         </svg>
-//       </button>
-//     </div>
-//   </div>`;
-//   modal.innerHTML = markup;
-//   modal.classList.remove('is-hidden');
-//   const closeModalButton = document.querySelector('.modal-close-btn');
-//   closeModalButton.addEventListener('click', function () {
-//     modal.classList.add('is-hidden');
-//   });
-// }
-
-// async function fetchProducts() {
-//   try {
-//     const { results } = await FoodBotiqueApi.getProducts(Filter.get());
-//     renderProductCards(results);
-//     console.log(results);
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-// fetchProducts();
 async function fetchProducts() {
   try {
     const { results } = await FoodBotiqueApi.getProducts(Filter.get());
     if (results.length >= 1) {
       renderProductCards(results);
+      checkingBasket();
       changeBtn(results);
     } else {
       listAllProducts.classList.add('is-hidden');
