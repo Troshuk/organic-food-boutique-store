@@ -61,7 +61,6 @@
                 type="email"
                 name="email"
                 placeholder="Email"
-                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                 required
               />
             </label>
@@ -91,7 +90,6 @@
   </div>
 
   <!-- MODAL POLICY AND TEAMS -->
-
   <div
     class="modal-policy-container is-hidden-policy js-policy"
     id="#privacy-policy"
@@ -153,11 +151,7 @@
 </footer>
 
 <!-- MODAL SUBSCRIBE -->
-
-<div
-  class="modal-subscribe-container is-hidden-subscribe js-subscribe"
-  id="#subscribe"
->
+<div class="modal-subscribe-container is-hidden-subscribe js-subscribe">
   <div class="modal-subscribe">
     <button
       type="button"
@@ -173,29 +167,6 @@
         <use href="./img/icons.svg#icon-logo-footer"></use>
       </svg>
       <p class="subscribe-text"></p>
-    </div>
-  </div>
-</div>
-
-<div
-  class="modal-subscribe-container is-hidden-not-subscribe js-not-subscribe"
-  id="#not-subscribe"
->
-  <div class="modal-subscribe">
-    <button
-      type="button"
-      class="subscribe-btn js-not-subscribe-close"
-      data-modal-subscribe-close
-    >
-      <svg class="policy-btn-close-icon">
-        <use href="./img/icons.svg#icon-x-close"></use>
-      </svg>
-    </button>
-    <div class="subscribe-content">
-      <svg class="footer-icon">
-        <use href="./img/icons.svg#icon-logo-footer"></use>
-      </svg>
-      <p class="not-subscribe-text">Your subscription to our store has already been made before</p>
     </div>
   </div>
 </div>
