@@ -122,14 +122,24 @@ export default class Filter {
     });
   }
 
-  static setSortBy(sortBy) {
+  static setSortBy(sortBy, sortOrder = true) {
+    Filter.resetSort();
+
+    const filter = Filter.get();
+    Storage.set(storageKey, {
+      ...filter,
+      [sortBy]: sortOrder,
+    });
+  }
+
+  static resetSort() {
     const filter = Filter.get();
     Storage.set(storageKey, {
       ...filter,
       byABC: undefined,
       byPrice: undefined,
       byPopularity: undefined,
-      [sortBy]: true,
+      page: 1,
     });
   }
 
