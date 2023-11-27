@@ -19,7 +19,21 @@ function changeBtn() {
   productCard = document.querySelectorAll('.product-list-product__card');
   const addedButtons = document.querySelectorAll('.product-list-button__card');
 
-  addedButtons.forEach(addedButton => {
+  addedButtons.forEach(async addedButton => {
+    const button = addedButton;
+    const productCard = button.closest('.product-list-product__card');
+    const productId = productCard.id;
+    const product = await FoodBotiqueApi.getProduct(productId);
+
+    const isInCart = Cart.getProduct(product);
+
+    if (isInCart) {
+      button.style.display = 'none';
+      const addedButton = productCard.querySelector(
+        '.product-list-button__card-added'
+      );
+      addedButton.style.display = 'block';
+    }
     addedButton.addEventListener('click', async event => {
       const button = event.currentTarget;
       const productCard = button.closest('.product-list-product__card');
@@ -210,7 +224,6 @@ async function fetchProducts() {
       listAllProducts.classList.add('is-hidden');
       sectionAllProducts.innerHTML = markupTextBox;
     }
-    console.log(results);
   } catch (error) {
     console.error(error);
   }
