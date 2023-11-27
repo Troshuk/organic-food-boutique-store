@@ -74,8 +74,6 @@
   top: 0;
   transform: translateX(35%);
   display: flex;
-
-  display: none;
 }
 
 .basket-button {
