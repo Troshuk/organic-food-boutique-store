@@ -11,6 +11,7 @@ export default async function openModalProductDetails(
 ) {
   try {
     modalBackground.classList.remove('is-hidden');
+    modal.innerHTML = '';
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
 
     modal.innerHTML = renderModalCard(modalProduct);
@@ -101,7 +102,7 @@ function updateCart(modalProduct, updateCartIconCallback) {
   }
 
   updateCartItemCount();
-  updateCartIconCallback(!isProductAreadyInCart);
+  updateCartIconCallback(modalProduct._id);
 
   changeModalBtn(!isProductAreadyInCart);
 }

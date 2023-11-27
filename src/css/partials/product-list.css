@@ -138,26 +138,21 @@
   transition: background-color var(--transition-time) var(--transition-function);
 }
 
-.product-list-page__item .active {
+.product-list-page__item.active {
   color: var(--color-light-grey);
   background-color: var(--color-dark-green);
 }
 
-.product-list-page__item:not(:nth-child(3)):is(:hover, :focus, :active) {
+.product-list-page__item:not(.not-number):is(:hover, :focus, :active) {
   color: var(--color-white);
   background-color: var(--color-dark-green);
 }
-.product-list-page__list {
+
+.product-list-page__numbers {
   display: flex;
   align-items: flex-start;
   gap: 4px;
 }
-
-/* .product-list-page__numbers {
-  display: flex;
-  align-items: flex-start;
-  gap: 4px;
-} */
 
 .nav__btn {
   border-radius: 60px;
@@ -173,16 +168,18 @@
 .icon__arrow:is(:hover, :focus, :active) {
   stroke: var(--color-white);
 }
+
 /*?-----------------------------------Text-Box------------------*/
 
 .product-list__text__box {
-  max-width: 279px;
   display: flex;
   flex-direction: column;
   row-gap: 14px;
-  align-items: center;
-  padding-bottom: 180px;
+  max-width: 277px;
+  margin: 0 auto;
+  padding: 60px 0 100px;
 }
+
 .product-list__text__one {
   text-align: center;
   max-width: 261px;
@@ -190,15 +187,16 @@
   font-weight: 500;
   line-height: 1.2;
 }
+
 .text__one__span {
   color: var(--color-light-green);
 }
+
 .product-list__text__two {
-  /* max-width: 279px; */
   color: var(--black-transperent-max-color);
   text-align: center;
   font-size: 14px;
-  line-height: 1.2;
+  line-height: 1.3;
 }
 
 .is-hidden {
@@ -239,13 +237,13 @@
   .product-list-page__numbers {
     gap: 8px;
   }
+
   /*?-----------------------------------Text-Box------------------*/
   .product-list__text__box {
-    padding-bottom: 300px;
-    margin: 0 auto;
+    padding: 110px 0 230px;
     max-width: 371px;
-    /* text-align: center; */
   }
+
   .product-list__text__one {
     max-width: 367px;
     font-size: 20px;
@@ -262,7 +260,9 @@
 /* Desktop */
 @media screen and (min-width: 1440px) {
   .all-products {
+    flex-grow: 1;
     max-width: 925px;
+    margin: 0 auto;
   }
 
   .product-list-product__list {
