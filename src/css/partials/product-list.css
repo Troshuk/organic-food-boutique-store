@@ -147,12 +147,17 @@
   color: var(--color-white);
   background-color: var(--color-dark-green);
 }
-
-.product-list-page__numbers {
+.product-list-page__list {
   display: flex;
   align-items: flex-start;
   gap: 4px;
 }
+
+/* .product-list-page__numbers {
+  display: flex;
+  align-items: flex-start;
+  gap: 4px;
+} */
 
 .nav__btn {
   border-radius: 60px;
