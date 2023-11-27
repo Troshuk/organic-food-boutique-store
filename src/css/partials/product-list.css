@@ -138,7 +138,7 @@
   transition: background-color var(--transition-time) var(--transition-function);
 }
 
-.active {
+.product-list-page__item .active {
   color: var(--color-light-grey);
   background-color: var(--color-dark-green);
 }
