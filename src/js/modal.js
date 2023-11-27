@@ -1,21 +1,27 @@
 import Cart from './services/Cart';
 import FoodBotiqueApi from './services/FoodBoutiqueApi';
+import updateCartItemCount from './header';
 
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
 
-export default async function openModalProductDetails(productId) {
+export default async function openModalProductDetails(
+  productId,
+  updateCartIconCallback = () => {}
+) {
   try {
+    modalBackground.classList.remove('is-hidden');
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
 
     modal.innerHTML = renderModalCard(modalProduct);
 
-    modalBackground.classList.remove('is-hidden');
     changeModalBtn(!!Cart.getProduct(productId));
 
     document
       .querySelector('.modal-btn')
-      .addEventListener('click', () => updateCart(modalProduct));
+      .addEventListener('click', () =>
+        updateCart(modalProduct, updateCartIconCallback)
+      );
 
     document
       .querySelector('.modal-close-btn')
@@ -85,7 +91,7 @@ function renderModalCard({
     </div>`;
 }
 
-function updateCart(modalProduct) {
+function updateCart(modalProduct, updateCartIconCallback) {
   let isProductAreadyInCart = !!Cart.getProduct(modalProduct._id);
 
   if (isProductAreadyInCart) {
@@ -93,6 +99,9 @@ function updateCart(modalProduct) {
   } else {
     Cart.add(modalProduct);
   }
+
+  updateCartItemCount();
+  updateCartIconCallback(!isProductAreadyInCart);
 
   changeModalBtn(!isProductAreadyInCart);
 }

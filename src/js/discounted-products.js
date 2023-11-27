@@ -1,59 +1,71 @@
 import Cart from './services/Cart';
 import Filter from './services/Filter';
 import updateCartItemCount from './header';
+import openModalProductDetails from './modal';
 
 const discountContainer = document.querySelector('.discount-container');
 
 Filter.getDiscountedProducts().then(products => {
-    const productElements = products.map(createProductCard);
-    const listElement = document.createElement('ul');
-    listElement.className = 'discount-list';
+  const productElements = products.map(createProductCard);
+  const listElement = document.createElement('ul');
+  listElement.className = 'discount-list';
 
-    productElements.map(cartElement => {
+  productElements.map(cartElement => {
     const productId = cartElement.dataset.productId;
     const isProductInCart = !!Cart.getProduct(productId);
 
     cartElement.querySelector('.discount-button-icon-cart').style.display =
-     isProductInCart ? 'none' : 'block';
-    cartElement.querySelector('.discount-button-icon-check').style.display = 
-     isProductInCart ? 'block' : 'none';  
+      isProductInCart ? 'none' : 'block';
+    cartElement.querySelector('.discount-button-icon-check').style.display =
+      isProductInCart ? 'block' : 'none';
     listElement.appendChild(cartElement);
-    });
+  });
 
-    discountContainer.appendChild(listElement);
+  discountContainer.appendChild(listElement);
 
-    listElement.addEventListener('click', ({ target }) => {
-       const cartElement = target.closest('LI');
-       const cartButton = target.closest('BUTTON');
+  listElement.addEventListener('click', ({ target }) => {
+    const cartElement = target.closest('LI');
+    const cartButton = target.closest('BUTTON');
 
-        if (cartElement?.nodeName !== 'LI') {
-            return;
-        }
+    if (cartElement?.nodeName !== 'LI') {
+      return;
+    }
 
-        if (cartButton?.nodeName !== 'BUTTON') {
-            console.log('Open Modal Window');
-            return;
-        }
+    const productId = cartElement.dataset.productId;
 
-        if (cartButton?.nodeName === 'BUTTON') {
-            const productId = cartElement.dataset.productId;
-            const isProductInCart = !!Cart.getProduct(productId);
-                      
-        if (isProductInCart) {
-           Cart.delete(productId);
-        } else {
-            Cart.add(products.find(e => e._id === productId));
-        }
+    if (cartButton?.nodeName !== 'BUTTON') {
+      openModalProductDetails(productId, reRenderCartIcon);
+      return;
+    }
 
-        updateCartItemCount();
+    if (cartButton?.nodeName === 'BUTTON') {
+      const isProductInCart = !!Cart.getProduct(productId);
 
-        cartButton.querySelector('.discount-button-icon-cart').style.display = isProductInCart ? 'block' : 'none';
-        cartButton.querySelector('.discount-button-icon-check').style.display = isProductInCart ? 'none' : 'block';   
-       }
-    });
+      if (isProductInCart) {
+        Cart.delete(productId);
+      } else {
+        Cart.add(products.find(e => e._id === productId));
+      }
+
+      updateCartItemCount();
+
+      cartButton.querySelector('.discount-button-icon-cart').style.display =
+        isProductInCart ? 'block' : 'none';
+      cartButton.querySelector('.discount-button-icon-check').style.display =
+        isProductInCart ? 'none' : 'block';
+    }
+  });
 });
 
-  function createProductCard({ _id, img, name, price}) {
+function reRenderCartIcon(isProductInCart) {
+  //   const cartButton = target.closest('BUTTON');
+  //   cartButton.querySelector('.discount-button-icon-cart').style.display =
+  //     isProductInCart ? 'block' : 'none';
+  //   cartButton.querySelector('.discount-button-icon-check').style.display =
+  //     isProductInCart ? 'none' : 'block';
+}
+
+function createProductCard({ _id, img, name, price }) {
   const card = document.createElement('li');
   card.className = 'discount-item';
   card.dataset.productId = _id;
@@ -83,5 +95,5 @@ Filter.getDiscountedProducts().then(products => {
         </button>
     </div>
  `;
-    return card;
+  return card;
 }
