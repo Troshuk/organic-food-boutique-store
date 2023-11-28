@@ -138,12 +138,20 @@
   transition: background-color var(--transition-time) var(--transition-function);
 }
 
+.product-list-page__item.not-number {
+  cursor: default;
+}
+
+.product-list-page__item[disabled] {
+  cursor: not-allowed;
+}
+
 .product-list-page__item.active {
   color: var(--color-light-grey);
   background-color: var(--color-dark-green);
 }
 
-.product-list-page__item:not(.not-number):is(:hover, :focus, :active) {
+.product-list-page__item:not(.not-number, [disabled]):is(:hover, :focus, :active) {
   color: var(--color-white);
   background-color: var(--color-dark-green);
 }
@@ -165,7 +173,7 @@
   transition: stroke var(--transition-time) var(--transition-function);
 }
 
-.icon__arrow:is(:hover, :focus, :active) {
+.product-list-page__item:not([disabled]) .icon__arrow:is(:hover, :focus, :active) {
   stroke: var(--color-white);
 }
 
