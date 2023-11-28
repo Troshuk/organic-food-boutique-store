@@ -5,6 +5,7 @@ import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
 import { reRenderPopularCartIcon } from './popular-products';
 import { reRenderDiscountedCartIcon } from './discounted-products';
+import icons from '../img/icons.svg';
 
 const sectionAllProducts = document.querySelector('.all-products');
 const markupTextBox = `<div class="product-list__text__box">
@@ -90,7 +91,7 @@ function renderProductCards({ page, totalPages, results }) {
         height="60"
         style="${is10PercentOff ? '' : 'display:none'}"
       >
-        <use href="./img/icons.svg#icon-discount"></use>
+        <use href="${icons}#icon-discount"></use>
       </svg>
       <div class="product-list-box__img">
         <img
@@ -128,7 +129,7 @@ function renderProductCards({ page, totalPages, results }) {
             height="18"
             style="${isProductInCart ? 'display:none' : ''}"
           >
-            <use href="./img/icons.svg#icon-shopping-cart"></use>
+            <use href="${icons}#icon-shopping-cart"></use>
           </svg>
           <svg
             class="product-list-icon__btn-added"
@@ -136,7 +137,7 @@ function renderProductCards({ page, totalPages, results }) {
             height="18"
             style="${isProductInCart ? 'display:block' : 'display:none'}"
           >
-            <use href="./img/icons.svg#icon-check"></use>
+            <use href="${icons}#icon-check"></use>
           </svg>
          </button>
       </div>
@@ -193,7 +194,7 @@ function renderProductCards({ page, totalPages, results }) {
               ${page === 1 ? 'disabled' : ''}
             >
               <svg class="icon__arrow" width="24" height="24">
-                <use href="./img/icons.svg#icon-arrow-left"></use>
+                <use href="${icons}#icon-arrow-left"></use>
               </svg>
             </li>
             <div class="product-list-page__numbers">
@@ -205,7 +206,7 @@ function renderProductCards({ page, totalPages, results }) {
               ${page === totalPages ? 'disabled' : ''}
             >
               <svg class="icon__arrow" width="24" height="24">
-                <use href="./img/icons.svg#icon-arrow-right"></use>
+                <use href="${icons}#icon-arrow-right"></use>
               </svg>
             </li>
           </ul>

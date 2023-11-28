@@ -4,6 +4,7 @@ import updateCartItemCount from './header';
 import { reRenderProductCartIcon } from './product-list';
 import { reRenderPopularCartIcon } from './popular-products';
 import { reRenderDiscountedCartIcon } from './discounted-products';
+import icons from '../img/icons.svg';
 
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
@@ -44,7 +45,7 @@ function renderModalCard({
   return `
     <button type="button" class="modal-close-btn">
       <svg class="modal-icon-close" width="22" height="22">
-        <use href="./img/icons.svg#icon-x-close"></use>
+        <use href="${icons}#icon-x-close"></use>
       </svg>
     </button>
     <div class="modal-container">
@@ -84,7 +85,7 @@ function renderModalCard({
       <button class="modal-btn">
         <span class="modal-btn-text">Add to</span>
         <svg class="modal-icon-shop" width="18" height="18">
-          <use href="./img/icons.svg#icon-shopping-cart"></use>
+          <use href="${icons}#icon-shopping-cart"></use>
         </svg>
       </button>
     </div>`;
