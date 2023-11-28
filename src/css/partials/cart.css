@@ -343,7 +343,7 @@
     line-height: 1.2;
   }
   .price-and-quantity {
-    gap:197px;
+    gap:369px;
   }
   .quantity-in-cart {
     max-width: 96px;
@@ -475,7 +475,9 @@
   .total-order-thumb {
     margin-top: 73px;
   }
-
+  .price-and-quantity {
+    gap:197px;
+  }
   .cart-added-list {
     width: 540px;
   }
