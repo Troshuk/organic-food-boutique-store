@@ -2,6 +2,8 @@ import Cart from './services/Cart';
 import Filter from './services/Filter';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
+import { reRenderProductCartIcon } from './product-list';
+import { reRenderDiscountedCartIcon } from './discounted-products';
 
 const popularProductContainer = document.querySelector(
   '.popular-products-container'
@@ -38,7 +40,7 @@ Filter.getPopularProducts().then(products => {
     const productId = cartElement.dataset.productId;
 
     if (cartButton?.nodeName !== 'BUTTON') {
-      openModalProductDetails(productId, reRenderCartIcon);
+      openModalProductDetails(productId);
       return;
     }
 
@@ -52,19 +54,20 @@ Filter.getPopularProducts().then(products => {
       }
 
       updateCartItemCount();
-
-      cartElement.querySelector('.basket-button').style.display =
-        isProductInCart ? 'block' : 'none';
-      cartElement.querySelector('.basket-button-icon-check').style.display =
-        isProductInCart ? 'none' : 'block';
+      reRenderDiscountedCartIcon(productId);
+      reRenderProductCartIcon(productId);
+      reRenderPopularCartIcon(productId);
     }
   });
 });
 
-function reRenderCartIcon(productId) {
+export function reRenderPopularCartIcon(productId) {
   const productCard = document.querySelector(
     `.popular-products-item[data-product-id="${productId}"]`
   );
+
+  if (!productCard) return;
+
   const isProductInCart = !!Cart.getProduct(productId);
 
   productCard.querySelector('.basket-button').style.display = isProductInCart

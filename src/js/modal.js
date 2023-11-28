@@ -1,14 +1,14 @@
 import Cart from './services/Cart';
 import FoodBotiqueApi from './services/FoodBoutiqueApi';
 import updateCartItemCount from './header';
+import { reRenderProductCartIcon } from './product-list';
+import { reRenderPopularCartIcon } from './popular-products';
+import { reRenderDiscountedCartIcon } from './discounted-products';
 
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
 
-export default async function openModalProductDetails(
-  productId,
-  updateCartIconCallback = () => {}
-) {
+export default async function openModalProductDetails(productId) {
   try {
     modalBackground.classList.remove('is-hidden');
     modal.innerHTML = '';
@@ -20,9 +20,7 @@ export default async function openModalProductDetails(
 
     document
       .querySelector('.modal-btn')
-      .addEventListener('click', () =>
-        updateCart(modalProduct, updateCartIconCallback)
-      );
+      .addEventListener('click', () => updateCart(modalProduct));
 
     document
       .querySelector('.modal-close-btn')
@@ -92,7 +90,7 @@ function renderModalCard({
     </div>`;
 }
 
-function updateCart(modalProduct, updateCartIconCallback) {
+function updateCart(modalProduct) {
   let isProductAreadyInCart = !!Cart.getProduct(modalProduct._id);
 
   if (isProductAreadyInCart) {
@@ -101,10 +99,12 @@ function updateCart(modalProduct, updateCartIconCallback) {
     Cart.add(modalProduct);
   }
 
-  updateCartItemCount();
-  updateCartIconCallback(modalProduct._id);
-
   changeModalBtn(!isProductAreadyInCart);
+
+  updateCartItemCount();
+  reRenderProductCartIcon(modalProduct._id);
+  reRenderPopularCartIcon(modalProduct._id);
+  reRenderDiscountedCartIcon(modalProduct._id);
 }
 
 function changeModalBtn(isProductAreadyInCart) {

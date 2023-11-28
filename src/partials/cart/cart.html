@@ -159,9 +159,10 @@
 
         <form class="checkout-field">
           <label for="cart-client-email" class="cart-input-label">
+            <span class="placeholder-prefix">Mail:</span>
             <input
               type="email"
-              pattern=".+@example\."
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
               name="cart-client-email"
               class="cart-basket-input"
               id="cart-client-email"

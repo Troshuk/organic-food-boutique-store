@@ -3,6 +3,8 @@ import Filter from './services/Filter';
 import Cart from './services/Cart';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
+import { reRenderPopularCartIcon } from './popular-products';
+import { reRenderDiscountedCartIcon } from './discounted-products';
 
 const sectionAllProducts = document.querySelector('.all-products');
 const markupTextBox = `<div class="product-list__text__box">
@@ -30,7 +32,7 @@ function changeBtn(results) {
       const productId = cartElement.dataset.productId;
 
       if (cartButton?.nodeName !== 'BUTTON') {
-        openModalProductDetails(productId, reRenderCartIcon);
+        openModalProductDetails(productId);
         return;
       }
 
@@ -44,22 +46,20 @@ function changeBtn(results) {
         }
 
         updateCartItemCount();
-
-        const addBtn = cartButton.querySelector('.product-list-icon__btn');
-        const checkBtn = cartButton.querySelector(
-          '.product-list-icon__btn-added'
-        );
-
-        addBtn.style.display = isProductInCart ? 'block' : 'none';
-        checkBtn.style.display = isProductInCart ? 'none' : 'block';
+        reRenderProductCartIcon(productId);
+        reRenderPopularCartIcon(productId);
+        reRenderDiscountedCartIcon(productId);
       }
     });
 }
 
-function reRenderCartIcon(productId) {
+export function reRenderProductCartIcon(productId) {
   const productCard = document.querySelector(
     `.product-list-product__card[data-product-id="${productId}"]`
   );
+
+  if (!productCard) return;
+
   const isProductInCart = !!Cart.getProduct(productId);
 
   productCard.querySelector('.product-list-icon__btn').style.display =
@@ -154,14 +154,24 @@ function renderProductCards({ page, totalPages, results }) {
       pages.push(i);
     }
 
+    // If there are only 5 pages, then display all numbers
     if (totalPages !== 5) {
+      // If current page is first or last 2 pages of the pagination
       if (page <= 2 || totalPages - page < 2) {
+        // Replace all the numbers in between first 2 and last 2 page numbers with ...
         pages.splice(2, totalPages - 4, '...');
-      } else if (totalPages - page <= 3) {
-        pages.splice(0, pages.length - 4, '...');
       } else {
-        pages.splice(0, page - 1);
-        pages.splice(2, pages.length - 4, '...');
+        // If this is 3rd number from the end, then just leave them as is, don't do replacement with ...
+        if (pages.length - page !== 2) {
+          // Replace all number in between the current page and the last page
+          pages.splice(page, pages.length - page - 1, '...');
+        }
+
+        // If this is 3rd number from the beginning, then just leave them as is, don't do replacement with ...
+        if (page !== 3) {
+          // Replace all number in between the first page and the current
+          pages.splice(1, page - 2, '...');
+        }
       }
     }
 
@@ -177,7 +187,11 @@ function renderProductCards({ page, totalPages, results }) {
     paginationDiv = `
       <div class="product-list-pagination">
           <ul class="product-list-pagination__list">
-            <li class="product-list-page__item nav__btn" data-page-number="left">
+            <li
+              class="product-list-page__item nav__btn"
+              data-page-number="left"
+              ${page === 1 ? 'disabled' : ''}
+            >
               <svg class="icon__arrow" width="24" height="24">
                 <use href="./img/icons.svg#icon-arrow-left"></use>
               </svg>
@@ -185,7 +199,11 @@ function renderProductCards({ page, totalPages, results }) {
             <div class="product-list-page__numbers">
               ${pageItems}
             </div>
-            <li class="product-list-page__item nav__btn" data-page-number="right">
+            <li
+              class="product-list-page__item nav__btn"
+              data-page-number="right"
+              ${page === totalPages ? 'disabled' : ''}
+            >
               <svg class="icon__arrow" width="24" height="24">
                 <use href="./img/icons.svg#icon-arrow-right"></use>
               </svg>
@@ -232,7 +250,7 @@ function renderProductCards({ page, totalPages, results }) {
   }
 }
 
-export default async function fetchProducts() {
+export async function fetchProducts() {
   try {
     const data = await FoodBotiqueApi.getProducts(Filter.get());
 
