@@ -1,7 +1,7 @@
 import updateCartItemCount from './header';
 import './hero';
 import './filter';
-import fetchProducts from './product-list';
+import { fetchProducts } from './product-list';
 import './popular-products';
 import './discounted-products';
 import './footer';

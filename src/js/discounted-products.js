@@ -2,6 +2,8 @@ import Cart from './services/Cart';
 import Filter from './services/Filter';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
+import { reRenderProductCartIcon } from './product-list';
+import { reRenderPopularCartIcon } from './popular-products';
 
 const discountContainer = document.querySelector('.discount-container');
 
@@ -34,7 +36,7 @@ Filter.getDiscountedProducts().then(products => {
     const productId = cartElement.dataset.productId;
 
     if (cartButton?.nodeName !== 'BUTTON') {
-      openModalProductDetails(productId, reRenderCartIcon);
+      openModalProductDetails(productId);
       return;
     }
 
@@ -48,19 +50,20 @@ Filter.getDiscountedProducts().then(products => {
       }
 
       updateCartItemCount();
-
-      cartButton.querySelector('.discount-button-icon-cart').style.display =
-        isProductInCart ? 'block' : 'none';
-      cartButton.querySelector('.discount-button-icon-check').style.display =
-        isProductInCart ? 'none' : 'block';
+      reRenderDiscountedCartIcon(productId);
+      reRenderProductCartIcon(productId);
+      reRenderPopularCartIcon(productId);
     }
   });
 });
 
-function reRenderCartIcon(productId) {
+export function reRenderDiscountedCartIcon(productId) {
   const productCard = document.querySelector(
     `.discount-item[data-product-id="${productId}"]`
   );
+
+  if (!productCard) return;
+
   const isProductInCart = !!Cart.getProduct(productId);
 
   productCard.querySelector('.discount-button-icon-cart').style.display =

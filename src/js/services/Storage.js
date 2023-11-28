@@ -16,4 +16,22 @@ export default class Storage {
   static set(key, data) {
     localStorage.setItem(key, JSON.stringify(data));
   }
+
+  static setWithExpiry(key, value, expireInMinutes = 60) {
+    Storage.set(key + '_EXPIRY', {
+      value: value,
+      expiry: new Date().getTime() + expireInMinutes * 60 * 1000,
+    });
+  }
+
+  static getWithExpiry(key) {
+    const data = Storage.get(key + '_EXPIRY');
+
+    if (data && data.expiry < new Date().getTime()) {
+      Storage.remove(key + '_EXPIRY');
+      return null;
+    }
+
+    return data?.value;
+  }
 }
