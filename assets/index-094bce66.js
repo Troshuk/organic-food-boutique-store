@@ -184,7 +184,7 @@ import{S as a,F as S,C as l,u as C}from"./footer-37300458.js";Z();function Z(){d
            height="114"
         />
         <svg class="discount-icon" width="32" height="32">
-            <use href="/img/icons.svg#icon-discount"></use>
+            <use href="./img/icons.svg#icon-discount"></use>
         </svg>
    </div>
    <div class="discount-info-container">
@@ -192,10 +192,10 @@ import{S as a,F as S,C as l,u as C}from"./footer-37300458.js";Z();function Z(){d
         <p class="discount-product-price">$${o.toFixed(2)}</p>
         <button type="button" class="discount-btn">
             <svg class="discount-button-icon-cart" width="18" height="18">
-                <use href="/img/icons.svg#icon-shopping-cart"></use>
+                <use href="./img/icons.svg#icon-shopping-cart"></use>
             </svg>
             <svg class="discount-button-icon-check" width="18" height="18">
-                 <use href="/img/icons.svg#icon-check"></use>
+                 <use href="./img/icons.svg#icon-check"></use>
             </svg>
         </button>
     </div>
