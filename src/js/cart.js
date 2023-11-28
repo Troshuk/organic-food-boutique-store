@@ -5,18 +5,7 @@ import './modal-success';
 // Update cart count on initial load of the page
 updateCartItemCount();
 
-// Scroll (::after) always on visible
-// document.addEventListener('DOMContentLoaded', function() {
-//   const basketListWrapper = document.querySelector('.basket-list-wrapper');
-
-//   basketListWrapper.addEventListener('scroll', function() {
-//     const scrollTop = basketListWrapper.scrollTop;
-//       basketListWrapper.style.setProperty('--scroll-top', scrollTop + 'px');
-    
-//   });
-// });
-
-
+// Scroll
 document.addEventListener('DOMContentLoaded', function() {
   const basketListWrapper = document.querySelector('.basket-list-wrapper');
   const basketList = document.querySelector('.cart-basket-list');
@@ -29,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   basketListWrapper.addEventListener('scroll', function() {
     const scrollTop = basketListWrapper.scrollTop;
-    basketListWrapper.style.height = scrollbarHeight +35 + 'px'
+    basketListWrapper.style.height = scrollbarHeight +25 + 'px'
       basketListWrapper.style.setProperty('--scroll-top', scrollTop + 'px');
     
   });
