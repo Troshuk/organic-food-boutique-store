@@ -3,6 +3,8 @@ import Filter from './services/Filter';
 import Cart from './services/Cart';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
+import { reRenderPopularCartIcon } from './popular-products';
+import { reRenderDiscountedCartIcon } from './discounted-products';
 
 const sectionAllProducts = document.querySelector('.all-products');
 const markupTextBox = `<div class="product-list__text__box">
@@ -30,7 +32,7 @@ function changeBtn(results) {
       const productId = cartElement.dataset.productId;
 
       if (cartButton?.nodeName !== 'BUTTON') {
-        openModalProductDetails(productId, reRenderCartIcon);
+        openModalProductDetails(productId);
         return;
       }
 
@@ -44,22 +46,20 @@ function changeBtn(results) {
         }
 
         updateCartItemCount();
-
-        const addBtn = cartButton.querySelector('.product-list-icon__btn');
-        const checkBtn = cartButton.querySelector(
-          '.product-list-icon__btn-added'
-        );
-
-        addBtn.style.display = isProductInCart ? 'block' : 'none';
-        checkBtn.style.display = isProductInCart ? 'none' : 'block';
+        reRenderProductCartIcon(productId);
+        reRenderPopularCartIcon(productId);
+        reRenderDiscountedCartIcon(productId);
       }
     });
 }
 
-function reRenderCartIcon(productId) {
+export function reRenderProductCartIcon(productId) {
   const productCard = document.querySelector(
     `.product-list-product__card[data-product-id="${productId}"]`
   );
+
+  if (!productCard) return;
+
   const isProductInCart = !!Cart.getProduct(productId);
 
   productCard.querySelector('.product-list-icon__btn').style.display =
@@ -232,7 +232,7 @@ function renderProductCards({ page, totalPages, results }) {
   }
 }
 
-export default async function fetchProducts() {
+export async function fetchProducts() {
   try {
     const data = await FoodBotiqueApi.getProducts(Filter.get());
 
