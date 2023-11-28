@@ -81,12 +81,23 @@ function renderModalCard({
       <p class="modal-price-product">
         <span>$</span><span class="modal-price">${price}</span>
       </p>
-      <button class="modal-btn">
-        <span class="modal-btn-text">Add to</span>
-        <svg class="modal-icon-shop" width="18" height="18">
-          <use href="./img/icons.svg#icon-shopping-cart"></use>
-        </svg>
-      </button>
+      <ul class="quantity-in-cart">
+      <li>
+        <button type="button" class="minus-btn">
+          <svg class="minus-btn-icon">
+            <use href="./img/icons.svg#icon-minus"></use>
+          </svg>
+        </button>
+      </li>
+      <li><span class="quantity">1</span></li>
+      <li>
+        <button type="button" class="plus-btn">
+          <svg class="plus-btn-icon">
+            <use href="./img/icons.svg#icon-plus"></use>
+          </svg>
+        </button>
+      </li>
+    </ul>
     </div>`;
 }
 
