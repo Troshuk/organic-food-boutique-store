@@ -197,9 +197,9 @@ function renderProductCards({ page, totalPages, results }) {
                 <use href="${icons}#icon-arrow-left"></use>
               </svg>
             </li>
-            <div class="product-list-page__numbers">
+            <ul class="product-list-page__numbers">
               ${pageItems}
-            </div>
+            </ul>
             <li
               class="product-list-page__item nav__btn"
               data-page-number="right"
@@ -247,6 +247,7 @@ function renderProductCards({ page, totalPages, results }) {
 
         Filter.setPage(pageNumber);
         fetchProducts();
+        windowScrollToSection('filters');
       });
   }
 }
@@ -263,5 +264,17 @@ export async function fetchProducts() {
     }
   } catch (error) {
     console.error(error);
+  }
+}
+
+function windowScrollToSection(sectionClass) {
+  const section = document.querySelector(`.${sectionClass}`);
+  const header = document.querySelector('.header');
+
+  if (section) {
+    window.scrollTo({
+      top: section.offsetTop - header.offsetHeight,
+      behavior: 'smooth',
+    });
   }
 }
