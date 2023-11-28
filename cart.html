@@ -8,9 +8,9 @@
     <title>Food Cart</title>
 
     
-    <script type="module" crossorigin src="/organic-food-boutique-store/assets/cart-7467899c.js"></script>
-    <link rel="modulepreload" crossorigin href="/organic-food-boutique-store/assets/footer-37300458.js">
-    <link rel="stylesheet" href="/organic-food-boutique-store/assets/footer-929ec8da.css">
+    <script type="module" crossorigin src="/organic-food-boutique-store/assets/cart-3a404e94.js"></script>
+    <link rel="modulepreload" crossorigin href="/organic-food-boutique-store/assets/footer-953399aa.js">
+    <link rel="stylesheet" href="/organic-food-boutique-store/assets/footer-159f8b07.css">
   </head>
   <body>
     <!-- Header -->
@@ -207,9 +207,10 @@
 
         <form class="checkout-field">
           <label for="cart-client-email" class="cart-input-label">
+            <span class="placeholder-prefix">Mail:</span>
             <input
               type="email"
-              pattern=".+@example\."
+              pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
               name="cart-client-email"
               class="cart-basket-input"
               id="cart-client-email"
@@ -330,6 +331,7 @@
                 type="email"
                 name="email"
                 placeholder="Email"
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
                 required
               />
             </label>
