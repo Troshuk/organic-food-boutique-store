@@ -10,21 +10,25 @@
 
         <ul class="social-list">
           <li>
-            <a href="./index.html" class="social-list-link"
+            <a
+              href="https://www.facebook.com/goITclub/"
+              class="social-list-link"
               ><svg class="social-list-icon">
                 <use href="./img/icons.svg#icon-facebook"></use>
               </svg>
             </a>
           </li>
           <li>
-            <a href="./index.html" class="social-list-link"
+            <a
+              href="https://www.instagram.com/goitclub/"
+              class="social-list-link"
               ><svg class="social-list-icon">
                 <use href="./img/icons.svg#icon-instagram"></use>
               </svg>
             </a>
           </li>
           <li>
-            <a href="./index.html" class="social-list-link"
+            <a href="https://www.youtube.com/c/GoIT" class="social-list-link"
               ><svg class="social-list-icon">
                 <use href="./img/icons.svg#icon-youtube"></use>
               </svg>
@@ -57,6 +61,8 @@
                 type="email"
                 name="email"
                 placeholder="Email"
+                pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,4}$"
+                required
               />
             </label>
 
@@ -69,10 +75,99 @@
     <div class="footer-tablet-bottom-text">
       <p class="footer-bottom-text">Food Boutique. All rights reserved.</p>
       <div class="footer-bottom-links">
-        <a href="./index.html" class="footer-bottom-link">Privacy Policy</a>
+        <a
+          href="#privacy-policy"
+          class="footer-bottom-link js-modal-policy-open"
+          >Privacy Policy</a
+        >
         <span class="footer-bottom-link">/</span>
-        <a href="./index.html" class="footer-bottom-link">Terms of Service</a>
+        <a
+          href="#terms-of-service"
+          class="footer-bottom-link js-modal-terms-open"
+          >Terms of Service</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL POLICY AND TEAMS -->
+  <div
+    class="modal-policy-container is-hidden-policy js-policy"
+    id="#privacy-policy"
+  >
+    <div class="modal-privacy-policy">
+      <button
+        type="button"
+        class="policy-btn js-policy-close"
+        data-modal-policy-close
+      >
+        <svg class="policy-btn-close-icon">
+          <use href="./img/icons.svg#icon-x-close"></use>
+        </svg>
+      </button>
+      <div class="privacy-policy-content">
+        <svg class="footer-icon">
+          <use href="./img/icons.svg#icon-logo-footer"></use>
+        </svg>
+        <h2 class="policy-name">Privacy Policy</h2>
+        <p class="policy-users">Greetings Users,</p>
+        <p class="policy-text">
+          Welcome, here is our policy on privacy. This policy sets out how Food
+          Boutique collects and uses the information that we collect about you
+          when you use the Service. This policy also explains the choices that
+          you can make about the way that we use your information.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="modal-policy-container is-hidden-policy js-terms"
+    id="#terms-of-service"
+  >
+    <div class="modal-privacy-policy">
+      <button
+        type="button"
+        class="policy-btn js-terms-close"
+        data-modal-policy-close
+      >
+        <svg class="policy-btn-close-icon">
+          <use href="./img/icons.svg#icon-x-close"></use>
+        </svg>
+      </button>
+      <div class="privacy-policy-content">
+        <svg class="footer-icon">
+          <use href="./img/icons.svg#icon-logo-footer"></use>
+        </svg>
+        <h2 class="policy-name">Terms Of Service</h2>
+        <p class="policy-users">Greetings Users,</p>
+        <p class="policy-text">
+          A terms of service sets all user rules, restrictions, and prohibited
+          behaviors, and outlines your company’s liability limitations, property
+          rights, and dispute resolutions.
+        </p>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- MODAL SUBSCRIBE -->
+<div class="modal-subscribe-container is-hidden-subscribe js-subscribe">
+  <div class="modal-subscribe">
+    <button
+      type="button"
+      class="subscribe-btn js-subscribe-close"
+      data-modal-subscribe-close
+    >
+      <svg class="policy-btn-close-icon">
+        <use href="./img/icons.svg#icon-x-close"></use>
+      </svg>
+    </button>
+    <div class="subscribe-content">
+      <svg class="footer-icon">
+        <use href="./img/icons.svg#icon-logo-footer"></use>
+      </svg>
+      <p class="subscribe-text"></p>
+    </div>
+  </div>
+</div>

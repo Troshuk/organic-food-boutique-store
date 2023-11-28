@@ -43,13 +43,13 @@ export default class Filter {
 
   // Get list of discounted products [Promise]. Will fetch from storage when available
   static async getDiscountedProducts(limit = 2) {
-    let products = Storage.get(Storage.DISCOUNTED_PRODUCTS_KEY);
+    let products = Storage.getWithExpiry(Storage.DISCOUNTED_PRODUCTS_KEY);
 
     // If products have not been loaded yet, fetch them from the API and store
     if (!products) {
       try {
         products = await FoodBotiqueApi.getDiscountedProducts();
-        Storage.set(Storage.DISCOUNTED_PRODUCTS_KEY, products);
+        Storage.setWithExpiry(Storage.DISCOUNTED_PRODUCTS_KEY, products);
       } catch (error) {
         console.error('FoodBotiqueApi.getDiscountedProducts error', error);
       }
@@ -60,7 +60,7 @@ export default class Filter {
 
   // Get list of popular products [Promise]. Will fetch from storage when available
   static async getPopularProducts(limit = 5) {
-    let products = Storage.get(Storage.POPULAR_PRODUCTS_KEY);
+    let products = Storage.getWithExpiry(Storage.POPULAR_PRODUCTS_KEY);
 
     // If products have not been loaded yet, fetch them from the API and store
     if (!products) {
@@ -68,7 +68,7 @@ export default class Filter {
         products = await FoodBotiqueApi.getPopularProducts(
           POPULAR_PRODUCTS_LIMIT
         );
-        Storage.set(Storage.POPULAR_PRODUCTS_KEY, products);
+        Storage.setWithExpiry(Storage.POPULAR_PRODUCTS_KEY, products);
       } catch (error) {
         console.error('FoodBotiqueApi.getPopularProducts error', error);
       }
@@ -92,6 +92,7 @@ export default class Filter {
     Storage.set(storageKey, {
       ...filter,
       keyword,
+      page: 1,
     });
   }
 
@@ -100,6 +101,7 @@ export default class Filter {
     Storage.set(storageKey, {
       ...filter,
       category,
+      page: 1,
     });
   }
 
@@ -116,17 +118,28 @@ export default class Filter {
     Storage.set(storageKey, {
       ...filter,
       limit,
+      page: 1,
     });
   }
 
-  static setSortBy(sortBy) {
+  static setSortBy(sortBy, sortOrder = true) {
+    Filter.resetSort();
+
+    const filter = Filter.get();
+    Storage.set(storageKey, {
+      ...filter,
+      [sortBy]: sortOrder,
+    });
+  }
+
+  static resetSort() {
     const filter = Filter.get();
     Storage.set(storageKey, {
       ...filter,
       byABC: undefined,
       byPrice: undefined,
       byPopularity: undefined,
-      [sortBy]: true,
+      page: 1,
     });
   }
 
