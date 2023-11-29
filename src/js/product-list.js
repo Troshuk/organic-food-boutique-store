@@ -247,7 +247,7 @@ function renderProductCards({ page, totalPages, results }) {
 
         Filter.setPage(pageNumber);
         fetchProducts();
-        windowScrollToSection('filters');
+        windowScrollToSection('#filters');
       });
   }
 }
@@ -267,8 +267,8 @@ export async function fetchProducts() {
   }
 }
 
-function windowScrollToSection(sectionClass) {
-  const section = document.querySelector(`.${sectionClass}`);
+function windowScrollToSection(selector) {
+  const section = document.querySelector(selector);
   const header = document.querySelector('.header');
 
   if (section) {
