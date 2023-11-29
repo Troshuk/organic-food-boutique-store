@@ -2,12 +2,20 @@ import Storage from './Storage';
 import FoodBotiqueApi from './FoodBoutiqueApi';
 
 const storageKey = Storage.FILTER_KEY;
+const sortByList = [
+  { name: 'A to Z', key: 'byABC', value: true },
+  { name: 'Z to A', key: 'byABC', value: false },
+  { name: 'Least Expensive', key: 'byPrice', value: true },
+  { name: 'Most Expensive', key: 'byPrice', value: false },
+  { name: 'Least Popular', key: 'byPopularity', value: true },
+  { name: 'Most Popular', key: 'byPopularity', value: false },
+  { name: 'Show All', key: 'showAll', value: undefined },
+];
+const defaultSortBy = { byABC: true };
 const filterDefault = {
   keyword: undefined,
   category: undefined,
-  byABC: true,
-  byPrice: undefined,
-  byPopularity: undefined,
+  sortBy: defaultSortBy,
   page: 1,
   limit: 9,
 };
@@ -32,6 +40,8 @@ export default class Filter {
     if (!categories) {
       try {
         categories = await FoodBotiqueApi.getCategories();
+        // Remove bad duplicated categories that have a space instead of _
+        categories = categories.filter(category => !category.includes(' '));
         Storage.set(Storage.CATEGORIES_KEY, categories);
       } catch (error) {
         console.error('FoodBotiqueApi.getCategories error', error);
@@ -41,15 +51,20 @@ export default class Filter {
     return categories ?? [];
   }
 
+  // Get list of object options to sort by
+  static getSortList() {
+    return sortByList;
+  }
+
   // Get list of discounted products [Promise]. Will fetch from storage when available
   static async getDiscountedProducts(limit = 2) {
-    let products = Storage.get(Storage.DISCOUNTED_PRODUCTS_KEY);
+    let products = Storage.getWithExpiry(Storage.DISCOUNTED_PRODUCTS_KEY);
 
     // If products have not been loaded yet, fetch them from the API and store
     if (!products) {
       try {
         products = await FoodBotiqueApi.getDiscountedProducts();
-        Storage.set(Storage.DISCOUNTED_PRODUCTS_KEY, products);
+        Storage.setWithExpiry(Storage.DISCOUNTED_PRODUCTS_KEY, products);
       } catch (error) {
         console.error('FoodBotiqueApi.getDiscountedProducts error', error);
       }
@@ -60,7 +75,7 @@ export default class Filter {
 
   // Get list of popular products [Promise]. Will fetch from storage when available
   static async getPopularProducts(limit = 5) {
-    let products = Storage.get(Storage.POPULAR_PRODUCTS_KEY);
+    let products = Storage.getWithExpiry(Storage.POPULAR_PRODUCTS_KEY);
 
     // If products have not been loaded yet, fetch them from the API and store
     if (!products) {
@@ -68,7 +83,7 @@ export default class Filter {
         products = await FoodBotiqueApi.getPopularProducts(
           POPULAR_PRODUCTS_LIMIT
         );
-        Storage.set(Storage.POPULAR_PRODUCTS_KEY, products);
+        Storage.setWithExpiry(Storage.POPULAR_PRODUCTS_KEY, products);
       } catch (error) {
         console.error('FoodBotiqueApi.getPopularProducts error', error);
       }
@@ -80,11 +95,7 @@ export default class Filter {
 
   // Overwrite enite filter object
   static set(newFilter) {
-    const filter = Filter.get();
-    Storage.set(storageKey, {
-      ...filter,
-      ...newFilter,
-    });
+    Storage.set(storageKey, newFilter);
   }
 
   static setKeyword(keyword) {
@@ -122,29 +133,17 @@ export default class Filter {
     });
   }
 
-  static setSortBy(sortBy, sortOrder = true) {
-    Filter.resetSort();
-
+  static setSortBy(sortKey, sortValue) {
     const filter = Filter.get();
     Storage.set(storageKey, {
       ...filter,
-      [sortBy]: sortOrder,
-    });
-  }
-
-  static resetSort() {
-    const filter = Filter.get();
-    Storage.set(storageKey, {
-      ...filter,
-      byABC: undefined,
-      byPrice: undefined,
-      byPopularity: undefined,
       page: 1,
+      sortBy: { [sortKey]: sortValue },
     });
   }
 
   // Reset filter to default values
   static reset() {
-    Storage.set(storageKey, { ...filterDefault });
+    Storage.set(storageKey, filterDefault);
   }
 }
