@@ -81,23 +81,31 @@ function renderModalCard({
       <p class="modal-price-product">
         <span>$</span><span class="modal-price">${price}</span>
       </p>
-      <ul class="quantity-in-cart">
-      <li>
-        <button type="button" class="minus-btn">
-          <svg class="minus-btn-icon">
-            <use href="./img/icons.svg#icon-minus"></use>
-          </svg>
-        </button>
-      </li>
-      <li><span class="quantity">1</span></li>
-      <li>
-        <button type="button" class="plus-btn">
-          <svg class="plus-btn-icon">
-            <use href="./img/icons.svg#icon-plus"></use>
-          </svg>
-        </button>
-      </li>
-    </ul>
+      <div class="quantity-and-add">
+      <div class="quantity-in-modal">
+
+      <button type="button" class="minus-btn" aria-label="minus quantity product">
+        <svg class="minus-btn-icon">
+          <use href="./img/icons.svg#icon-minus"></use>
+        </svg>
+      </button>
+
+    <span class="quantity">1</span>
+
+      <button type="button" class="plus-btn" aria-label="plus quantity product">
+        <svg class="plus-btn-icon">
+          <use href="./img/icons.svg#icon-plus"></use>
+        </svg>
+      </button>
+      </div>
+
+      <button class="modal-btn" aria-label="add to card">
+        <span class="modal-btn-text">Add to</span>
+        <svg class="modal-icon-shop" width="18" height="18">
+          <use href="./img/icons.svg#icon-shopping-cart"></use>
+        </svg>
+      </button>
+      </div>
     </div>`;
 }
 
