@@ -98,29 +98,34 @@ function createCartItemElement({ product, productId, amount }) {
   return listItem;
 }
 
-// // Оновлення іконок у списку товарів після завантаження сторінки
-// function reRenderProductCartIcon(productId) {
-//   const productCard = document.querySelector(
-//     `.cart-basket-item[data-product-id="${productId}"]`
-//   );
-
-//   if (!productCard) return;
-
-//   const isProductInCart = !!Cart.getProduct(productId);
-
-//   productCard.querySelector('.product-list-icon__btn').style.display =
-//     isProductInCart ? 'none' : 'block';
-//   productCard.querySelector('.product-list-icon__btn-added').style.display =
-//     isProductInCart ? 'block' : 'none';
-// }
-
-// Оновлення відображення загальної суми
+// Функція для обрахунку загальної суми товарів
 function updateTotalPrice(products) {
-  const totalPrice = calculateTotalPrice(products);
-  totalPriceElement.textContent = `$${totalPrice.toFixed(2)}`;
+  const total = Cart.getTotal();
+  totalPriceElement.innerHTML = `$${total.toFixed(2)}`;
 }
 
-// Розрахунок загальної суми товарів
-function calculateTotalPrice(products) {
-  return products.reduce((total, product) => total + (product.price || 0), 0);
+function deleteProduct(productId) {
+  // Find the <li> element for the product
+  const productListItem = document.querySelector(
+    `.product-list-item[data-product-id="${productId}"]`
+  );
+
+  // Remove the <li> element from the DOM
+  productListItem.remove();
+
+  // Call Cart.delete() to remove product from cart
+  Cart.delete(productId);
+
+  // Update UI
+  updateCartDisplay();
+  updateTotalPrice(Cart.getProducts());
 }
+
+// const deleteButtons = document.querySelectorAll('.delete-button');
+
+// deleteButtons.forEach(button => {
+//   button.addEventListener('click', () => {
+//     const productId = button.dataset.productId;
+//     deleteProduct(productId);
+//   });
+// });
