@@ -50,14 +50,13 @@ function renderCartItems(products) {
 }
 
 // Створення елементу товару у кошику
-function createCartItemElement(product) {
+function createCartItemElement({ product, productId, amount }) {
   const {
     name = 'Product name',
     category = 'Category',
     size = 'Size',
     price = 0,
     img = '',
-    _id: productId,
   } = product;
 
   const listItem = document.createElement('li');
