@@ -1,35 +1,27 @@
 
 
+
 export default class LoadSpinner {
-  constructor({ loader }) {
-    this.loader = loader;
+  constructor() {
+   this.container = document.createElement('div');
+    this.container.classList.add('loader-container', 'is-hidden');
+
+    this.loader = this.createLoader();
+    this.container.appendChild(this.loader);
   }
 
-  show() {
-    if (this.loader) {
-      this.loader.classList.remove('is-hidden');
-    }
+  createLoader() {
+    const loader = document.createElement('div');
+    loader.classList.add('loader');
+    return loader;
+  }
+
+  show(container) {
+    container.appendChild(this.container);
+    this.container.classList.remove('is-hidden');
   }
 
   hide() {
-    if (this.loader) {
-      this.loader.classList.add('is-hidden');
-    }
-  }
-
-
-  async fetchData(requestFunction) {
-    try {
-        this.show();
-          
-      const data = await requestFunction();
-      console.log('Отримані дані:', data);
-    } catch (error) {
-      console.error('Помилка отримання даних:', error);
-    } finally {
-      this.hide();
-    }
+    this.container.classList.add('is-hidden');
   }
 }
-
-

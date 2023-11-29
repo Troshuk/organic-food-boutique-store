@@ -1,15 +1,19 @@
 import Cart from './services/Cart';
 import FoodBotiqueApi from './services/FoodBoutiqueApi';
 import updateCartItemCount from './header';
+import LoadSpinner from './loader';
 
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
+
+const loader = new LoadSpinner();
 
 export default async function openModalProductDetails(
   productId,
   updateCartIconCallback = () => {}
 ) {
   try {
+   loader.show(document.body); 
     modalBackground.classList.remove('is-hidden');
     modal.innerHTML = '';
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
@@ -31,8 +35,12 @@ export default async function openModalProductDetails(
     document.addEventListener('keydown', escapeModalHandler);
   } catch (error) {
     console.error('Error fetching product data:', error.message);
+  } finally {
+    loader.hide();
   }
 }
+
+
 
 function renderModalCard({
   img,
