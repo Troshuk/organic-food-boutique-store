@@ -1,5 +1,5 @@
 import Filter from './services/Filter';
-import fetchProducts from './product-list';
+import { fetchProducts } from './product-list';
 
 // Sort
 const sortContainer = document.querySelector('.select-menu');
