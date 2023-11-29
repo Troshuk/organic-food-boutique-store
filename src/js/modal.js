@@ -87,7 +87,7 @@ function renderModalCard({
 
       <button type="button" class="minus-btn" aria-label="minus quantity product">
         <svg class="minus-btn-icon">
-          <use href="${icons}##icon-minus"></use>
+          <use href="${icons}#icon-minus"></use>
         </svg>
       </button>
 
@@ -95,7 +95,7 @@ function renderModalCard({
 
       <button type="button" class="plus-btn" aria-label="plus quantity product">
         <svg class="plus-btn-icon">
-          <use href="${icons}##icon-plus"></use>
+          <use href="${icons}#icon-plus"></use>
         </svg>
       </button>
       </div>
