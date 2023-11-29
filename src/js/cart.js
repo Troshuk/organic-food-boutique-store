@@ -6,7 +6,8 @@ import './modal-success';
 updateCartItemCount();
 
 // Scroll
-document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function () {
   const basketListWrapper = document.querySelector('.basket-list-wrapper');
   const basketList = document.querySelector('.cart-basket-list');
 
@@ -16,10 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   basketListWrapper.style.height = scrollbarHeight + 'px';
 
-  basketListWrapper.addEventListener('scroll', function() {
+  basketListWrapper.addEventListener('scroll', function () {
     const scrollTop = basketListWrapper.scrollTop;
-    basketListWrapper.style.height = scrollbarHeight +25 + 'px'
-      basketListWrapper.style.setProperty('--scroll-top', scrollTop + 'px');
-    
+    basketListWrapper.style.height = scrollbarHeight + 'px';
+    basketListWrapper.style.setProperty('--scroll-top', scrollTop + 'px');
   });
 });
