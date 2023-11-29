@@ -6,10 +6,7 @@
           <use href="./img/icons.svg#icon-shopping-cart"></use>
         </svg>
       </button>
-      <h2 class="cart-title">
-        Cart
-        <span>(3)</span>
-      </h2>
+      <h2 class="cart-title">Cart (<span class="cart-item-count">0</span>)</h2>
     </div>
 
     <div class="cart-desctop-thumb">
@@ -20,131 +17,7 @@
             <use href="./img/icons.svg#icon-x-close"></use>
           </svg>
         </button>
-        <ul class="cart-basket-list">
-          <li class="cart-basket-item">
-            <button class="cart-product-delete-button" type="button">
-              <svg class="cart-delete-product-icon" width="18" height="18">
-                <use href="./img/icons.svg#icon-x-close"></use>
-              </svg>
-            </button>
-            <div class="image-cart-thumb">
-              <img
-                class="cart-image"
-                src="https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3676.png"
-                alt=""
-                width="64"
-              />
-            </div>
-            <div class="cart-description-thumb">
-              <h3 class="cart-product-name">Avocado</h3>
-
-              <div class="cart-text-description-container">
-                <p class="cart-product-description">
-                  Category:
-                  <span class="category cart-description">Fresh Produce</span>
-                </p>
-
-                <p class="cart-product-description">
-                  Size:
-                  <span class="size cart-description">Each</span>
-                </p>
-              </div>
-              <span class="cart-price">$1.99</span>
-            </div>
-          </li>
-
-          <li class="cart-basket-item">
-            <button class="cart-product-delete-button" type="button">
-              <svg class="cart-delete-product-icon" width="18" height="18">
-                <use href="./img/icons.svg#icon-x-close"></use>
-              </svg>
-            </button>
-            <div class="image-cart-thumb">
-              <img
-                class="cart-image"
-                src="https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3676.png"
-                alt=""
-                width="64"
-              />
-            </div>
-            <div class="cart-description-thumb">
-              <h3 class="cart-product-name">Avocado</h3>
-
-              <div class="cart-text-description-container">
-                <p class="cart-product-description">
-                  Category:
-                  <span class="category cart-description">Fresh Produce</span>
-                </p>
-
-                <p class="cart-product-description">
-                  Size:
-                  <span class="size cart-description">Each</span>
-                </p>
-              </div>
-              <span class="cart-price">$1.99</span>
-            </div>
-          </li>
-          <li class="cart-basket-item">
-            <button class="cart-product-delete-button" type="button">
-              <svg class="cart-delete-product-icon" width="18" height="18">
-                <use href="./img/icons.svg#icon-x-close"></use>
-              </svg>
-            </button>
-            <div class="image-cart-thumb">
-              <img
-                src="https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3676.png"
-                alt=""
-                width="64"
-              />
-            </div>
-            <div class="cart-description-thumb">
-              <h3 class="cart-product-name">Avocado</h3>
-
-              <div class="cart-text-description-container">
-                <p class="cart-product-description">
-                  Category:
-                  <span class="category cart-description">Fresh Produce</span>
-                </p>
-
-                <p class="cart-product-description">
-                  Size:
-                  <span class="size cart-description">Each</span>
-                </p>
-              </div>
-              <span class="cart-price">$1.99</span>
-            </div>
-          </li>
-          <li class="cart-basket-item">
-            <button class="cart-product-delete-button" type="button">
-              <svg class="cart-delete-product-icon" width="18" height="18">
-                <use href="./img/icons.svg#icon-x-close"></use>
-              </svg>
-            </button>
-            <div class="image-cart-thumb">
-              <img
-                src="https://ftp.goit.study/img/so-yummy/ingredients/640c2dd963a319ea671e3676.png"
-                alt=""
-                width="64"
-              />
-            </div>
-            <div class="cart-description-thumb">
-              <h3 class="cart-product-name">Avocado</h3>
-
-              <div class="cart-text-description-container">
-                <p class="cart-product-description">
-                  Category:
-                  <span class="category cart-description">Fresh Produce</span>
-                </p>
-
-                <p class="cart-product-description">
-                  Size:
-                  <span class="size cart-description">Each</span>
-                </p>
-              </div>
-              <span class="cart-price">$1.99</span>
-            </div>
-          </li>
-        </ul>
+        <ul class="cart-basket-list"></ul>
       </div>
 
       <div class="total-order-thumb">
@@ -153,7 +26,7 @@
           <p class="cart-total-title">Total</p>
           <p class="cart-sum">
             Sum:
-            <span class="total-price"> $12,94</span>
+            <span class="total-price" id="cart-total"> $0.00</span>
           </p>
         </div>
 
