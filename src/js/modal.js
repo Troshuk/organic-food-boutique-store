@@ -13,8 +13,12 @@ export default async function openModalProductDetails(
   updateCartIconCallback = () => {}
 ) {
   try {
-   loader.show(document.body); 
+   
     modalBackground.classList.remove('is-hidden');
+    // loader.show(modal); 
+    setTimeout(() => {
+  loader.show(modal);
+}, 500); 
     modal.innerHTML = '';
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
 

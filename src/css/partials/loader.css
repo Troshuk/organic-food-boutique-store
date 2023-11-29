@@ -7,8 +7,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-background: #000;
-    opacity: 0.7;
+    border-radius: 20px;
+background: rgba(0, 0, 0, 0.7);
     /* Змініть кольори за потребою */
     z-index: 9999999;
     /* Переконайтеся, що z-index вищий, ніж у вашому контенті */
@@ -18,7 +18,7 @@ background: #000;
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    position: relative;
+    /* position: relative; */
     animation: rotate 1s linear infinite
 
 }
@@ -35,7 +35,7 @@ background: #000;
 }
 
 .loader::after {
-    border-color: #FF3D00;
+    border-color: var(--color-light-green);
     animation: prixClipFix 2s linear infinite, rotate 0.5s linear infinite reverse;
     inset: 6px;
 }

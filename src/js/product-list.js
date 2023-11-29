@@ -3,6 +3,7 @@ import Filter from './services/Filter';
 import Cart from './services/Cart';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
+import LoadSpinner from './loader';
 
 const sectionAllProducts = document.querySelector('.all-products');
 const markupTextBox = `<div class="product-list__text__box">
@@ -15,6 +16,8 @@ const markupTextBox = `<div class="product-list__text__box">
       to find the perfect product for you.
     </p>
   </div>`;
+
+  const loader = new LoadSpinner();
 
 function changeBtn(results) {
   document
@@ -234,6 +237,7 @@ function renderProductCards({ page, totalPages, results }) {
 
 export default async function fetchProducts() {
   try {
+    loader.show(sectionAllProducts);
     const data = await FoodBotiqueApi.getProducts(Filter.get());
 
     if (data.results.length) {
@@ -244,5 +248,7 @@ export default async function fetchProducts() {
     }
   } catch (error) {
     console.error(error);
+  }finally {
+    loader.hide(); 
   }
 }
