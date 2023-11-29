@@ -1,19 +1,30 @@
-import FoodBotiqueApi from './services/FoodBoutiqueApi';
 import Filter from './services/Filter';
 import fetchProducts from './product-list';
 
-const optionMenu = document.querySelector('.select-menu');
-const selectBtn = optionMenu.querySelector('.select-btn');
-const options = optionMenu.querySelectorAll('.options');
-const sBtn_text = optionMenu.querySelector('.sBtn-text');
+// Sort
+const sortContainer = document.querySelector('.select-menu');
+const sortSelect = sortContainer.querySelector('.select-btn');
+const sortSelectedText = sortContainer.querySelector('.sBtn-text');
 
-const optionCategory = document.querySelector('.select-menu-category');
-const selectBtnCustom = optionCategory.querySelector('.select-btn-custom');
-const optionsCategory = optionCategory.querySelector('.options');
-const sBtn_textCategory = optionCategory.querySelector('.sBtn-text-select');
+// Category
+const categoryContainer = document.querySelector('.select-menu-category');
+const categorySelect = categoryContainer.querySelector('.select-btn-custom');
+const categorySelectedText =
+  categoryContainer.querySelector('.sBtn-text-select');
 
+// Search
+const searchForm = document.querySelector('.search-form');
 const searchIcon = document.getElementById('search-icon');
 const searchInput = document.getElementById('search-item');
+
+// Check if keyword is already in the storage
+const currentSearchKeyword = Filter.getValueByKey('keyword');
+
+if (currentSearchKeyword) {
+  // Populate search input
+  searchInput.value = currentSearchKeyword;
+}
+
 function closeDropDown() {
   closeOtherDropdowns(null);
 }
@@ -28,115 +39,102 @@ function closeOtherDropdowns(currentDropdown) {
       dropdown.classList.remove('active');
     }
   });
+
+  document.removeEventListener('click', closeDropDown);
 }
 
 // Click on sort dropdown
-selectBtn.addEventListener('click', function (event) {
+sortSelect.addEventListener('click', event => {
   // Close the other drop down
-  closeOtherDropdowns(optionMenu);
-  optionMenu.classList.toggle('active');
-  // Listener for clicks outside of the select to close it
-  document.addEventListener('click', closeDropDown);
+  closeOtherDropdowns(sortContainer);
+  sortContainer.classList.toggle('active');
   event.stopPropagation();
+
+  if (sortContainer.classList.contains('active')) {
+    // Listener for clicks outside of the select to close it
+    document.addEventListener('click', closeDropDown);
+  }
 });
 
-optionMenu.addEventListener('click', function (event) {
+sortContainer.addEventListener('click', function (event) {
   const clickedOption = event.target.closest('.option');
+
   if (clickedOption) {
     let selectedOption = clickedOption.querySelector('.option-text').innerText;
-    sBtn_text.innerText = selectedOption;
-    optionMenu.classList.remove('active');
+    sortSelectedText.innerText = selectedOption;
+    sortContainer.classList.remove('active');
   }
 });
 
-selectBtnCustom.addEventListener('click', function (event) {
-  closeOtherDropdowns(optionCategory);
-  optionCategory.classList.toggle('active');
+categorySelect.addEventListener('click', event => {
+  closeOtherDropdowns(categoryContainer);
+  categoryContainer.classList.toggle('active');
   event.stopPropagation();
-});
 
-optionsCategory.addEventListener('click', function (event) {
-  const clickedOption = event.target.closest('.option-category');
-  if (clickedOption) {
-    let selectedCategory = clickedOption.dataset.originalCategory;
-    sBtn_textCategory.innerText = selectedCategory
-      ? selectedCategory.replace(/_/g, ' ')
-      : 'Show All';
-    optionCategory.classList.remove('active');
-
-    Filter.setCategory(selectedCategory);
-
-    fetchProducts();
+  if (categoryContainer.classList.contains('active')) {
+    // Listener for clicks outside of the select to close it
+    document.addEventListener('click', closeDropDown);
   }
 });
 
-const ul = optionsCategory;
-ul.innerHTML = '';
+// Populate categories
+Filter.getCategories().then(categories => {
+  const categoryOptionsUl = document.createElement('ul');
+  categoryOptionsUl.className = 'options';
 
-const originalCategories = await Filter.getCategories();
+  // Chekc if cuttegory is already in the storage
+  const currentCategory = Filter.getValueByKey('category');
 
-originalCategories.forEach(category => {
-  const li = document.createElement('li');
-  li.className = 'option-category';
-  li.dataset.originalCategory = category;
+  if (currentCategory) {
+    // Populate select with current category
+    categorySelectedText.innerText = currentCategory.replace(/_/g, ' ');
+  }
 
-  const span = document.createElement('span');
-  span.className = 'option-text';
-  span.textContent = category.replace(/_/g, ' ');
+  // Add Show All category option
+  categories.push('Show All');
 
-  li.appendChild(span);
-  ul.appendChild(li);
-});
+  // Create select with categories
+  categories.forEach(category => {
+    const categoryOption = document.createElement('li');
+    categoryOption.className = 'option-category';
 
-const showAllOption = createShowAllOption();
-ul.appendChild(showAllOption);
+    // Don't add option value for this category, should be underfined
+    if (category !== 'Show All') {
+      categoryOption.dataset.originalCategory = category;
+    }
 
-function createOption(optionName) {
-  const li = document.createElement('li');
-  li.className = 'option-category';
-  li.dataset.category = optionName;
+    const span = document.createElement('span');
+    span.className = 'option-text';
+    span.textContent = category.replace(/_/g, ' ');
 
-  const span = document.createElement('span');
-  span.className = 'option-text';
-  span.textContent = optionName;
-
-  li.appendChild(span);
-  return li;
-}
-
-function createShowAllOption() {
-  const showAllOption = document.createElement('li');
-  showAllOption.className = 'option-category';
-  showAllOption.dataset.category = 'Show All';
-
-  const span = document.createElement('span');
-  span.className = 'option-text';
-  span.textContent = 'Show All';
-
-  showAllOption.appendChild(span);
-
-  showAllOption.addEventListener('click', function () {
-    sBtn_textCategory.innerText = 'Show All';
-    optionCategory.classList.remove('active');
-    Filter.setCategory(undefined);
-    fetchProducts();
+    categoryOption.appendChild(span);
+    categoryOptionsUl.appendChild(categoryOption);
   });
 
-  return showAllOption;
-}
-searchIcon.addEventListener('click', function () {
+  categoryContainer.appendChild(categoryOptionsUl);
+
+  categoryOptionsUl.addEventListener('click', function (event) {
+    const clickedOption = event.target.closest('.option-category');
+
+    if (clickedOption) {
+      let selectedCategory = clickedOption.dataset.originalCategory;
+      categorySelectedText.innerText = clickedOption.textContent;
+      categoryContainer.classList.remove('active');
+
+      Filter.setCategory(selectedCategory);
+
+      fetchProducts();
+    }
+  });
+});
+
+searchForm.addEventListener('submit', submitSearch);
+searchIcon.addEventListener('click', submitSearch);
+
+function submitSearch(e) {
+  e.preventDefault();
   const keyword = searchInput.value.trim();
 
-  if (keyword) {
-    Filter.setKeyword(keyword);
-
-    fetchProducts();
-  }
-});
-function updateContentBasedOnCategory(category) {
-  const savedOptions = storage.getFromStorage('options');
-  savedOptions.category = category ? category : null;
-  localStorage.setItem('options', JSON.stringify(savedOptions));
-
+  Filter.setKeyword(keyword);
   fetchProducts();
 }
