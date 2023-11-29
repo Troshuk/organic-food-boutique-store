@@ -109,7 +109,7 @@ import{S as a,F as C,C as d,u as L}from"./footer-d6b2a7c2.js";at();function at()
 
       <button type="button" class="minus-btn" aria-label="minus quantity product">
         <svg class="minus-btn-icon">
-          <use href="${p}##icon-minus"></use>
+          <use href="${p}#icon-minus"></use>
         </svg>
       </button>
 
@@ -117,7 +117,7 @@ import{S as a,F as C,C as d,u as L}from"./footer-d6b2a7c2.js";at();function at()
 
       <button type="button" class="plus-btn" aria-label="plus quantity product">
         <svg class="plus-btn-icon">
-          <use href="${p}##icon-plus"></use>
+          <use href="${p}#icon-plus"></use>
         </svg>
       </button>
       </div>
