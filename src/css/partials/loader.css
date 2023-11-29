@@ -1,4 +1,4 @@
-.is-hidden{
+.is-hidden {
     display: none;
 }
 
@@ -12,11 +12,13 @@
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-background: rgba(0, 0, 0, 0.7);
+background: rgba(0, 0, 0, 0.4);
     /* Змініть кольори за потребою */
     z-index: 9999999;
     /* Переконайтеся, що z-index вищий, ніж у вашому контенті */
 }
+
+
 
 .loader {
     width: 48px;
@@ -26,6 +28,8 @@ background: rgba(0, 0, 0, 0.7);
     animation: rotate 1s linear infinite
 
 }
+
+
 
 .loader::before,
 .loader::after {

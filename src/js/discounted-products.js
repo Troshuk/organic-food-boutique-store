@@ -25,7 +25,9 @@ Filter.getDiscountedProducts().then(products => {
     listElement.appendChild(cartElement);
      
   });
-   
+     
+loader.hideAndRemove();
+  
 
   discountContainer.appendChild(listElement);
 
@@ -61,12 +63,8 @@ Filter.getDiscountedProducts().then(products => {
         isProductInCart ? 'none' : 'block';
     }
   });
-    loader.hide();
-}).catch(error => {
-    console.error(error);
-    // Приховати лоадер у випадку помилки
-    loader.hide();
-  });
+    
+});
  
 function reRenderCartIcon(productId) {
   const productCard = document.querySelector(

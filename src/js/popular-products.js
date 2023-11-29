@@ -18,6 +18,8 @@ Filter.getPopularProducts().then(products => {
   const listElement = document.createElement('ul');
   listElement.className = 'popular-products-list';
 
+ 
+
   productElements.map(cartElement => {
     const productId = cartElement.dataset.productId;
     const isProductInCart = !!Cart.getProduct(productId);
@@ -32,9 +34,13 @@ Filter.getPopularProducts().then(products => {
     
   });
 
+loader.hideAndRemove();
+
+  
   popularProductContainer.appendChild(listElement);
 
   listElement.addEventListener('click', ({ target }) => {
+     
     const cartElement = target.closest('LI');
     const cartButton = target.closest('BUTTON');
 
@@ -60,17 +66,19 @@ Filter.getPopularProducts().then(products => {
 
       updateCartItemCount();
 
+
       cartElement.querySelector('.basket-button').style.display =
         isProductInCart ? 'block' : 'none';
       cartElement.querySelector('.basket-button-icon-check').style.display =
         isProductInCart ? 'none' : 'block';
       
     }
-      loader.hide();
-  });
+ 
+  })
+   
 });
 
-
+ 
 
   function reRenderCartIcon(productId) {
     const productCard = document.querySelector(
@@ -142,4 +150,5 @@ Filter.getPopularProducts().then(products => {
   `;
 
     return productItem;
+    
   }

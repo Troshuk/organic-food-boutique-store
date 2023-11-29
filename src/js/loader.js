@@ -23,7 +23,16 @@ export default class LoadSpinner {
 
   hide() {
     this.container.classList.add('is-hidden');
-      }
+    }
+
+    remove() {
+    this.container.parentNode.removeChild(this.container);
+  }
+
+    hideAndRemove() {
+    this.hide();
+    this.remove(); 
+  }
+}
     
 
-}

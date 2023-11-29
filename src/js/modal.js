@@ -16,9 +16,9 @@ export default async function openModalProductDetails(
    
     modalBackground.classList.remove('is-hidden');
     // loader.show(modal); 
-    setTimeout(() => {
+    
   loader.show(modal);
-}, 500); 
+
     modal.innerHTML = '';
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
 
