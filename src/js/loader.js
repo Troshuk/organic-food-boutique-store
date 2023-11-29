@@ -16,23 +16,14 @@ export default class LoadSpinner {
     return loader;
   }
 
-//   show(container) {
-//     container.appendChild(this.container);
-//     this.container.classList.remove('is-hidden');
-//   }
+  show(container) {
+    container.appendChild(this.container);
+    this.container.classList.remove('is-hidden');
+  }
 
-//   hide() {
-//     this.container.classList.add('is-hidden');
-    //   }
+  hide() {
+    this.container.classList.add('is-hidden');
+      }
     
-    show(container) {
-  console.log('Showing loader');
-  container.appendChild(this.container);
-  
-}
 
-hide() {
-  console.log('Hiding loader');
-  this.container.classList.add('is-hidden');
-}
 }

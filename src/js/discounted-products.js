@@ -2,8 +2,12 @@ import Cart from './services/Cart';
 import Filter from './services/Filter';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
+import LoadSpinner from './loader';
 
 const discountContainer = document.querySelector('.discount-container');
+const loader = new LoadSpinner();
+
+loader.show(discountContainer);
 
 Filter.getDiscountedProducts().then(products => {
   const productElements = products.map(createProductCard);
@@ -19,7 +23,9 @@ Filter.getDiscountedProducts().then(products => {
     cartElement.querySelector('.discount-button-icon-check').style.display =
       isProductInCart ? 'block' : 'none';
     listElement.appendChild(cartElement);
+     
   });
+   
 
   discountContainer.appendChild(listElement);
 
@@ -55,8 +61,13 @@ Filter.getDiscountedProducts().then(products => {
         isProductInCart ? 'none' : 'block';
     }
   });
-});
-
+    loader.hide();
+}).catch(error => {
+    console.error(error);
+    // Приховати лоадер у випадку помилки
+    loader.hide();
+  });
+ 
 function reRenderCartIcon(productId) {
   const productCard = document.querySelector(
     `.discount-item[data-product-id="${productId}"]`
