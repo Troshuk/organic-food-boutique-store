@@ -43,7 +43,7 @@ function renderModalCard({
   price,
 }) {
   return `
-    <button type="button" class="modal-close-btn">
+    <button type="button" class="modal-close-btn" arial-label="modal-close-label">
       <svg class="modal-icon-close" width="22" height="22">
         <use href="${icons}#icon-x-close"></use>
       </svg>

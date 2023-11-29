@@ -122,7 +122,7 @@ function renderProductCards({ page, totalPages, results }) {
       </div>
       <div class="product-list-price__btn">
         <p class="product-list-price__product">$${price.toFixed(2)}</p>
-        <button type="button" class="product-list-button__card">
+        <button type="button" class="product-list-button__card" arial-label="product-button">
           <svg
             class="product-list-icon__btn"
             width="18"
