@@ -59,7 +59,9 @@ optionsCategory.addEventListener('click', function (event) {
   const clickedOption = event.target.closest('.option-category');
   if (clickedOption) {
     let selectedCategory = clickedOption.dataset.originalCategory;
-    sBtn_textCategory.innerText = selectedCategory.replace(/_/g, ' ');
+    sBtn_textCategory.innerText = selectedCategory
+      ? selectedCategory.replace(/_/g, ' ')
+      : 'Show All';
     optionCategory.classList.remove('active');
 
     Filter.setCategory(selectedCategory);
@@ -112,9 +114,16 @@ function createShowAllOption() {
   span.textContent = 'Show All';
 
   showAllOption.appendChild(span);
+
+  showAllOption.addEventListener('click', function () {
+    sBtn_textCategory.innerText = 'Show All';
+    optionCategory.classList.remove('active');
+    Filter.setCategory(undefined);
+    fetchProducts();
+  });
+
   return showAllOption;
 }
-
 searchIcon.addEventListener('click', function () {
   const keyword = searchInput.value.trim();
 
