@@ -2,16 +2,16 @@ import Storage from './Storage';
 import FoodBotiqueApi from './FoodBoutiqueApi';
 
 const storageKey = Storage.FILTER_KEY;
-const sortByList = [
+const sortList = [
   { name: 'A to Z', key: 'byABC', value: true },
   { name: 'Z to A', key: 'byABC', value: false },
   { name: 'Least Expensive', key: 'byPrice', value: true },
   { name: 'Most Expensive', key: 'byPrice', value: false },
   { name: 'Least Popular', key: 'byPopularity', value: true },
   { name: 'Most Popular', key: 'byPopularity', value: false },
-  { name: 'Show All', key: 'showAll', value: undefined },
+  { name: 'Show All', key: undefined, value: undefined },
 ];
-const defaultSortBy = { byABC: true };
+const defaultSortBy = sortList[0];
 const filterDefault = {
   keyword: undefined,
   category: undefined,
@@ -53,7 +53,7 @@ export default class Filter {
 
   // Get list of object options to sort by
   static getSortList() {
-    return sortByList;
+    return sortList;
   }
 
   // Get list of discounted products [Promise]. Will fetch from storage when available
@@ -93,11 +93,6 @@ export default class Filter {
     return products.slice(0, limit) ?? [];
   }
 
-  // Overwrite enite filter object
-  static set(newFilter) {
-    Storage.set(storageKey, newFilter);
-  }
-
   static setKeyword(keyword) {
     const filter = Filter.get();
     Storage.set(storageKey, {
@@ -135,10 +130,14 @@ export default class Filter {
 
   static setSortBy(sortKey, sortValue) {
     const filter = Filter.get();
+    console.log(sortKey, sortValue);
     Storage.set(storageKey, {
       ...filter,
       page: 1,
-      sortBy: { [sortKey]: sortValue },
+      sortBy: sortList.find(
+        option =>
+          option.key === sortKey && option.value === JSON.parse(sortValue)
+      ),
     });
   }
 
