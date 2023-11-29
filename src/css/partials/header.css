@@ -68,18 +68,18 @@
 .mobile-cart-text {
   display: flex;
   position: absolute;
-  top: -1px;
-  right: -1px;
+  top: -2px;
+  right: -2px;
   width: 17px;
   height: 17px;
   background-color: var(--color-light-grey);
   border-radius: 50%;
-  border: solid 1px var(--color-dark-green);
+  border: solid 1px var(--color-light-green);
   justify-content: center;
   align-items: center;
 }
 
-.cart-button-container {
+.cart-button {
   position: relative;
 }
 
