@@ -11,6 +11,9 @@
 }
 
 /* Hide modal  */
+.is-modal-open{
+  overflow-y: hidden;
+}
 
 .is-hidden {
   display: none;
