@@ -3,23 +3,24 @@
     <h2 class="title-filter">Filters:</h2>
     <form class="search-form">
       <div class="input-container">
-        <div class="search-form">
-          <input
-            type="text"
-            class="input-modal-subscribe"
-            placeholder="Search for anything"
-          />
-        </div>
+        <input
+          type="text"
+          name="keyword"
+          class="input-modal-subscribe"
+          placeholder="Search for anything"
+          id="search-item"
+        />
         <svg
           width="20"
           height="20"
           class="icon-search container-search-everything"
+          id="search-icon"
         >
           <use href="./img/icons.svg#icon-search"></use>
         </svg>
       </div>
       <div class="select-menu-category">
-        <div class="select-btn-custom">
+        <div class="select-btn-custom" id="category">
           <span class="sBtn-text-select">Categories</span>
           <svg
             width="20"
@@ -29,42 +30,6 @@
             <use href="./img/icons.svg#icon-arrow-down"></use>
           </svg>
         </div>
-        <ul class="options">
-          <li class="option-category" data-option-1>
-            <span class="option-text">Beverages</span>
-          </li>
-          <li class="option-category" data-option-2>
-            <span class="option-text">Breads / Bakery</span>
-          </li>
-          <li class="option-category" data-option-3>
-            <span class="option-text">Dairy</span>
-          </li>
-          <li class="option-category" data-option-4>
-            <span class="option-text">Deli</span>
-          </li>
-          <li class="option-category" data-option-5>
-            <span class="option-text">Eggs</span>
-          </li>
-          <li class="option-category" data-option-6>
-            <span class="option-text">Fresh Produce</span>
-          </li>
-          <li class="option-category" data-option-7>
-            <span class="option-text">Meat & Seafood</span>
-          </li>
-          <li class="option-category" data-option-8>
-            <span class="option-text">Pantry Items</span>
-          </li>
-
-          <li class="option-category" data-option-9>
-            <span class="option-text">Prepared Foods</span>
-          </li>
-          <li class="option-category" data-option-10>
-            <span class="option-text">Snacks</span>
-          </li>
-          <li class="option-category" data-option-11>
-            <span class="option-text">Show all</span>
-          </li>
-        </ul>
       </div>
       <div class="select-menu" id="sort">
         <div class="select-btn">
@@ -73,29 +38,6 @@
             <use href="./img/icons.svg#icon-arrow-down"></use>
           </svg>
         </div>
-        <ul class="options">
-          <li class="option" data-select-1>
-            <span class="option-text">A to Z</span>
-          </li>
-          <li class="option" data-select-2>
-            <span class="option-text">Z to A</span>
-          </li>
-          <li class="option" data-select-3>
-            <span class="option-text">Less than 10$</span>
-          </li>
-          <li class="option" data-select-4>
-            <span class="option-text">Greater than 10$</span>
-          </li>
-          <li class="option" data-select-5>
-            <span class="option-text">Popular</span>
-          </li>
-          <li class="option" data-select-6>
-            <span class="option-text">Not Popular</span>
-          </li>
-          <li class="option" data-select-7>
-            <span class="option-text">Show All</span>
-          </li>
-        </ul>
       </div>
     </form>
   </div>

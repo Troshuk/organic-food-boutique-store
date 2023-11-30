@@ -6,4 +6,5 @@ const modal = document.querySelector('.success-blackdrop');
 
 closeModalSuccessButton.addEventListener('click', function () {
   modal.classList.add('is-hidden');
+  document.body.classList.remove('is-modal-open');
 });

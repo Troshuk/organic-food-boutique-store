@@ -63,7 +63,7 @@ function createCartItemElement({ product, productId, amount }) {
   listItem.classList.add('cart-basket-item');
 
   listItem.innerHTML = `
-    <button class="cart-product-delete-button" type="button">
+    <button class="cart-product-delete-button" type="button" arial-label="cart product delete">
       <svg class="cart-delete-product-icon" width="18" height="18">
         <use href="${icons}#icon-x-close" data-product-id="${productId}"></use>
       </svg>
@@ -83,7 +83,23 @@ function createCartItemElement({ product, productId, amount }) {
           <span class="size cart-description">${size}</span>
         </p>
       </div>
-      <span class="cart-price">$${price.toFixed(2)}</span>
+      <div class="price-and-quantity">
+        <span class="cart-price">$${price.toFixed(2)}</span>
+
+        <div class="quantity-in-cart">
+            <button type="button" class="minus-btn" data-action="decrement" aria-label="minus quantity product">
+              <svg class="minus-btn-icon">
+                <use href="${icons}#icon-minus"></use>
+              </svg>
+            </button>
+          <span class="quantity">${amount}</span>
+            <button type="button" class="plus-btn" data-action="increment" aria-label="plus quantity product">
+              <svg class="plus-btn-icon">
+                <use href="${icons}#icon-plus"></use>
+              </svg>
+            </button>
+        </div>
+      </div>
     </div>
   `;
 
@@ -103,3 +119,25 @@ function updateTotalPrice(products) {
   const total = Cart.getTotal();
   totalPriceElement.innerHTML = `$${total.toFixed(2)}`;
 }
+
+const spanQuantity = document.querySelector('.quantity');
+spanQuantity.textContent = 1;
+
+document
+  .querySelector('button[data-action="decrement"]')
+  .addEventListener('click', () => {
+    const countValue = spanQuantity.textContent - 1;
+    spanQuantity.textContent = countValue;
+
+    if (countValue < 1) {
+      // If we just decreased the count to 0, that means that we are removing it from the cart
+      spanQuantity.textContent = 1;
+    }
+  });
+
+document
+  .querySelector('button[data-action="increment"]')
+  .addEventListener('click', () => {
+    const countValue = Number(spanQuantity.textContent) + 1;
+    spanQuantity.textContent = countValue;
+  });

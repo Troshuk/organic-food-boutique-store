@@ -3,11 +3,13 @@ import Filter from './services/Filter';
 import Cart from './services/Cart';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
+import LoadSpinner from './loader';
 import { reRenderPopularCartIcon } from './popular-products';
 import { reRenderDiscountedCartIcon } from './discounted-products';
 import icons from '../img/icons.svg';
 
 const sectionAllProducts = document.querySelector('.all-products');
+const loader = new LoadSpinner(sectionAllProducts);
 const markupTextBox = `<div class="product-list__text__box">
     <p class="product-list__text__one">
       Nothing was found for the selected
@@ -122,7 +124,7 @@ function renderProductCards({ page, totalPages, results }) {
       </div>
       <div class="product-list-price__btn">
         <p class="product-list-price__product">$${price.toFixed(2)}</p>
-        <button type="button" class="product-list-button__card">
+        <button type="button" class="product-list-button__card" arial-label="product button">
           <svg
             class="product-list-icon__btn"
             width="18"
@@ -197,9 +199,9 @@ function renderProductCards({ page, totalPages, results }) {
                 <use href="${icons}#icon-arrow-left"></use>
               </svg>
             </li>
-            <div class="product-list-page__numbers">
+            <ul class="product-list-page__numbers">
               ${pageItems}
-            </div>
+            </ul>
             <li
               class="product-list-page__item nav__btn"
               data-page-number="right"
@@ -247,12 +249,14 @@ function renderProductCards({ page, totalPages, results }) {
 
         Filter.setPage(pageNumber);
         fetchProducts();
+        windowScrollToSection('#filters');
       });
   }
 }
 
 export async function fetchProducts() {
   try {
+    loader.show();
     const data = await FoodBotiqueApi.getProducts(Filter.get());
 
     if (data.results.length) {
@@ -263,5 +267,19 @@ export async function fetchProducts() {
     }
   } catch (error) {
     console.error(error);
+  } finally {
+    loader.remove();
+  }
+}
+
+function windowScrollToSection(selector) {
+  const section = document.querySelector(selector);
+  const header = document.querySelector('.header');
+
+  if (section) {
+    window.scrollTo({
+      top: section.offsetTop - header.offsetHeight,
+      behavior: 'smooth',
+    });
   }
 }
