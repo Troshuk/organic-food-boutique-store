@@ -8,6 +8,7 @@ const refs = {
   closeModalTermsBtn: document.querySelector('.js-terms-close'),
   policyLink: document.querySelector('.js-policy'),
   termsLink: document.querySelector('.js-terms'),
+  body: document.querySelector('body'),
 
   footerForm: document.querySelector('.footer-subscribe-form'),
 
@@ -32,10 +33,12 @@ refs.openModalTerms.addEventListener('click', () => {
 
 function onPolicyClick() {
   refs.policyLink.classList.toggle('is-hidden-policy');
+  refs.body.classList.toggle('is-modal-open');
 }
 
 function onTermsClick() {
   refs.termsLink.classList.toggle('is-hidden-policy');
+  refs.body.classList.toggle('is-modal-open');
 }
 
 // =================MODAL WINDOW SUBSCRIBE
@@ -73,10 +76,11 @@ function onNotSubscribeClick(e) {
 function onSubscribeClick({ message }) {
   refs.subscribeText.innerHTML = message;
   refs.subscribeLink.classList.toggle('is-hidden-subscribe');
+  refs.body.classList.toggle('is-modal-open');
 
-  refs.closeModalSubscribeBtn.addEventListener(
-    'click',
-    () => refs.subscribeLink.classList.toggle('is-hidden-subscribe'),
-    { once: true }
-  );
+  function closeModal() {
+    refs.subscribeLink.classList.toggle('is-hidden-subscribe'), { once: true };
+    refs.body.classList.toggle('is-modal-open');
+  }
+  refs.closeModalSubscribeBtn.addEventListener('click', closeModal);
 }
