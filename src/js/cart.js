@@ -111,6 +111,8 @@ function renderCartItems(products) {
         // If we just decreased the count to 0, that means that we are removing it from the cart
         spanQuantity.textContent = 1;
         Cart.delete(productId);
+
+        updateCartUI();
       } else {
         Cart.update(product, countValue);
       }
@@ -119,8 +121,6 @@ function renderCartItems(products) {
       spanQuantity.textContent = countValue;
       Cart.update(product, countValue);
     }
-
-    updateCartUI();
   });
 }
 
