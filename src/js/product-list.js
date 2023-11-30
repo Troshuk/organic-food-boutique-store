@@ -275,7 +275,9 @@ export async function fetchProducts() {
       limit = 6;
     }
 
-    Filter.setLimit(limit);
+    if (Filter.getValueByKey('limit') !== limit) {
+      Filter.setLimit(limit);
+    }
 
     loader.show();
     const data = await FoodBotiqueApi.getProducts(Filter.get());
