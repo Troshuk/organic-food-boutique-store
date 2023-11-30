@@ -106,12 +106,12 @@ function createProductItem({
 
     <div class="popular-products-description-thumb">
       <h3 class="popular-products-name">${name}</h3>
-      <button class="basket-button" type="button" arial-label="basket shopping">
+      <button class="basket-button" type="button" aria-label="basket shopping">
         <svg class="popular-products-cart-icon" width="12" height="12">
           <use href="${icons}#icon-shopping-cart"></use>
         </svg>
       </button>
-      <button class="basket-button-icon-check" arial-label="basket check">
+      <button class="basket-button-icon-check" aria-label="basket check">
         <svg class="popular-products-icon-check" width="12" height="12">
           <use href="${icons}#icon-check"></use>
         </svg>

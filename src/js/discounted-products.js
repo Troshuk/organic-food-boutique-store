@@ -98,7 +98,7 @@ function createProductCard({ _id, img, name, price }) {
    <div class="discount-info-container">
         <h3 class="discount-product-name">${name}</h3>
         <p class="discount-product-price">$${price.toFixed(2)}</p>
-        <button type="button" class="discount-btn" arial-label="discount product">
+        <button type="button" class="discount-btn" aria-label="discount product">
             <svg class="discount-button-icon-cart" width="18" height="18">
                 <use href="${icons}#icon-shopping-cart"></use>
             </svg>

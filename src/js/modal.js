@@ -16,7 +16,7 @@ export default async function openModalProductDetails(productId) {
     modalBackground.classList.remove('is-hidden');
     document.body.classList.add('is-modal-open');
     modal.innerHTML = `
-      <button type="button" class="modal-close-btn" arial-label="modal close">
+      <button type="button" class="modal-close-btn" aria-label="modal close">
         <svg class="modal-icon-close" width="22" height="22">
           <use href="${icons}#icon-x-close"></use>
         </svg>

@@ -139,7 +139,7 @@ function createCartItemElement({ product, productId, amount }) {
   listItem.dataset.productId = productId;
 
   listItem.innerHTML = `
-    <button class="cart-product-delete-button" type="button" arial-label="cart product delete">
+    <button class="cart-product-delete-button" type="button" aria-label="cart product delete">
       <svg class="cart-delete-product-icon" width="18" height="18">
         <use href="${icons}#icon-x-close" data-product-id="${productId}"></use>
       </svg>
