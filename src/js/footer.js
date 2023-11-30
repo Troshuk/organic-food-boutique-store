@@ -82,5 +82,6 @@ function onSubscribeClick({ message }) {
     refs.subscribeLink.classList.toggle('is-hidden-subscribe'), { once: true };
     refs.body.classList.toggle('is-modal-open');
   }
+
   refs.closeModalSubscribeBtn.addEventListener('click', closeModal);
 }

@@ -11,7 +11,7 @@
 }
 
 /* Hide modal  */
-.is-modal-open{
+.is-modal-open {
   overflow-y: hidden;
 }
 
@@ -202,6 +202,7 @@
     font-size: 16px;
     line-height: 1.25;
     margin-top: 24px;
+    max-height: 117px;
   }
 }
 
@@ -256,18 +257,20 @@
   border-radius: 30px;
   background: var(--color-light-green);
 }
+
 .quantity-and-add {
   display: flex;
   gap: 10px;
 }
+
 .quantity-in-modal {
   display: flex;
   border-radius: 100px;
   border: 1px solid rgba(1, 1, 1, 0.1);
   width: 65px;
   height: 42px;
-align-items: center;
-padding: 8px;
+  align-items: center;
+  padding: 8px;
   gap: 8px;
 }
 
@@ -277,6 +280,7 @@ padding: 8px;
     line-height: 1.25;
     padding: 8.5px 28px;
   }
+
   .quantity-in-modal {
     width: 80px;
     height: 42px;
