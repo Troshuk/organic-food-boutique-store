@@ -8,12 +8,11 @@ import icons from '../img/icons.svg';
 
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
-const body = document.querySelector('body');
 
 export default async function openModalProductDetails(productId) {
   try {
     modalBackground.classList.remove('is-hidden');
-    body.classList.add('is-modal-open');
+    document.body.classList.add('is-modal-open');
 
     modal.innerHTML = '';
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
@@ -148,7 +147,7 @@ function clickOnBackdrop({ target }) {
 
 function closeModalHandler() {
   modalBackground.classList.add('is-hidden');
-  body.classList.remove('is-modal-open');
+  document.body.classList.remove('is-modal-open');
 
   document
     .querySelector('.modal-close-btn')
