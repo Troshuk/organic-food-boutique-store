@@ -2,10 +2,10 @@ import Cart from './services/Cart';
 import Filter from './services/Filter';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
-import LoadSpinner from './loader';
 import { reRenderProductCartIcon } from './product-list';
 import { reRenderDiscountedCartIcon } from './discounted-products';
 import icons from '../img/icons.svg';
+import LoadSpinner from './loader';
 
 const popularProductContainer = document.querySelector(
   '.popular-products-container'
