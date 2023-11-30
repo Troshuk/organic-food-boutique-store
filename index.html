@@ -8,7 +8,7 @@
     <title>Food Boutique Store</title>
 
     
-    <script type="module" crossorigin src="/organic-food-boutique-store/assets/index-74ecd97e.js"></script>
+    <script type="module" crossorigin src="/organic-food-boutique-store/assets/index-0ac6e660.js"></script>
     <link rel="modulepreload" crossorigin href="/organic-food-boutique-store/assets/footer-716e233b.js">
     <link rel="stylesheet" href="/organic-food-boutique-store/assets/footer-03ea7cae.css">
   </head>
@@ -17,17 +17,21 @@
     <header class="header" id="header">
   <div class="container">
     <nav class="header-navigation">
-      <a class="header-logo" href="./index.html">
+      <a class="header-logo" href="./index.html" aria-label="Home website">
         <svg class="header-logo" width="154" height="28">
           <use href="/organic-food-boutique-store/assets/icons-8fcbdd30.svg#icon-logo-header"></use>
         </svg>
       </a>
       <ul class="header-list">
         <li>
-          <a class="home-button" href="./index.html">Home</a>
+          <a class="home-button" href="./index.html" aria-label="Home">Home</a>
         </li>
         <li>
-          <a class="cart-button-container" href="./cart.html">
+          <a
+            arial-label="Basket"
+            class="cart-button-container"
+            href="./cart.html"
+          >
             <div class="cart-button">
               <svg class="cart-icon" width="14" height="14">
                 <use href="/organic-food-boutique-store/assets/icons-8fcbdd30.svg#icon-shopping-cart"></use>
@@ -174,7 +178,7 @@
   <div class="container">
     <div class="footer-tablet">
       <div class="footer-logo-and-social-list">
-        <a href="./index.html"
+        <a arial-label="Footer Icon" href="./index.html"
           ><svg class="footer-icon">
             <use href="/organic-food-boutique-store/assets/icons-8fcbdd30.svg#icon-logo-footer"></use>
           </svg>
@@ -183,6 +187,7 @@
         <ul class="social-list">
           <li>
             <a
+              arial-label="facebook"
               href="https://www.facebook.com/goITclub/"
               class="social-list-link"
               target="_blank"
@@ -193,6 +198,7 @@
           </li>
           <li>
             <a
+              arial-label="instagram"
               href="https://www.instagram.com/goitclub/"
               class="social-list-link"
               target="_blank"
@@ -202,8 +208,11 @@
             </a>
           </li>
           <li>
-            <a href="https://www.youtube.com/c/GoIT" class="social-list-link"
-            target="_blank"
+            <a
+              arial-label="youtube"
+              href="https://www.youtube.com/c/GoIT"
+              class="social-list-link"
+              target="_blank"
               ><svg class="social-list-icon">
                 <use href="/organic-food-boutique-store/assets/icons-8fcbdd30.svg#icon-youtube"></use>
               </svg>
@@ -241,7 +250,13 @@
               />
             </label>
 
-            <button type="submit" class="footer-subscribe-btn" aria-label="email subscribe">Send</button>
+            <button
+              type="submit"
+              class="footer-subscribe-btn"
+              aria-label="email subscribe"
+            >
+              Send
+            </button>
           </form>
         </div>
       </div>
@@ -251,12 +266,14 @@
       <p class="footer-bottom-text">Food Boutique. All rights reserved.</p>
       <div class="footer-bottom-links">
         <a
+          arial-label="privacy policy"
           href="#privacy-policy"
           class="footer-bottom-link js-modal-policy-open"
           >Privacy Policy</a
         >
         <span class="footer-bottom-link">/</span>
         <a
+          arial-label="terms of service"
           href="#terms-of-service"
           class="footer-bottom-link js-modal-terms-open"
           >Terms of Service</a
@@ -360,7 +377,11 @@
     <!-- Modal success window -->
     <div class="success-blackdrop is-hidden">
   <div class="success-modal">
-    <button type="button" class="success-modal-close-btn">
+    <button
+      type="button"
+      class="success-modal-close-btn"
+      arial-label="success modal"
+    >
       <svg class="success-modal-close-btn-icon">
         <use href="/organic-food-boutique-store/assets/icons-8fcbdd30.svg#icon-x-close"></use>
       </svg>
@@ -387,7 +408,7 @@
 
 
     <!-- Scroll up -->
-    <a href="#" class="scroll-up">
+    <a href="#" class="scroll-up" arial-label="scroll">
   <svg class="scroll-icon">
     <use href="/organic-food-boutique-store/assets/icons-8fcbdd30.svg#icon-scroll"></use>
   </svg>
