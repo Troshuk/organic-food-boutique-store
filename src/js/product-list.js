@@ -189,8 +189,8 @@ function renderProductCards({ page, totalPages, results }) {
 
     paginationDiv = `
       <div class="product-list-pagination">
-          <ul class="product-list-pagination__list">
-            <li
+          <div class="product-list-pagination__list">
+            <div
               class="product-list-page__item nav__btn"
               data-page-number="left"
               ${page === 1 ? 'disabled' : ''}
@@ -198,11 +198,11 @@ function renderProductCards({ page, totalPages, results }) {
               <svg class="icon__arrow" width="24" height="24">
                 <use href="${icons}#icon-arrow-left"></use>
               </svg>
-            </li>
+            </div>
             <ul class="product-list-page__numbers">
               ${pageItems}
             </ul>
-            <li
+            <div
               class="product-list-page__item nav__btn"
               data-page-number="right"
               ${page === totalPages ? 'disabled' : ''}
@@ -210,8 +210,8 @@ function renderProductCards({ page, totalPages, results }) {
               <svg class="icon__arrow" width="24" height="24">
                 <use href="${icons}#icon-arrow-right"></use>
               </svg>
-            </li>
-          </ul>
+            </div>
+          </div>
       </div>
     `;
   }
@@ -228,9 +228,9 @@ function renderProductCards({ page, totalPages, results }) {
     document
       .querySelector('.product-list-pagination__list')
       .addEventListener('click', ({ target }) => {
-        const pageElement = target.closest('LI');
+        const pageElement = target.closest('.product-list-page__item');
 
-        if (pageElement?.nodeName !== 'LI') {
+        if (!pageElement) {
           return;
         }
 
@@ -242,10 +242,18 @@ function renderProductCards({ page, totalPages, results }) {
 
         if (pageNumber === 'left') {
           pageNumber = page > 1 ? page - 1 : page;
+
+          if (page === 1) {
+            return;
+          }
         }
 
         if (pageNumber === 'right') {
           pageNumber = totalPages - page > 0 ? page + 1 : page;
+
+          if (page === totalPages) {
+            return;
+          }
         }
 
         Filter.setPage(pageNumber);
