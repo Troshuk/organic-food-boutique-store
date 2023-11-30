@@ -158,7 +158,7 @@ function renderProductCards({ page, totalPages, results }) {
     }
 
     // If there are only 5 pages, then display all numbers
-    if (totalPages !== 5) {
+    if (totalPages > 5) {
       // If current page is first or last 2 pages of the pagination
       if (page <= 2 || totalPages - page < 2) {
         // Replace all the numbers in between first 2 and last 2 page numbers with ...

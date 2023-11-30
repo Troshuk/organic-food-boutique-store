@@ -2,8 +2,8 @@ import updateCartItemCount from './header';
 import './hero';
 import './filter';
 import { fetchProducts } from './product-list';
-import './popular-products';
-import './discounted-products';
+import { getPopularProducts } from './popular-products';
+import { getDiscountedProducts } from './discounted-products';
 import './footer';
 import './scroll';
 import debounce from 'lodash.debounce';
@@ -16,6 +16,8 @@ updateCartItemCount();
 
 // Page loaded, render product list
 fetchProducts();
+getPopularProducts();
+getDiscountedProducts();
 
 let previousDeviceType = getScreenType(window.innerWidth);
 
@@ -27,6 +29,7 @@ window.addEventListener(
     if (previousDeviceType !== newDeviceType) {
       previousDeviceType = newDeviceType;
       fetchProducts();
+      getPopularProducts();
     }
   }, 300)
 );
