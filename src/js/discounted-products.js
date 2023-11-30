@@ -2,10 +2,10 @@ import Cart from './services/Cart';
 import Filter from './services/Filter';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
-import LoadSpinner from './loader';
 import { reRenderProductCartIcon } from './product-list';
 import { reRenderPopularCartIcon } from './popular-products';
 import icons from '../img/icons.svg';
+import LoadSpinner from './loader';
 
 const discountContainer = document.querySelector('.discount-container');
 const loader = new LoadSpinner(discountContainer);
@@ -61,7 +61,7 @@ Filter.getDiscountedProducts()
       }
     });
   })
-  .finally(() => loader.remove());
+  .finally(() => loader.show());
 
 export function reRenderDiscountedCartIcon(productId) {
   const productCard = document.querySelector(
