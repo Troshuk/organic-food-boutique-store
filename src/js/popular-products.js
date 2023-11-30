@@ -6,7 +6,6 @@ import LoadSpinner from './loader';
 
 const loader = new LoadSpinner();
 
-
 const popularProductContainer = document.querySelector(
   '.popular-products-container'
 );
@@ -17,8 +16,6 @@ Filter.getPopularProducts().then(products => {
   const productElements = products.map(createProductItem);
   const listElement = document.createElement('ul');
   listElement.className = 'popular-products-list';
-
- 
 
   productElements.map(cartElement => {
     const productId = cartElement.dataset.productId;
@@ -31,16 +28,13 @@ Filter.getPopularProducts().then(products => {
       isProductInCart ? 'block' : 'none';
 
     listElement.appendChild(cartElement);
-    
   });
 
-loader.hideAndRemove();
+  loader.hideAndRemove();
 
-  
   popularProductContainer.appendChild(listElement);
 
   listElement.addEventListener('click', ({ target }) => {
-     
     const cartElement = target.closest('LI');
     const cartButton = target.closest('BUTTON');
 
@@ -66,47 +60,41 @@ loader.hideAndRemove();
 
       updateCartItemCount();
 
-
       cartElement.querySelector('.basket-button').style.display =
         isProductInCart ? 'block' : 'none';
       cartElement.querySelector('.basket-button-icon-check').style.display =
         isProductInCart ? 'none' : 'block';
-      
     }
- 
-  })
-   
+  });
 });
 
- 
+function reRenderCartIcon(productId) {
+  const productCard = document.querySelector(
+    `.popular-products-item[data-product-id="${productId}"]`
+  );
+  const isProductInCart = !!Cart.getProduct(productId);
 
-  function reRenderCartIcon(productId) {
-    const productCard = document.querySelector(
-      `.popular-products-item[data-product-id="${productId}"]`
-    );
-    const isProductInCart = !!Cart.getProduct(productId);
+  productCard.querySelector('.basket-button').style.display = isProductInCart
+    ? 'none'
+    : 'block';
+  productCard.querySelector('.basket-button-icon-check').style.display =
+    isProductInCart ? 'block' : 'none';
+}
 
-    productCard.querySelector('.basket-button').style.display = isProductInCart
-      ? 'none'
-      : 'block';
-    productCard.querySelector('.basket-button-icon-check').style.display =
-      isProductInCart ? 'block' : 'none';
-  }
+function createProductItem({
+  _id,
+  img,
+  name,
+  is10PercentOff,
+  category,
+  size,
+  popularity,
+}) {
+  const productItem = document.createElement('li');
+  productItem.className = 'popular-products-item';
+  productItem.dataset.productId = _id;
 
-  function createProductItem({
-    _id,
-    img,
-    name,
-    is10PercentOff,
-    category,
-    size,
-    popularity,
-  }) {
-    const productItem = document.createElement('li');
-    productItem.className = 'popular-products-item';
-    productItem.dataset.productId = _id;
-
-    productItem.innerHTML = `
+  productItem.innerHTML = `
     <div class="popular-products-img-container">
       <img class="popular-products-img" src="${img}" alt="${name}" width="56" height="56"/>
       <svg class="popular-products-discount-icon" width="20" height="20"
@@ -149,6 +137,5 @@ loader.hideAndRemove();
     </div>
   `;
 
-    return productItem;
-    
-  }
+  return productItem;
+}

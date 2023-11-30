@@ -1,4 +1,3 @@
-
 const optionMenu = document.querySelector('.select-menu');
 const selectBtn = optionMenu.querySelector('.select-btn');
 const options = optionMenu.querySelectorAll('.options');
@@ -8,7 +7,6 @@ const optionCategory = document.querySelector('.select-menu-category');
 const selectBtnCustom = optionCategory.querySelector('.select-btn-custom');
 const optionsCategory = optionCategory.querySelector('.options');
 const sBtn_textCategory = optionCategory.querySelector('.sBtn-text-select');
-
 
 function closeDropDown() {
   closeOtherDropdowns(null);
@@ -58,5 +56,4 @@ optionsCategory.addEventListener('click', function (event) {
     sBtn_textCategory.innerText = selectedOption;
     optionCategory.classList.remove('active');
   }
-
 });

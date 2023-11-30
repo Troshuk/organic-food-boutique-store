@@ -6,8 +6,6 @@ import './popular-products';
 import './discounted-products';
 import './footer';
 import './scroll';
-import './loader';
-
 
 // Update cart count on initial load of the page
 updateCartItemCount();

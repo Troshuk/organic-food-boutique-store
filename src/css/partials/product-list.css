@@ -1,8 +1,4 @@
 /*? -------------------------- Products List -------------------------- */
-
-.all-products{
-  position: relative;
-}
 .product-list-product__list {
   display: flex;
   cursor: pointer;

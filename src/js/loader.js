@@ -1,9 +1,9 @@
-
-
-
 export default class LoadSpinner {
+  loader;
+  container;
+
   constructor() {
-   this.container = document.createElement('div');
+    this.container = document.createElement('div');
     this.container.classList.add('loader-container', 'is-hidden');
 
     this.loader = this.createLoader();
@@ -17,22 +17,21 @@ export default class LoadSpinner {
   }
 
   show(container) {
+    container.style.position = 'relative';
     container.appendChild(this.container);
     this.container.classList.remove('is-hidden');
   }
 
   hide() {
     this.container.classList.add('is-hidden');
-    }
+  }
 
-    remove() {
+  remove() {
     this.container.parentNode.removeChild(this.container);
   }
 
-    hideAndRemove() {
+  hideAndRemove() {
     this.hide();
-    this.remove(); 
+    this.remove();
   }
 }
-    
-

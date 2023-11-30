@@ -204,10 +204,6 @@
   margin-bottom: 80px;
 }
 
-.cart-added-list{
-  position: relative;
-}
-
 /***** min-width: 768px *****/
 
 @media screen and (min-width: 768px) {

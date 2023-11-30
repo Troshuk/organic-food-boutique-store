@@ -5,10 +5,9 @@ import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
 import LoadSpinner from './loader';
 
-
-  const sectionAllProducts = document.querySelector('.all-products');
-  const loader = new LoadSpinner();
-  const markupTextBox = `<div class="product-list__text__box">
+const sectionAllProducts = document.querySelector('.all-products');
+const loader = new LoadSpinner();
+const markupTextBox = `<div class="product-list__text__box">
     <p class="product-list__text__one">
       Nothing was found for the selected
       <span class="text__one__span">filters...</span>
@@ -19,76 +18,74 @@ import LoadSpinner from './loader';
     </p>
   </div>`;
 
-  // const loader = new LoadSpinner();
+function changeBtn(results) {
+  document
+    .querySelector('.product-list-product__list')
+    .addEventListener('click', ({ target }) => {
+      const cartElement = target.closest('LI');
+      const cartButton = target.closest('BUTTON');
 
-  function changeBtn(results) {
-    document
-      .querySelector('.product-list-product__list')
-      .addEventListener('click', ({ target }) => {
-        const cartElement = target.closest('LI');
-        const cartButton = target.closest('BUTTON');
+      if (cartElement?.nodeName !== 'LI') {
+        return;
+      }
 
-        if (cartElement?.nodeName !== 'LI') {
-          return;
+      const productId = cartElement.dataset.productId;
+
+      if (cartButton?.nodeName !== 'BUTTON') {
+        openModalProductDetails(productId, reRenderCartIcon);
+        return;
+      }
+
+      if (cartButton?.nodeName === 'BUTTON') {
+        const isProductInCart = !!Cart.getProduct(productId);
+
+        if (isProductInCart) {
+          Cart.delete(productId);
+        } else {
+          Cart.add(results.find(e => e._id === productId));
         }
 
-        const productId = cartElement.dataset.productId;
+        updateCartItemCount();
 
-        if (cartButton?.nodeName !== 'BUTTON') {
-          openModalProductDetails(productId, reRenderCartIcon);
-          return;
-        }
+        const addBtn = cartButton.querySelector('.product-list-icon__btn');
+        const checkBtn = cartButton.querySelector(
+          '.product-list-icon__btn-added'
+        );
 
-        if (cartButton?.nodeName === 'BUTTON') {
-          const isProductInCart = !!Cart.getProduct(productId);
+        addBtn.style.display = isProductInCart ? 'block' : 'none';
+        checkBtn.style.display = isProductInCart ? 'none' : 'block';
+      }
+    });
+}
 
-          if (isProductInCart) {
-            Cart.delete(productId);
-          } else {
-            Cart.add(results.find(e => e._id === productId));
-          }
+function reRenderCartIcon(productId) {
+  const productCard = document.querySelector(
+    `.product-list-product__card[data-product-id="${productId}"]`
+  );
+  const isProductInCart = !!Cart.getProduct(productId);
 
-          updateCartItemCount();
+  productCard.querySelector('.product-list-icon__btn').style.display =
+    isProductInCart ? 'none' : 'block';
+  productCard.querySelector('.product-list-icon__btn-added').style.display =
+    isProductInCart ? 'block' : 'none';
+}
 
-          const addBtn = cartButton.querySelector('.product-list-icon__btn');
-          const checkBtn = cartButton.querySelector(
-            '.product-list-icon__btn-added'
-          );
+function renderProductCards({ page, totalPages, results }) {
+  const markup = results
+    .map(
+      ({
+        _id,
+        name,
+        img,
+        category,
+        price,
+        size,
+        popularity,
+        is10PercentOff,
+      }) => {
+        const isProductInCart = !!Cart.getProduct(_id);
 
-          addBtn.style.display = isProductInCart ? 'block' : 'none';
-          checkBtn.style.display = isProductInCart ? 'none' : 'block';
-        }
-      });
-  }
-
-  function reRenderCartIcon(productId) {
-    const productCard = document.querySelector(
-      `.product-list-product__card[data-product-id="${productId}"]`
-    );
-    const isProductInCart = !!Cart.getProduct(productId);
-
-    productCard.querySelector('.product-list-icon__btn').style.display =
-      isProductInCart ? 'none' : 'block';
-    productCard.querySelector('.product-list-icon__btn-added').style.display =
-      isProductInCart ? 'block' : 'none';
-  }
-
-  function renderProductCards({ page, totalPages, results }) {
-    const markup = results
-      .map(
-        ({
-          _id,
-          name,
-          img,
-          category,
-          price,
-          size,
-          popularity,
-          is10PercentOff,
-        }) => {
-          const isProductInCart = !!Cart.getProduct(_id);
-
-          return `<li class="product-list-product__card" data-product-id=${_id}>
+        return `<li class="product-list-product__card" data-product-id=${_id}>
       <svg
         class="product-list-icon-discount"
         width="60"
@@ -146,39 +143,40 @@ import LoadSpinner from './loader';
          </button>
       </div>
     </li>`;
-        }
+      }
+    )
+    .join('');
+
+  let paginationDiv = '';
+
+  if (totalPages > 1) {
+    const pages = [];
+
+    for (let i = 1; i <= totalPages; i++) {
+      pages.push(i);
+    }
+
+    if (totalPages !== 5) {
+      if (page <= 2 || totalPages - page < 2) {
+        pages.splice(2, totalPages - 4, '...');
+      } else if (totalPages - page <= 3) {
+        pages.splice(0, pages.length - 4, '...');
+      } else {
+        pages.splice(0, page - 1);
+        pages.splice(2, pages.length - 4, '...');
+      }
+    }
+
+    const pageItems = pages
+      .map(
+        number =>
+          `<li class="product-list-page__item ${
+            number === page ? 'active' : number === '...' ? 'not-number' : ''
+          }" data-page-number="${number}">${number}</li>`
       )
       .join('');
 
-    let paginationDiv = '';
-
-    if (totalPages > 1) {
-      const pages = [];
-
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i);
-      }
-
-      if (totalPages !== 5) {
-        if (page <= 2 || totalPages - page < 2) {
-          pages.splice(2, totalPages - 4, '...');
-        } else if (totalPages - page <= 3) {
-          pages.splice(0, pages.length - 4, '...');
-        } else {
-          pages.splice(0, page - 1);
-          pages.splice(2, pages.length - 4, '...');
-        }
-      }
-
-      const pageItems = pages
-        .map(
-          number =>
-            `<li class="product-list-page__item ${number === page ? 'active' : number === '...' ? 'not-number' : ''
-            }" data-page-number="${number}">${number}</li>`
-        )
-        .join('');
-
-      paginationDiv = `
+    paginationDiv = `
       <div class="product-list-pagination">
           <ul class="product-list-pagination__list">
             <li class="product-list-page__item nav__btn" data-page-number="left">
@@ -197,60 +195,59 @@ import LoadSpinner from './loader';
           </ul>
       </div>
     `;
-    }
+  }
 
-    sectionAllProducts.innerHTML = `
+  sectionAllProducts.innerHTML = `
       <ul class="product-list-product__list">
         ${markup}
       </ul>
       ${paginationDiv}
   `;
 
-    if (paginationDiv) {
-      document
-        .querySelector('.product-list-pagination__list')
-        .addEventListener('click', ({ target }) => {
-          const pageElement = target.closest('LI');
+  if (paginationDiv) {
+    document
+      .querySelector('.product-list-pagination__list')
+      .addEventListener('click', ({ target }) => {
+        const pageElement = target.closest('LI');
 
-          if (pageElement?.nodeName !== 'LI') {
-            return;
-          }
+        if (pageElement?.nodeName !== 'LI') {
+          return;
+        }
 
-          let pageNumber = pageElement.dataset.pageNumber;
+        let pageNumber = pageElement.dataset.pageNumber;
 
-          if (pageNumber === '...') {
-            return;
-          }
+        if (pageNumber === '...') {
+          return;
+        }
 
-          if (pageNumber === 'left') {
-            pageNumber = page > 1 ? page - 1 : page;
-          }
+        if (pageNumber === 'left') {
+          pageNumber = page > 1 ? page - 1 : page;
+        }
 
-          if (pageNumber === 'right') {
-            pageNumber = totalPages - page > 0 ? page + 1 : page;
-          }
+        if (pageNumber === 'right') {
+          pageNumber = totalPages - page > 0 ? page + 1 : page;
+        }
 
-          Filter.setPage(pageNumber);
-          fetchProducts();
-        });
-    }
+        Filter.setPage(pageNumber);
+        fetchProducts();
+      });
   }
+}
 
-  export default async function fetchProducts() {
-    try {
-      loader.show(sectionAllProducts);
-      const data = await FoodBotiqueApi.getProducts(Filter.get());
+export default async function fetchProducts() {
+  try {
+    loader.show(sectionAllProducts);
+    const data = await FoodBotiqueApi.getProducts(Filter.get());
 
-      if (data.results.length) {
-        renderProductCards(data);
-        changeBtn(data.results);
-      } else {
-        sectionAllProducts.innerHTML = markupTextBox;
-      }
-    } catch (error) {
-      console.error(error);
-    } finally {
-      loader.hide();
+    if (data.results.length) {
+      renderProductCards(data);
+      changeBtn(data.results);
+    } else {
+      sectionAllProducts.innerHTML = markupTextBox;
     }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loader.hide();
   }
-
+}

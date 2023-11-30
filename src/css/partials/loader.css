@@ -12,13 +12,9 @@
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-background: rgba(0, 0, 0, 0.4);
-    /* Змініть кольори за потребою */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 9999999;
-    /* Переконайтеся, що z-index вищий, ніж у вашому контенті */
 }
-
-
 
 .loader {
     width: 48px;
@@ -26,10 +22,7 @@ background: rgba(0, 0, 0, 0.4);
     border-radius: 50%;
     /* position: relative; */
     animation: rotate 1s linear infinite
-
 }
-
-
 
 .loader::before,
 .loader::after {

@@ -13,11 +13,10 @@ export default async function openModalProductDetails(
   updateCartIconCallback = () => {}
 ) {
   try {
-   
     modalBackground.classList.remove('is-hidden');
-    // loader.show(modal); 
-    
-  loader.show(modal);
+    // loader.show(modal);
+
+    loader.show(modal);
 
     modal.innerHTML = '';
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
@@ -43,8 +42,6 @@ export default async function openModalProductDetails(
     loader.hide();
   }
 }
-
-
 
 function renderModalCard({
   img,

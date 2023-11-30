@@ -23,11 +23,9 @@ Filter.getDiscountedProducts().then(products => {
     cartElement.querySelector('.discount-button-icon-check').style.display =
       isProductInCart ? 'block' : 'none';
     listElement.appendChild(cartElement);
-     
   });
-     
-loader.hideAndRemove();
-  
+
+  loader.hideAndRemove();
 
   discountContainer.appendChild(listElement);
 
@@ -63,9 +61,8 @@ loader.hideAndRemove();
         isProductInCart ? 'none' : 'block';
     }
   });
-    
 });
- 
+
 function reRenderCartIcon(productId) {
   const productCard = document.querySelector(
     `.discount-item[data-product-id="${productId}"]`
