@@ -70,7 +70,7 @@ export default class Filter {
       }
     }
 
-    return products.slice(0, limit) ?? [];
+    return products.sort(() => Math.random() - 0.5).slice(0, limit) ?? [];
   }
 
   // Get list of popular products [Promise]. Will fetch from storage when available
