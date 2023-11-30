@@ -14,6 +14,7 @@ const loader = new LoadSpinner(modal);
 export default async function openModalProductDetails(productId) {
   try {
     modalBackground.classList.remove('is-hidden');
+    document.body.classList.add('is-modal-open');
     modal.innerHTML = `
       <button type="button" class="modal-close-btn">
         <svg class="modal-icon-close" width="22" height="22">
@@ -189,6 +190,7 @@ function clickOnBackdrop({ target }) {
 
 function closeModalHandler() {
   modalBackground.classList.add('is-hidden');
+  document.body.classList.remove('is-modal-open');
 
   document
     .querySelector('.modal-close-btn')
