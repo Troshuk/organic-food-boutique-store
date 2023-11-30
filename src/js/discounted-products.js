@@ -5,58 +5,63 @@ import openModalProductDetails from './modal';
 import { reRenderProductCartIcon } from './product-list';
 import { reRenderPopularCartIcon } from './popular-products';
 import icons from '../img/icons.svg';
+import LoadSpinner from './loader';
 
 const discountContainer = document.querySelector('.discount-container');
+const loader = new LoadSpinner(discountContainer);
+loader.show();
 
-Filter.getDiscountedProducts().then(products => {
-  const productElements = products.map(createProductCard);
-  const listElement = document.createElement('ul');
-  listElement.className = 'discount-list';
+Filter.getDiscountedProducts()
+  .then(products => {
+    const productElements = products.map(createProductCard);
+    const listElement = document.createElement('ul');
+    listElement.className = 'discount-list';
 
-  productElements.map(cartElement => {
-    const productId = cartElement.dataset.productId;
-    const isProductInCart = !!Cart.getProduct(productId);
-
-    cartElement.querySelector('.discount-button-icon-cart').style.display =
-      isProductInCart ? 'none' : 'block';
-    cartElement.querySelector('.discount-button-icon-check').style.display =
-      isProductInCart ? 'block' : 'none';
-    listElement.appendChild(cartElement);
-  });
-
-  discountContainer.appendChild(listElement);
-
-  listElement.addEventListener('click', ({ target }) => {
-    const cartElement = target.closest('LI');
-    const cartButton = target.closest('BUTTON');
-
-    if (cartElement?.nodeName !== 'LI') {
-      return;
-    }
-
-    const productId = cartElement.dataset.productId;
-
-    if (cartButton?.nodeName !== 'BUTTON') {
-      openModalProductDetails(productId);
-      return;
-    }
-
-    if (cartButton?.nodeName === 'BUTTON') {
+    productElements.map(cartElement => {
+      const productId = cartElement.dataset.productId;
       const isProductInCart = !!Cart.getProduct(productId);
 
-      if (isProductInCart) {
-        Cart.delete(productId);
-      } else {
-        Cart.add(products.find(e => e._id === productId));
+      cartElement.querySelector('.discount-button-icon-cart').style.display =
+        isProductInCart ? 'none' : 'block';
+      cartElement.querySelector('.discount-button-icon-check').style.display =
+        isProductInCart ? 'block' : 'none';
+      listElement.appendChild(cartElement);
+    });
+
+    discountContainer.appendChild(listElement);
+
+    listElement.addEventListener('click', ({ target }) => {
+      const cartElement = target.closest('LI');
+      const cartButton = target.closest('BUTTON');
+
+      if (cartElement?.nodeName !== 'LI') {
+        return;
       }
 
-      updateCartItemCount();
-      reRenderDiscountedCartIcon(productId);
-      reRenderProductCartIcon(productId);
-      reRenderPopularCartIcon(productId);
-    }
-  });
-});
+      const productId = cartElement.dataset.productId;
+
+      if (cartButton?.nodeName !== 'BUTTON') {
+        openModalProductDetails(productId);
+        return;
+      }
+
+      if (cartButton?.nodeName === 'BUTTON') {
+        const isProductInCart = !!Cart.getProduct(productId);
+
+        if (isProductInCart) {
+          Cart.delete(productId);
+        } else {
+          Cart.add(products.find(e => e._id === productId));
+        }
+
+        updateCartItemCount();
+        reRenderDiscountedCartIcon(productId);
+        reRenderProductCartIcon(productId);
+        reRenderPopularCartIcon(productId);
+      }
+    });
+  })
+  .finally(() => loader.remove());
 
 export function reRenderDiscountedCartIcon(productId) {
   const productCard = document.querySelector(
