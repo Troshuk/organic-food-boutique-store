@@ -32,10 +32,12 @@ refs.openModalTerms.addEventListener('click', () => {
 
 function onPolicyClick() {
   refs.policyLink.classList.toggle('is-hidden-policy');
+  document.body.classList.toggle('is-modal-open');
 }
 
 function onTermsClick() {
   refs.termsLink.classList.toggle('is-hidden-policy');
+  document.body.classList.toggle('is-modal-open');
 }
 
 // =================MODAL WINDOW SUBSCRIBE
@@ -73,10 +75,12 @@ function onNotSubscribeClick(e) {
 function onSubscribeClick({ message }) {
   refs.subscribeText.innerHTML = message;
   refs.subscribeLink.classList.toggle('is-hidden-subscribe');
+  document.body.classList.toggle('is-modal-open');
 
-  refs.closeModalSubscribeBtn.addEventListener(
-    'click',
-    () => refs.subscribeLink.classList.toggle('is-hidden-subscribe'),
-    { once: true }
-  );
+  function closeModal() {
+    refs.subscribeLink.classList.toggle('is-hidden-subscribe'), { once: true };
+    document.body.classList.toggle('is-modal-open');
+  }
+
+  refs.closeModalSubscribeBtn.addEventListener('click', closeModal);
 }

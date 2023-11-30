@@ -24,6 +24,7 @@
 
 @import url('./partials/footer.css');
 @import url('./partials/scroll.css');
+@import url('./partials/loader.css');
 
 /*? Partials Cart */
 @import url('./partials/cart.css');

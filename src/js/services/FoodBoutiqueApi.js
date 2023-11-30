@@ -25,7 +25,7 @@ export default class FoodBotiqueApi {
         category,
         page,
         limit,
-        ...sortBy,
+        [sortBy?.key]: sortBy?.value,
       },
     });
 
