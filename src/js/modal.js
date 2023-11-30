@@ -2,16 +2,16 @@ import Cart from './services/Cart';
 import FoodBotiqueApi from './services/FoodBoutiqueApi';
 import updateCartItemCount from './header';
 import LoadSpinner from './loader';
+import { reRenderProductCartIcon } from './product-list';
+import { reRenderPopularCartIcon } from './popular-products';
+import { reRenderDiscountedCartIcon } from './discounted-products';
+import icons from '../img/icons.svg';
 
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
-
 const loader = new LoadSpinner();
 
-export default async function openModalProductDetails(
-  productId,
-  updateCartIconCallback = () => {}
-) {
+export default async function openModalProductDetails(productId) {
   try {
     modalBackground.classList.remove('is-hidden');
     // loader.show(modal);
@@ -23,19 +23,54 @@ export default async function openModalProductDetails(
 
     modal.innerHTML = renderModalCard(modalProduct);
 
-    changeModalBtn(!!Cart.getProduct(productId));
+    const cartProduct = Cart.getProduct(productId);
+
+    changeModalBtn(!!cartProduct);
 
     document
       .querySelector('.modal-btn')
-      .addEventListener('click', () =>
-        updateCart(modalProduct, updateCartIconCallback)
-      );
+      .addEventListener('click', () => updateCart(modalProduct));
 
     document
       .querySelector('.modal-close-btn')
       .addEventListener('click', closeModalHandler);
     modalBackground.addEventListener('click', clickOnBackdrop);
     document.addEventListener('keydown', escapeModalHandler);
+
+    // Handle cart count update
+    const spanQuantity = document.querySelector('.quantity');
+    spanQuantity.textContent = cartProduct?.amount ?? 1;
+
+    document
+      .querySelector('button[data-action="decrement"]')
+      .addEventListener('click', () => {
+        const countValue = spanQuantity.textContent - 1;
+        spanQuantity.textContent = countValue;
+
+        if (countValue < 1) {
+          // If we just decreased the count to 0, that means that we are removing it from the cart
+          spanQuantity.textContent = 1;
+
+          if (Cart.getProduct(productId)) {
+            updateCart(modalProduct);
+          }
+        } else {
+          Cart.update(modalProduct, countValue);
+        }
+      });
+
+    document
+      .querySelector('button[data-action="increment"]')
+      .addEventListener('click', () => {
+        const countValue = Number(spanQuantity.textContent) + 1;
+        spanQuantity.textContent = countValue;
+
+        if (!Cart.getProduct(productId)) {
+          updateCart(modalProduct);
+        } else {
+          Cart.update(modalProduct, countValue);
+        }
+      });
   } catch (error) {
     console.error('Error fetching product data:', error.message);
   } finally {
@@ -55,7 +90,7 @@ function renderModalCard({
   return `
     <button type="button" class="modal-close-btn">
       <svg class="modal-icon-close" width="22" height="22">
-        <use href="./img/icons.svg#icon-x-close"></use>
+        <use href="${icons}#icon-x-close"></use>
       </svg>
     </button>
     <div class="modal-container">
@@ -92,28 +127,49 @@ function renderModalCard({
       <p class="modal-price-product">
         <span>$</span><span class="modal-price">${price}</span>
       </p>
-      <button class="modal-btn">
-        <span class="modal-btn-text">Add to</span>
-        <svg class="modal-icon-shop" width="18" height="18">
-          <use href="./img/icons.svg#icon-shopping-cart"></use>
-        </svg>
-      </button>
+      <div class="quantity-and-add">
+        <div class="quantity-in-modal">
+          <button type="button" class="minus-btn" data-action="decrement" aria-label="minus quantity product">
+            <svg class="minus-btn-icon">
+              <use href="${icons}#icon-minus"></use>
+            </svg>
+          </button>
+
+          <span class="quantity">1</span>
+
+          <button type="button" class="plus-btn" data-action="increment" aria-label="plus quantity product">
+            <svg class="plus-btn-icon">
+              <use href="${icons}#icon-plus"></use>
+            </svg>
+          </button>
+        </div>
+
+        <button class="modal-btn" aria-label="add to card">
+          <span class="modal-btn-text">Add to</span>
+          <svg class="modal-icon-shop" width="18" height="18">
+            <use href="${icons}#icon-shopping-cart"></use>
+          </svg>
+        </button>
+      </div>
     </div>`;
 }
 
-function updateCart(modalProduct, updateCartIconCallback) {
+function updateCart(modalProduct) {
   let isProductAreadyInCart = !!Cart.getProduct(modalProduct._id);
 
   if (isProductAreadyInCart) {
     Cart.delete(modalProduct._id);
+    document.querySelector('.quantity').textContent = 1;
   } else {
     Cart.add(modalProduct);
   }
 
-  updateCartItemCount();
-  updateCartIconCallback(modalProduct._id);
-
   changeModalBtn(!isProductAreadyInCart);
+
+  updateCartItemCount();
+  reRenderProductCartIcon(modalProduct._id);
+  reRenderPopularCartIcon(modalProduct._id);
+  reRenderDiscountedCartIcon(modalProduct._id);
 }
 
 function changeModalBtn(isProductAreadyInCart) {

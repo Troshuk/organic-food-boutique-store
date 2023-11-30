@@ -18,9 +18,15 @@ export default class FoodBotiqueApi {
     return response.data;
   }
 
-  static async getProducts(filter = {}) {
+  static async getProducts({ keyword, category, page, limit, sortBy } = {}) {
     const response = await api.get(PRODUCTS_ENDPOINT, {
-      params: filter,
+      params: {
+        keyword,
+        category,
+        page,
+        limit,
+        [sortBy?.key]: sortBy?.value,
+      },
     });
 
     return response.data;

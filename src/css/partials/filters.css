@@ -206,7 +206,8 @@
 }
 
 .option-category .option-text:hover,
-.option-category .option-text:focus {
+.option-category .option-text:focus,
+.option-category.active .option-text {
   color: var(--color-black);
 }
 
@@ -216,7 +217,8 @@
 }
 
 .option .option-text:hover,
-.option .option-text:focus {
+.option .option-text:focus,
+.option.active .option-text {
   color: var(--color-black);
 }
 

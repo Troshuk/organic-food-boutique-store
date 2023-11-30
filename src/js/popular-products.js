@@ -3,9 +3,11 @@ import Filter from './services/Filter';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
 import LoadSpinner from './loader';
+import { reRenderProductCartIcon } from './product-list';
+import { reRenderDiscountedCartIcon } from './discounted-products';
+import icons from '../img/icons.svg';
 
 const loader = new LoadSpinner();
-
 const popularProductContainer = document.querySelector(
   '.popular-products-container'
 );
@@ -45,7 +47,7 @@ Filter.getPopularProducts().then(products => {
     const productId = cartElement.dataset.productId;
 
     if (cartButton?.nodeName !== 'BUTTON') {
-      openModalProductDetails(productId, reRenderCartIcon);
+      openModalProductDetails(productId);
       return;
     }
 
@@ -59,19 +61,20 @@ Filter.getPopularProducts().then(products => {
       }
 
       updateCartItemCount();
-
-      cartElement.querySelector('.basket-button').style.display =
-        isProductInCart ? 'block' : 'none';
-      cartElement.querySelector('.basket-button-icon-check').style.display =
-        isProductInCart ? 'none' : 'block';
+      reRenderDiscountedCartIcon(productId);
+      reRenderProductCartIcon(productId);
+      reRenderPopularCartIcon(productId);
     }
   });
 });
 
-function reRenderCartIcon(productId) {
+export function reRenderPopularCartIcon(productId) {
   const productCard = document.querySelector(
     `.popular-products-item[data-product-id="${productId}"]`
   );
+
+  if (!productCard) return;
+
   const isProductInCart = !!Cart.getProduct(productId);
 
   productCard.querySelector('.basket-button').style.display = isProductInCart
@@ -99,7 +102,7 @@ function createProductItem({
       <img class="popular-products-img" src="${img}" alt="${name}" width="56" height="56"/>
       <svg class="popular-products-discount-icon" width="20" height="20"
       style="${is10PercentOff ? '' : 'display:none'}">
-        <use href="./img/icons.svg#icon-discount"></use>
+        <use href="${icons}#icon-discount"></use>
       </svg>
     </div>
 
@@ -107,12 +110,12 @@ function createProductItem({
       <h3 class="popular-products-name">${name}</h3>
       <button class="basket-button" type="button">
         <svg class="popular-products-cart-icon" width="12" height="12">
-          <use href="./img/icons.svg#icon-shopping-cart"></use>
+          <use href="${icons}#icon-shopping-cart"></use>
         </svg>
       </button>
       <button class="basket-button-icon-check">
         <svg class="popular-products-icon-check" width="12" height="12">
-          <use href="./img/icons.svg#icon-check"></use>
+          <use href="${icons}#icon-check"></use>
         </svg>
       </button> 
 

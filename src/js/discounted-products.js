@@ -3,6 +3,9 @@ import Filter from './services/Filter';
 import updateCartItemCount from './header';
 import openModalProductDetails from './modal';
 import LoadSpinner from './loader';
+import { reRenderProductCartIcon } from './product-list';
+import { reRenderPopularCartIcon } from './popular-products';
+import icons from '../img/icons.svg';
 
 const discountContainer = document.querySelector('.discount-container');
 const loader = new LoadSpinner();
@@ -40,7 +43,7 @@ Filter.getDiscountedProducts().then(products => {
     const productId = cartElement.dataset.productId;
 
     if (cartButton?.nodeName !== 'BUTTON') {
-      openModalProductDetails(productId, reRenderCartIcon);
+      openModalProductDetails(productId);
       return;
     }
 
@@ -54,19 +57,20 @@ Filter.getDiscountedProducts().then(products => {
       }
 
       updateCartItemCount();
-
-      cartButton.querySelector('.discount-button-icon-cart').style.display =
-        isProductInCart ? 'block' : 'none';
-      cartButton.querySelector('.discount-button-icon-check').style.display =
-        isProductInCart ? 'none' : 'block';
+      reRenderDiscountedCartIcon(productId);
+      reRenderProductCartIcon(productId);
+      reRenderPopularCartIcon(productId);
     }
   });
 });
 
-function reRenderCartIcon(productId) {
+export function reRenderDiscountedCartIcon(productId) {
   const productCard = document.querySelector(
     `.discount-item[data-product-id="${productId}"]`
   );
+
+  if (!productCard) return;
+
   const isProductInCart = !!Cart.getProduct(productId);
 
   productCard.querySelector('.discount-button-icon-cart').style.display =
@@ -89,7 +93,7 @@ function createProductCard({ _id, img, name, price }) {
            height="114"
         />
         <svg class="discount-icon" width="32" height="32">
-            <use href="./img/icons.svg#icon-discount"></use>
+            <use href="${icons}#icon-discount"></use>
         </svg>
    </div>
    <div class="discount-info-container">
@@ -97,10 +101,10 @@ function createProductCard({ _id, img, name, price }) {
         <p class="discount-product-price">$${price.toFixed(2)}</p>
         <button type="button" class="discount-btn">
             <svg class="discount-button-icon-cart" width="18" height="18">
-                <use href="./img/icons.svg#icon-shopping-cart"></use>
+                <use href="${icons}#icon-shopping-cart"></use>
             </svg>
             <svg class="discount-button-icon-check" width="18" height="18">
-                 <use href="./img/icons.svg#icon-check"></use>
+                 <use href="${icons}#icon-check"></use>
             </svg>
         </button>
     </div>
