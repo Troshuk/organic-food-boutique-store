@@ -265,6 +265,18 @@ function renderProductCards({ page, totalPages, results }) {
 
 export async function fetchProducts() {
   try {
+    let limit = 9;
+
+    if (window.innerWidth < 1440) {
+      limit = 8;
+    }
+
+    if (window.innerWidth < 768) {
+      limit = 6;
+    }
+
+    Filter.setLimit(limit);
+
     loader.show();
     const data = await FoodBotiqueApi.getProducts(Filter.get());
 
