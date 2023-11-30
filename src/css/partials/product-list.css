@@ -58,6 +58,7 @@
 }
 
 .product-list-info {
+  height: 24px;
   display: flex;
   gap: 9px;
   margin-top: 10px;
