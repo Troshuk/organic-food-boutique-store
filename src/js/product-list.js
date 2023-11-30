@@ -217,6 +217,7 @@ function renderProductCards({ page, totalPages, results }) {
   }
 
   sectionAllProducts.innerHTML = `
+      <h2 class="visually-hidden">Filtered Products</h2>
       <ul class="product-list-product__list">
         ${markup}
       </ul>
