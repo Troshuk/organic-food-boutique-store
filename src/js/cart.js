@@ -90,7 +90,7 @@ function createCartItemElement({ product, productId, amount }) {
   // Додавання слухача подій на кнопку видалення товару
   const deleteButton = listItem.querySelector('.cart-product-delete-button');
   deleteButton.addEventListener('click', () => {
-    Cart.removeProduct(productId);
+    Cart.delete(productId);
     updateCartUI(); // Оновлення корзини та кількості товарів
     reRenderProductCartIcon(productId);
   });
@@ -103,29 +103,3 @@ function updateTotalPrice(products) {
   const total = Cart.getTotal();
   totalPriceElement.innerHTML = `$${total.toFixed(2)}`;
 }
-
-function deleteProduct(productId) {
-  // Find the <li> element for the product
-  const productListItem = document.querySelector(
-    `.product-list-item[data-product-id="${productId}"]`
-  );
-
-  // Remove the <li> element from the DOM
-  productListItem.remove();
-
-  // Call Cart.delete() to remove product from cart
-  Cart.delete(productId);
-
-  // Update UI
-  updateCartDisplay();
-  updateTotalPrice(Cart.getProducts());
-}
-
-// const deleteButtons = document.querySelectorAll('.delete-button');
-
-// deleteButtons.forEach(button => {
-//   button.addEventListener('click', () => {
-//     const productId = button.dataset.productId;
-//     deleteProduct(productId);
-//   });
-// });
