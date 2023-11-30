@@ -8,9 +8,9 @@ import { reRenderPopularCartIcon } from './popular-products';
 import icons from '../img/icons.svg';
 
 const discountContainer = document.querySelector('.discount-container');
-const loader = new LoadSpinner();
+const loader = new LoadSpinner(discountContainer);
 
-loader.show(discountContainer);
+loader.show();
 
 Filter.getDiscountedProducts().then(products => {
   const productElements = products.map(createProductCard);
@@ -28,7 +28,7 @@ Filter.getDiscountedProducts().then(products => {
     listElement.appendChild(cartElement);
   });
 
-  loader.hideAndRemove();
+  loader.remove();
 
   discountContainer.appendChild(listElement);
 

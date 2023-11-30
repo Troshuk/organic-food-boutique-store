@@ -9,19 +9,23 @@ import icons from '../img/icons.svg';
 
 const modalBackground = document.querySelector('.modal-background');
 const modal = document.querySelector('.modal');
-const loader = new LoadSpinner();
+const loader = new LoadSpinner(modal);
 
 export default async function openModalProductDetails(productId) {
   try {
     modalBackground.classList.remove('is-hidden');
-    // loader.show(modal);
+    modal.innerHTML = `
+      <button type="button" class="modal-close-btn">
+        <svg class="modal-icon-close" width="22" height="22">
+          <use href="${icons}#icon-x-close"></use>
+        </svg>
+      </button>
+    `;
 
-    loader.show(modal);
-
-    modal.innerHTML = '';
+    loader.show();
     const modalProduct = await FoodBotiqueApi.getProduct(productId);
 
-    modal.innerHTML = renderModalCard(modalProduct);
+    modal.insertAdjacentHTML('beforeend', renderModalCard(modalProduct));
 
     const cartProduct = Cart.getProduct(productId);
 
@@ -74,7 +78,7 @@ export default async function openModalProductDetails(productId) {
   } catch (error) {
     console.error('Error fetching product data:', error.message);
   } finally {
-    loader.hide();
+    loader.remove();
   }
 }
 
@@ -88,11 +92,6 @@ function renderModalCard({
   price,
 }) {
   return `
-    <button type="button" class="modal-close-btn">
-      <svg class="modal-icon-close" width="22" height="22">
-        <use href="${icons}#icon-x-close"></use>
-      </svg>
-    </button>
     <div class="modal-container">
       <div>
         <div class="modal-img">

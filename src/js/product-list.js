@@ -9,7 +9,7 @@ import { reRenderDiscountedCartIcon } from './discounted-products';
 import icons from '../img/icons.svg';
 
 const sectionAllProducts = document.querySelector('.all-products');
-const loader = new LoadSpinner();
+const loader = new LoadSpinner(sectionAllProducts);
 const markupTextBox = `<div class="product-list__text__box">
     <p class="product-list__text__one">
       Nothing was found for the selected
@@ -256,7 +256,7 @@ function renderProductCards({ page, totalPages, results }) {
 
 export async function fetchProducts() {
   try {
-    loader.show(sectionAllProducts);
+    loader.show();
     const data = await FoodBotiqueApi.getProducts(Filter.get());
 
     if (data.results.length) {
@@ -268,7 +268,7 @@ export async function fetchProducts() {
   } catch (error) {
     console.error(error);
   } finally {
-    loader.hide();
+    loader.remove();
   }
 }
 
