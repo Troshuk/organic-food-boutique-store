@@ -61,7 +61,7 @@ Filter.getDiscountedProducts()
       }
     });
   })
-  .finally(() => loader.show());
+  .finally(() => loader.remove());
 
 export function reRenderDiscountedCartIcon(productId) {
   const productCard = document.querySelector(
