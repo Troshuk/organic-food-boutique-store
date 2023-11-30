@@ -14,7 +14,7 @@ var vt=Object.defineProperty;var bt=(e,t,o)=>t in e?vt(e,t,{enumerable:!0,config
    <div class="discount-info-container">
         <h3 class="discount-product-name">${o}</h3>
         <p class="discount-product-price">$${n.toFixed(2)}</p>
-        <button type="button" class="discount-btn" arial-label="discount product">
+        <button type="button" class="discount-btn" aria-label="discount product">
             <svg class="discount-button-icon-cart" width="18" height="18">
                 <use href="${p}#icon-shopping-cart"></use>
             </svg>
@@ -34,12 +34,12 @@ var vt=Object.defineProperty;var bt=(e,t,o)=>t in e?vt(e,t,{enumerable:!0,config
 
     <div class="popular-products-description-thumb">
       <h3 class="popular-products-name">${o}</h3>
-      <button class="basket-button" type="button" arial-label="basket shopping">
+      <button class="basket-button" type="button" aria-label="basket shopping">
         <svg class="popular-products-cart-icon" width="12" height="12">
           <use href="${p}#icon-shopping-cart"></use>
         </svg>
       </button>
-      <button class="basket-button-icon-check" arial-label="basket check">
+      <button class="basket-button-icon-check" aria-label="basket check">
         <svg class="popular-products-icon-check" width="12" height="12">
           <use href="${p}#icon-check"></use>
         </svg>
@@ -65,7 +65,7 @@ var vt=Object.defineProperty;var bt=(e,t,o)=>t in e?vt(e,t,{enumerable:!0,config
       </div>
     </div>
   `,r}const L=document.querySelector(".modal-background"),H=document.querySelector(".modal"),tt=new q(H);async function W(e){try{L.classList.remove("is-hidden"),document.body.classList.add("is-modal-open"),H.innerHTML=`
-      <button type="button" class="modal-close-btn" arial-label="modal close">
+      <button type="button" class="modal-close-btn" aria-label="modal close">
         <svg class="modal-icon-close" width="22" height="22">
           <use href="${p}#icon-x-close"></use>
         </svg>
@@ -176,7 +176,7 @@ var vt=Object.defineProperty;var bt=(e,t,o)=>t in e?vt(e,t,{enumerable:!0,config
       </div>
       <div class="product-list-price__btn">
         <p class="product-list-price__product">$${g.toFixed(2)}</p>
-        <button type="button" class="product-list-button__card" arial-label="product button">
+        <button type="button" class="product-list-button__card" aria-label="product button">
           <svg
             class="product-list-icon__btn"
             width="18"
